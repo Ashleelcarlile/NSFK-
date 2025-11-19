@@ -161,57 +161,6 @@ export default function FloatingIcons() {
           delay: 2,
         }}
       />
-
-      {/* Pregnant Belly - Top Left */}
-      <motion.img
-        src={pregnantImage}
-        alt=""
-        className="fixed top-1/4 left-1/4 w-20 md:w-24 opacity-15 pointer-events-none z-0 hidden md:block"
-        animate={{
-          y: [0, -10, 0],
-          rotate: [-3, 3, -3],
-        }}
-        transition={{
-          duration: 6.3,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 3.5,
-        }}
-      />
-
-      {/* Hearts - Top Middle Right */}
-      <motion.img
-        src={heartsImage}
-        alt=""
-        className="fixed top-1/4 right-1/4 w-16 md:w-20 opacity-18 pointer-events-none z-0 hidden lg:block"
-        animate={{
-          y: [0, 12, 0],
-          rotate: [4, -4, 4],
-        }}
-        transition={{
-          duration: 5.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.2,
-        }}
-      />
-
-      {/* Hearts - Middle Left Side */}
-      <motion.img
-        src={heartsImage}
-        alt=""
-        className="fixed top-2/3 left-16 w-14 md:w-18 opacity-16 pointer-events-none z-0 hidden md:block"
-        animate={{
-          y: [0, -10, 0],
-          rotate: [-4, 4, -4],
-        }}
-        transition={{
-          duration: 5.9,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 3.2,
-        }}
-      />
     </>
   );
 }

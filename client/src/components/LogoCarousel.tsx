@@ -1,16 +1,24 @@
-import spotifyLogo from '@assets/generated_images/Spotify_podcast_logo_76968f68.png';
-import appleLogo from '@assets/generated_images/Apple_Podcasts_logo_e1c46c12.png';
-import googleLogo from '@assets/generated_images/Google_Podcasts_logo_13020d90.png';
-import youtubeLogo from '@assets/generated_images/YouTube_logo_dbc444ca.png';
-import amazonLogo from '@assets/generated_images/Amazon_Music_logo_7dd6a06f.png';
+import spotifyLogo from '@assets/spotify.png';
+import appleLogo from '@assets/apple-podcasts.png';
+import youtubeLogo from '@assets/youtube.png';
+import amazonLogo from '@assets/amazon-music.png';
+import iheartLogo from '@assets/iheartradio.png';
+import podbeanLogo from '@assets/podbean.png';
+import playerFmLogo from '@assets/player-fm.png';
+import boomplayLogo from '@assets/boomplay.png';
+import listenNotesLogo from '@assets/listen-notes.png';
 
 export default function LogoCarousel() {
   const logos = [
     { src: spotifyLogo, alt: "Spotify" },
     { src: appleLogo, alt: "Apple Podcasts" },
-    { src: googleLogo, alt: "Google Podcasts" },
     { src: youtubeLogo, alt: "YouTube" },
     { src: amazonLogo, alt: "Amazon Music" },
+    { src: iheartLogo, alt: "iHeartRadio" },
+    { src: podbeanLogo, alt: "Podbean" },
+    { src: playerFmLogo, alt: "Player FM" },
+    { src: boomplayLogo, alt: "Boomplay" },
+    { src: listenNotesLogo, alt: "Listen Notes" },
   ];
 
   // Duplicate logos for seamless loop

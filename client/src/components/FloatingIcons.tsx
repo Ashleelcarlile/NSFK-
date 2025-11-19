@@ -43,11 +43,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Baby on Hand - Middle Left */}
+      {/* Baby on Hand - Upper Left */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-1/3 left-8 w-36 md:w-44 opacity-15 pointer-events-none z-0"
+        className="fixed top-1/4 left-8 w-36 md:w-44 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [-8, 8, -8],
@@ -60,11 +60,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Middle Center */}
+      {/* Laptop - Middle Center Right */}
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-1/2 left-2/3 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 18, 0],
           rotate: [-4, 4, -4],
@@ -111,11 +111,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Baby Hand - Lower Center Right */}
+      {/* Baby Hand - Lower Right */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed bottom-1/4 right-1/3 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        className="fixed bottom-32 right-16 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 14, 0],
           rotate: [-7, 7, -7],
@@ -132,7 +132,7 @@ export default function FloatingIcons() {
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed bottom-20 left-10 w-40 md:w-48 opacity-15 pointer-events-none z-0"
+        className="fixed bottom-16 left-12 w-40 md:w-48 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 15, 0],
           rotate: [3, -3, 3],

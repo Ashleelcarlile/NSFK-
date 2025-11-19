@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
-import { Mail } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 import contactPhoto from "@assets/contact-photo.jpg";
 
 const listenerFormSchema = z.object({
@@ -103,7 +103,7 @@ export default function Contact() {
             <img
               src={contactPhoto}
               alt="Not Safe For Kids Podcast"
-              className="w-full h-full object-cover rounded-lg border-2 border-black"
+              className="w-full h-full object-cover rounded-lg"
               style={{ minHeight: "600px", maxHeight: "800px" }}
               data-testid="img-contact-photo"
             />
@@ -111,7 +111,7 @@ export default function Contact() {
 
           {/* Right side - Contact Form */}
           <div className="space-y-6">
-            <div className="p-8 border-2 border-black rounded-lg">
+            <div className="p-8 rounded-lg" style={{ border: '2px solid rgba(0, 0, 0, 0.3)' }}>
               <h2 className="text-3xl font-bold mb-6 text-black">Get in Touch</h2>
 
               {/* Dropdown for form type */}
@@ -179,9 +179,17 @@ export default function Contact() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full bg-black text-white hover:bg-black/90" data-testid="button-submit">
-                      Send Message
-                    </Button>
+                    <button 
+                      type="submit" 
+                      className="relative flex items-center justify-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group w-full"
+                      data-testid="button-submit"
+                      style={{ paddingRight: '4.5rem' }}
+                    >
+                      <span className="relative z-10">Send Message</span>
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <ArrowUpRight className="h-6 w-6 text-black" />
+                      </div>
+                    </button>
                   </form>
                 </Form>
               )}
@@ -237,9 +245,17 @@ export default function Contact() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full bg-black text-white hover:bg-black/90" data-testid="button-submit">
-                      Send Message
-                    </Button>
+                    <button 
+                      type="submit" 
+                      className="relative flex items-center justify-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group w-full"
+                      data-testid="button-submit"
+                      style={{ paddingRight: '4.5rem' }}
+                    >
+                      <span className="relative z-10">Send Message</span>
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <ArrowUpRight className="h-6 w-6 text-black" />
+                      </div>
+                    </button>
                   </form>
                 </Form>
               )}
@@ -309,16 +325,24 @@ export default function Contact() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full bg-black text-white hover:bg-black/90" data-testid="button-submit">
-                      Send Message
-                    </Button>
+                    <button 
+                      type="submit" 
+                      className="relative flex items-center justify-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group w-full"
+                      data-testid="button-submit"
+                      style={{ paddingRight: '4.5rem' }}
+                    >
+                      <span className="relative z-10">Send Message</span>
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <ArrowUpRight className="h-6 w-6 text-black" />
+                      </div>
+                    </button>
                   </form>
                 </Form>
               )}
             </div>
 
             {/* Contact Email */}
-            <div className="p-6 border-2 border-black rounded-lg">
+            <div className="p-6 rounded-lg" style={{ border: '2px solid rgba(0, 0, 0, 0.3)' }}>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-black" />
                 <div>
@@ -335,7 +359,7 @@ export default function Contact() {
             </div>
 
             {/* Social Media Links */}
-            <div className="p-6 border-2 border-black rounded-lg">
+            <div className="p-6 rounded-lg" style={{ border: '2px solid rgba(0, 0, 0, 0.3)' }}>
               <h3 className="text-lg font-semibold mb-4 text-black">Follow Us</h3>
               <div className="flex flex-wrap gap-4">
                 <a

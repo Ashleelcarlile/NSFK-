@@ -57,13 +57,13 @@ export default function Hosts() {
                 className="bg-white/75 rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
                 data-testid={`card-host-${index + 1}`}
               >
-                <div className="flex gap-4 p-6">
-                  {/* Smaller square photo on left */}
+                <div className="flex gap-6 p-6">
+                  {/* Photo on left */}
                   <div className="flex-shrink-0">
                     <img
                       src={host.photo}
                       alt={host.name}
-                      className="w-32 h-32 object-cover rounded-lg"
+                      className="w-40 h-40 object-cover rounded-lg"
                       data-testid={`img-host-${index + 1}`}
                     />
                   </div>
@@ -85,7 +85,7 @@ export default function Hosts() {
                         <Instagram className="w-5 h-5" />
                       </a>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed text-sm" data-testid={`text-bio-${index + 1}`}>
+                    <p className="text-muted-foreground leading-relaxed" data-testid={`text-bio-${index + 1}`}>
                       {host.bio}
                     </p>
                   </div>

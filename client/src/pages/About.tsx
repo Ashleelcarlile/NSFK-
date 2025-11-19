@@ -132,11 +132,16 @@ export default function About() {
               </h1>
               
               {/* Photo below About Us, offset to the left */}
-              <div className="mt-12 -ml-8">
+              <div className="mt-12 -ml-8 relative">
+                {/* Yellow portrait box behind photo */}
+                <div 
+                  className="absolute -top-4 left-8 right-16 bottom-0 bg-[#DADF7D] rounded-lg -z-10"
+                  style={{ height: 'calc(100% + 6rem)' }}
+                ></div>
                 <img
                   src={teamPhoto}
                   alt="Not Safe For Kids Podcast Team"
-                  className="w-full max-w-md rounded-lg shadow-lg"
+                  className="w-full max-w-md rounded-lg shadow-lg relative z-10"
                   data-testid="img-about-team"
                 />
               </div>

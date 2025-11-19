@@ -1,56 +1,144 @@
+import { motion } from "framer-motion";
 import pregnantBelly from '@assets/pregnant-Illustrations-assets-mellow-yellow_1763571381811.png';
 import flower from '@assets/flower-Illustrations-assets-mellow-yellow_1763571379874.png';
 import planet from '@assets/space-Illustrations-assets-mellow-yellow_1763571606086.png';
 import cloud from '@assets/cloud-Illustrations-assets-mellow-yellow_1763571614043.png';
+import doodle from '@assets/doodle-Illustrations-assets-mellow-yellow_1763571629355.png';
+import teamPhoto from '@assets/Screenshot 2025-11-19 at 16.47.26_1763571625646.png';
 
 export default function About() {
   return (
-    <div className="bg-white relative overflow-hidden">
-      {/* Scattered illustrations throughout the page - more visible */}
-      <img
+    <div className="bg-white relative overflow-hidden min-h-screen">
+      {/* Floating illustrations with motion */}
+      <motion.img
         src={pregnantBelly}
         alt=""
-        className="absolute top-20 left-10 w-28 h-28 opacity-70 z-0"
+        className="fixed top-20 left-10 w-28 opacity-60 pointer-events-none z-0"
+        animate={{
+          y: [0, -20, 0],
+          rotate: [-5, 5, -5],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       />
-      <img
+      <motion.img
         src={flower}
         alt=""
-        className="absolute top-40 right-20 w-24 h-24 opacity-70 z-0"
+        className="fixed top-40 right-20 w-24 opacity-60 pointer-events-none z-0"
+        animate={{
+          y: [0, 18, 0],
+          rotate: [6, -6, 6],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
       />
-      <img
+      <motion.img
         src={planet}
         alt=""
-        className="absolute top-60 left-1/4 w-32 h-32 opacity-60 z-0"
+        className="fixed top-1/3 left-1/4 w-32 opacity-60 pointer-events-none z-0 hidden lg:block"
+        animate={{
+          y: [0, -15, 0],
+          rotate: [-8, 8, -8],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
       />
-      <img
+      <motion.img
         src={cloud}
         alt=""
-        className="absolute bottom-40 right-32 w-32 h-32 opacity-70 z-0"
+        className="fixed bottom-40 right-32 w-32 opacity-60 pointer-events-none z-0"
+        animate={{
+          y: [0, 20, 0],
+          rotate: [5, -5, 5],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
       />
-      <img
+      <motion.img
         src={pregnantBelly}
         alt=""
-        className="absolute bottom-32 right-1/3 w-28 h-28 opacity-60 z-0"
+        className="fixed bottom-32 left-1/3 w-28 opacity-60 pointer-events-none z-0 hidden md:block"
+        animate={{
+          y: [0, -18, 0],
+          rotate: [-6, 6, -6],
+        }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5,
+        }}
       />
-      <img
+      <motion.img
         src={flower}
         alt=""
-        className="absolute bottom-20 left-20 w-28 h-28 opacity-70 z-0"
+        className="fixed bottom-20 left-20 w-28 opacity-60 pointer-events-none z-0"
+        animate={{
+          y: [0, 15, 0],
+          rotate: [8, -8, 8],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2.5,
+        }}
       />
-      <img
+      <motion.img
         src={planet}
         alt=""
-        className="absolute bottom-60 left-1/3 w-24 h-24 opacity-60 z-0"
+        className="fixed bottom-1/2 right-16 w-24 opacity-60 pointer-events-none z-0 hidden lg:block"
+        animate={{
+          y: [0, -12, 0],
+          rotate: [-7, 7, -7],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
+        }}
       />
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative z-10">
         <div className="max-w-6xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column - Title */}
-            <div>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight text-gray-900">
+            {/* Left Column - Title with doodle behind */}
+            <div className="relative">
+              {/* Doodle behind About Us */}
+              <img
+                src={doodle}
+                alt=""
+                className="absolute -top-16 -left-16 w-48 h-48 opacity-40 z-0"
+              />
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight text-gray-900 relative z-10">
                 About Us
               </h1>
+              
+              {/* Photo below About Us, offset to the left */}
+              <div className="mt-12 -ml-8">
+                <img
+                  src={teamPhoto}
+                  alt="Not Safe For Kids Podcast Team"
+                  className="w-full max-w-md rounded-lg shadow-lg"
+                  data-testid="img-about-team"
+                />
+              </div>
             </div>
 
             {/* Right Column - About Text with line */}

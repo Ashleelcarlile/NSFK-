@@ -4,6 +4,7 @@ import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683
 import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
 import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
 import ashleePhoto from '@assets/DSCF2268_1763580792853.jpg';
+import holliePhoto from '@assets/DSCF2301_1763580875491.jpg';
 
 const hosts = [
   {
@@ -26,9 +27,9 @@ const hosts = [
   },
   {
     name: "Hollie Nwagboso",
-    photo: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop",
+    photo: holliePhoto,
     bio: "Host 4 bio goes here. Talk about your experiences as a parent and what makes this podcast special to you.",
-    instagram: "https://www.instagram.com/notsafeforkidspod/",
+    instagram: "https://www.instagram.com/hollienwagboso?igsh=MWdzNHg4YXVnOHBybg==",
   },
 ];
 

@@ -101,10 +101,17 @@ export default function Home() {
                 data-testid="img-hosts-group"
               />
             </div>
-            <div className="lg:w-1/2 text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Meet Your Hosts
-              </h2>
+            <div className="lg:w-1/2 text-center lg:text-left relative">
+              <div className="relative inline-block mb-6">
+                <img
+                  src={stripedBg}
+                  alt=""
+                  className="absolute -left-8 top-1/2 -translate-y-1/2 w-64 h-24 object-cover opacity-40 -z-10"
+                />
+                <h2 className="text-4xl md:text-5xl font-bold relative z-10">
+                  Meet Your Hosts
+                </h2>
+              </div>
               <p className="text-xl text-muted-foreground mb-8">
                 Get to know the voices behind the conversations
               </p>
@@ -127,32 +134,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-90"
-          style={{
-            backgroundImage: `url(${stripedBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">Join Our Community</h2>
-          <p className="text-xl text-black mb-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">Join Our Community</h2>
+          <p className="text-xl text-muted-foreground mb-8">
             Subscribe to get the latest episodes and exclusive content
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md border border-black bg-white text-black placeholder:text-gray-500"
+              className="flex-1 px-4 py-3 rounded-md border bg-background"
               data-testid="input-newsletter"
             />
-            <Button size="lg" className="bg-black text-white hover:bg-black/90" data-testid="button-subscribe-home">
+            <Button size="lg" data-testid="button-subscribe-home">
               Subscribe
             </Button>
           </div>
-          <p className="text-sm text-black/70 mt-4">
+          <p className="text-sm text-muted-foreground mt-4">
             Join 10,000+ listeners already subscribed
           </p>
         </div>

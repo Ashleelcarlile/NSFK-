@@ -21,9 +21,9 @@ export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 backdrop-blur" style={{ backgroundColor: '#DADF7D' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-2">
-            <img src={logoIcon} alt="PodcastHub" className="h-14 w-auto" />
+            <img src={logoIcon} alt="PodcastHub" className="h-20 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
@@ -39,7 +39,7 @@ export default function Navigation() {
                   )}
                   <Button
                     variant="ghost"
-                    className="relative z-10"
+                    className="relative z-10 text-lg font-semibold"
                     data-testid={`link-${item.label.toLowerCase().replace(" ", "-")}`}
                   >
                     {item.label}
@@ -76,7 +76,7 @@ export default function Navigation() {
                   )}
                   <Button
                     variant="ghost"
-                    className="w-full justify-start relative z-10"
+                    className="w-full justify-start relative z-10 text-lg font-semibold"
                     onClick={() => setMobileMenuOpen(false)}
                     data-testid={`link-mobile-${item.label.toLowerCase().replace(" ", "-")}`}
                   >

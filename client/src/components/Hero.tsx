@@ -25,10 +25,9 @@ export default function Hero({
           alt="Hero background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       </div>
 
-      <div className="relative h-full flex items-center justify-center">
+      <div className="relative h-full flex items-end justify-center pb-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             {title}

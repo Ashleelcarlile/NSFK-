@@ -25,8 +25,11 @@ export default function LogoCarousel() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section className="py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-12 px-4 relative">
+      {/* Background banner */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-8 uppercase tracking-wider">
           Listen Now
         </h3>

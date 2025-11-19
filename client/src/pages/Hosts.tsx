@@ -1,70 +1,84 @@
-import Hero from "@/components/Hero";
-import HostCard from "@/components/HostCard";
-import { Card, CardContent } from "@/components/ui/card";
-import btsImage from '@assets/generated_images/Behind_the_scenes_photo_07cfc24c.png';
-import host1 from '@assets/generated_images/Male_podcast_host_portrait_16783c7c.png';
-import host2 from '@assets/generated_images/Female_podcast_host_portrait_4637b335.png';
+import FloatingIcons from "@/components/FloatingIcons";
+import { Instagram } from "lucide-react";
+
+const hosts = [
+  {
+    name: "Host Name 1",
+    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    bio: "Host 1 bio goes here. Share your story about motherhood, parenting adventures, and what makes you passionate about this podcast.",
+    instagram: "https://www.instagram.com/notsafeforkidspod/",
+  },
+  {
+    name: "Host Name 2",
+    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    bio: "Host 2 bio goes here. Tell us about your journey as a mum and what you bring to the Not Safe For Kids community.",
+    instagram: "https://www.instagram.com/notsafeforkidspod/",
+  },
+  {
+    name: "Host Name 3",
+    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    bio: "Host 3 bio goes here. Share your unique perspective on parenting and what inspired you to join this podcast.",
+    instagram: "https://www.instagram.com/notsafeforkidspod/",
+  },
+  {
+    name: "Host Name 4",
+    photo: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop",
+    bio: "Host 4 bio goes here. Talk about your experiences as a parent and what makes this podcast special to you.",
+    instagram: "https://www.instagram.com/notsafeforkidspod/",
+  },
+];
 
 export default function Hosts() {
   return (
     <div>
-      <Hero
-        imageSrc={btsImage}
-        title="Meet Your Hosts"
-        subtitle="The people bringing you conversations that matter"
-        height="50vh"
-      />
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto space-y-24">
-          <HostCard
-            image={host1}
-            name="Alex Johnson"
-            role="Lead Host & Founder"
-            bio="Alex brings over 10 years of broadcasting experience to PodcastHub. Starting his career in community radio, he developed a deep appreciation for storytelling and authentic conversation. His background in journalism and philosophy informs his interviewing style—curious, thoughtful, and always seeking to understand the human element behind every story. When he's not recording, you'll find Alex reading, hiking, or exploring new coffee shops around the city."
-          />
-
-          <HostCard
-            image={host2}
-            name="Sarah Mitchell"
-            role="Co-Host & Producer"
-            bio="Sarah's journey into podcasting came through her work as a documentary filmmaker and investigative journalist. She has a talent for creating spaces where guests feel comfortable sharing their most profound insights and vulnerable moments. Her production expertise ensures every episode sounds as good as it feels. Sarah is passionate about amplifying underrepresented voices and exploring the intersection of culture, technology, and social change."
-            reverse
-          />
-        </div>
-      </section>
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Behind the Scenes</h2>
+      <FloatingIcons />
+      
+      <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Meet Your Hosts</h1>
             <p className="text-xl text-muted-foreground">
-              A glimpse into how we create the show
+              The four mums behind Not Safe For Kids
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold mb-4">Our Process</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Every episode begins with extensive research and conversation prep. We spend
-                  hours getting to know our guests, understanding their work, and crafting
-                  questions that go beyond the surface. Our goal is always to create space for
-                  genuine connection and discovery.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold mb-4">Fun Fact</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  We record every episode twice—once as a test run where we work out technical
-                  kinks and build rapport, and then the actual recording. This approach helps our
-                  guests feel more comfortable and often leads to deeper, more meaningful
-                  conversations.
-                </p>
-              </CardContent>
-            </Card>
+            {hosts.map((host, index) => (
+              <div
+                key={index}
+                className="bg-white/75 rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
+                data-testid={`card-host-${index + 1}`}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={host.photo}
+                    alt={host.name}
+                    className="w-full h-full object-cover"
+                    data-testid={`img-host-${index + 1}`}
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold" data-testid={`text-host-name-${index + 1}`}>
+                      {host.name}
+                    </h2>
+                    <a
+                      href={host.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover-elevate active-elevate-2"
+                      data-testid={`link-instagram-${index + 1}`}
+                      aria-label={`${host.name} Instagram`}
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </a>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed" data-testid={`text-bio-${index + 1}`}>
+                    {host.bio}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -196,40 +196,6 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Flower - Bottom Middle */}
-      <motion.img
-        src={flowerImage}
-        alt=""
-        className="fixed bottom-1/3 left-1/2 -translate-x-1/2 w-18 md:w-22 opacity-14 pointer-events-none z-0 hidden lg:block"
-        animate={{
-          y: [0, -14, 0],
-          rotate: [-5, 5, -5],
-        }}
-        transition={{
-          duration: 7.3,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2.8,
-        }}
-      />
-
-      {/* Pregnant Belly - Lower Right */}
-      <motion.img
-        src={pregnantImage}
-        alt=""
-        className="fixed bottom-1/4 right-1/4 w-22 md:w-26 opacity-12 pointer-events-none z-0 hidden md:block"
-        animate={{
-          y: [0, 11, 0],
-          rotate: [6, -6, 6],
-        }}
-        transition={{
-          duration: 6.7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4,
-        }}
-      />
-
       {/* Hearts - Middle Left Side */}
       <motion.img
         src={heartsImage}

@@ -363,7 +363,7 @@ export default function Contact() {
               <h3 className="text-lg font-semibold mb-4 text-black">Follow Us</h3>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://www.instagram.com/notsafeforkidspod"
+                  href="https://instagram.com/notsafeforkidspod"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover-elevate active-elevate-2"
@@ -383,7 +383,7 @@ export default function Contact() {
                   <span>YouTube</span>
                 </a>
                 <a
-                  href="https://www.tiktok.com/@notsafeforkidspod"
+                  href="https://tiktok.com/notsafeforkidspod"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover-elevate active-elevate-2"

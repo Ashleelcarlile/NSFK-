@@ -10,11 +10,12 @@ import teamPhoto from '@assets/Screenshot 2025-11-19 at 16.47.26_1763571625646.p
 export default function About() {
   return (
     <div className="bg-white relative overflow-hidden min-h-screen">
-      {/* Floating illustrations with motion - brighter and bigger */}
+      {/* Floating illustrations with motion - better layout */}
+      {/* Top left */}
       <motion.img
-        src={pregnantBelly}
+        src={flower}
         alt=""
-        className="fixed top-20 left-10 w-36 opacity-80 pointer-events-none z-0"
+        className="fixed top-16 left-12 w-32 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, -20, 0],
           rotate: [-5, 5, -5],
@@ -25,10 +26,12 @@ export default function About() {
           ease: "easeInOut",
         }}
       />
+      
+      {/* Top right */}
       <motion.img
-        src={flower}
+        src={planet}
         alt=""
-        className="fixed top-40 right-20 w-32 opacity-80 pointer-events-none z-0"
+        className="fixed top-24 right-16 w-36 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, 18, 0],
           rotate: [6, -6, 6],
@@ -40,10 +43,12 @@ export default function About() {
           delay: 1,
         }}
       />
+      
+      {/* Middle left */}
       <motion.img
-        src={planet}
+        src={cloud}
         alt=""
-        className="fixed top-1/3 left-1/4 w-40 opacity-80 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-1/2 left-8 w-40 opacity-80 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, -15, 0],
           rotate: [-8, 8, -8],
@@ -55,10 +60,12 @@ export default function About() {
           delay: 2,
         }}
       />
+      
+      {/* Middle right */}
       <motion.img
-        src={cloud}
+        src={pregnantBelly}
         alt=""
-        className="fixed bottom-40 right-32 w-40 opacity-80 pointer-events-none z-0"
+        className="fixed top-1/2 right-20 w-36 opacity-80 pointer-events-none z-0 hidden md:block"
         animate={{
           y: [0, 20, 0],
           rotate: [5, -5, 5],
@@ -70,10 +77,12 @@ export default function About() {
           delay: 0.5,
         }}
       />
+      
+      {/* Bottom left */}
       <motion.img
-        src={pregnantBelly}
+        src={planet}
         alt=""
-        className="fixed bottom-32 left-1/3 w-36 opacity-80 pointer-events-none z-0 hidden md:block"
+        className="fixed bottom-32 left-16 w-34 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, -18, 0],
           rotate: [-6, 6, -6],
@@ -85,10 +94,12 @@ export default function About() {
           delay: 1.5,
         }}
       />
+      
+      {/* Bottom right */}
       <motion.img
         src={flower}
         alt=""
-        className="fixed bottom-20 left-20 w-36 opacity-80 pointer-events-none z-0"
+        className="fixed bottom-28 right-24 w-32 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, 15, 0],
           rotate: [8, -8, 8],
@@ -100,10 +111,12 @@ export default function About() {
           delay: 2.5,
         }}
       />
+      
+      {/* Center top */}
       <motion.img
-        src={planet}
+        src={cloud}
         alt=""
-        className="fixed bottom-1/2 right-16 w-32 opacity-80 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-40 left-1/2 -translate-x-1/2 w-38 opacity-80 pointer-events-none z-0 hidden xl:block"
         animate={{
           y: [0, -12, 0],
           rotate: [-7, 7, -7],

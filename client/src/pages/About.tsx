@@ -1,41 +1,66 @@
+import { useState } from "react";
 import photo1 from '@assets/Screenshot 2025-11-19 at 16.47.20_1763570865707.png';
 import photo2 from '@assets/Screenshot 2025-11-19 at 16.47.26_1763570868241.png';
 import photo3 from '@assets/Screenshot 2025-11-19 at 16.47.32_1763570871200.png';
 
 export default function About() {
+  const photos = [photo1, photo2, photo3];
+  const [centerIndex, setCenterIndex] = useState(1); // Start with middle photo (index 1)
+
+  // Arrange photos so the selected one is in the center
+  const getPhotoOrder = () => {
+    const order = [];
+    // Left photo
+    order.push((centerIndex - 1 + photos.length) % photos.length);
+    // Center photo
+    order.push(centerIndex);
+    // Right photo
+    order.push((centerIndex + 1) % photos.length);
+    return order;
+  };
+
+  const photoOrder = getPhotoOrder();
+
   return (
     <div>
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-center mb-16">About Us</h1>
           
-          {/* Photo Collage */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {/* Large Photo - Takes full left column */}
-            <div className="md:row-span-2">
+          {/* Interactive Photo Carousel */}
+          <div className="flex items-center justify-center gap-4 mb-16 px-4">
+            {/* Left Photo - Smaller */}
+            <div 
+              className="w-1/4 cursor-pointer transition-all duration-300 hover:scale-105"
+              onClick={() => setCenterIndex(photoOrder[0])}
+              data-testid={`img-about-${photoOrder[0]}`}
+            >
               <img
-                src={photo1}
-                alt="Not Safe For Kids Podcast Hosts"
-                className="w-full h-full object-cover rounded-lg"
-                data-testid="img-about-1"
-              />
-            </div>
-            
-            {/* Two stacked photos on right */}
-            <div>
-              <img
-                src={photo2}
-                alt="Not Safe For Kids Podcast Team"
-                className="w-full h-full object-cover rounded-lg"
-                data-testid="img-about-2"
-              />
-            </div>
-            <div>
-              <img
-                src={photo3}
+                src={photos[photoOrder[0]]}
                 alt="Not Safe For Kids Podcast"
-                className="w-full h-full object-cover rounded-lg"
-                data-testid="img-about-3"
+                className="w-full h-64 object-cover rounded-lg opacity-60 hover:opacity-80"
+              />
+            </div>
+
+            {/* Center Photo - Larger */}
+            <div className="w-1/2" data-testid={`img-about-center-${photoOrder[1]}`}>
+              <img
+                src={photos[photoOrder[1]]}
+                alt="Not Safe For Kids Podcast Hosts"
+                className="w-full h-96 object-cover rounded-lg shadow-xl"
+              />
+            </div>
+
+            {/* Right Photo - Smaller */}
+            <div 
+              className="w-1/4 cursor-pointer transition-all duration-300 hover:scale-105"
+              onClick={() => setCenterIndex(photoOrder[2])}
+              data-testid={`img-about-${photoOrder[2]}`}
+            >
+              <img
+                src={photos[photoOrder[2]]}
+                alt="Not Safe For Kids Podcast"
+                className="w-full h-64 object-cover rounded-lg opacity-60 hover:opacity-80"
               />
             </div>
           </div>

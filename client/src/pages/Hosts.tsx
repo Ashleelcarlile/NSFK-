@@ -53,6 +53,7 @@ export default function Hosts() {
               <div
                 key={index}
                 className="rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
+                style={{ marginTop: index % 2 === 1 ? '3rem' : '0' }}
                 data-testid={`card-host-${index + 1}`}
               >
                 <div className="flex">

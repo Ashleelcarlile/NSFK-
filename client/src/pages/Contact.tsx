@@ -111,7 +111,7 @@ export default function Contact() {
 
           {/* Right side - Contact Form */}
           <div className="space-y-6">
-            <div className="p-8 rounded-lg" style={{ border: '2px solid rgba(0, 0, 0, 0.3)' }}>
+            <div className="p-8">
               <h2 className="text-3xl font-bold mb-6 text-black">Get in Touch</h2>
 
               {/* Dropdown for form type */}
@@ -342,7 +342,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Email */}
-            <div className="p-6 rounded-lg" style={{ border: '2px solid rgba(0, 0, 0, 0.3)' }}>
+            <div className="p-6">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-black" />
                 <div>
@@ -359,7 +359,7 @@ export default function Contact() {
             </div>
 
             {/* Social Media Links */}
-            <div className="p-6 rounded-lg" style={{ border: '2px solid rgba(0, 0, 0, 0.3)' }}>
+            <div className="p-6">
               <h3 className="text-lg font-semibold mb-4 text-black">Follow Us</h3>
               <div className="flex flex-wrap gap-4">
                 <a

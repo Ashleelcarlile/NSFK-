@@ -32,8 +32,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "channelId or channelHandle query parameter is required" });
       }
 
-      // Fetch latest videos from the channel
-      const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=${maxResults}`;
+      // Fetch top 20 videos by view count (we'll filter client-side for shorts vs regular)
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=viewCount&type=video&maxResults=20`;
       const searchResponse = await fetch(searchUrl);
       const searchData = await searchResponse.json();
 
@@ -45,8 +45,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get video IDs
       const videoIds = searchData.items.map((item: any) => item.id.videoId).join(',');
 
-      // Fetch detailed video information including duration
-      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=snippet,contentDetails`;
+      if (!videoIds) {
+        return res.json({ episodes: [] });
+      }
+
+      // Fetch detailed video information including duration and statistics
+      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=snippet,contentDetails,statistics`;
       const videosResponse = await fetch(videosUrl);
       const videosData = await videosResponse.json();
 
@@ -55,16 +59,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(videosResponse.status).json({ error: videosData.error?.message || "Failed to fetch video details" });
       }
 
-      // Format the response
-      const episodes = videosData.items.map((item: any, index: number) => ({
-        id: index + 1,
+      // Separate shorts (<=60 seconds) from regular videos (>60 seconds)
+      type VideoData = {
+        youtubeId: string;
+        title: string;
+        host: string;
+        publishedAt: string;
+        thumbnail: string;
+        duration: string;
+        viewCount: number;
+        isShort: boolean;
+      };
+
+      const allVideos: VideoData[] = videosData.items.map((item: any) => ({
         youtubeId: item.id,
         title: item.snippet.title,
         host: item.snippet.channelTitle,
         publishedAt: item.snippet.publishedAt,
         thumbnail: item.snippet.thumbnails.high.url,
         duration: formatDuration(item.contentDetails.duration),
+        viewCount: parseInt(item.statistics.viewCount || "0"),
+        isShort: isShortVideo(item.contentDetails.duration),
       }));
+
+      // Sort by view count (already sorted by API, but ensure it)
+      allVideos.sort((a: VideoData, b: VideoData) => b.viewCount - a.viewCount);
+
+      // Get top regular video and top 2 shorts
+      const topRegular = allVideos.find((v: VideoData) => !v.isShort);
+      const topShorts = allVideos.filter((v: VideoData) => v.isShort).slice(0, 2);
+
+      // Combine results
+      const episodes: any[] = [];
+      if (topRegular) episodes.push({ id: 1, ...topRegular });
+      topShorts.forEach((short: VideoData, index: number) => {
+        episodes.push({ id: episodes.length + 1, ...short });
+      });
 
       res.json({ episodes });
     } catch (error) {
@@ -93,4 +123,17 @@ function formatDuration(isoDuration: string): string {
   if (seconds > 0 && hours === 0) parts.push(`${seconds} sec${seconds !== 1 ? 's' : ''}`);
 
   return parts.join(' ') || "Unknown";
+}
+
+// Helper function to determine if a video is a short (under 60 seconds)
+function isShortVideo(isoDuration: string): boolean {
+  const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  if (!match) return false;
+
+  const hours = parseInt(match[1] || "0");
+  const minutes = parseInt(match[2] || "0");
+  const seconds = parseInt(match[3] || "0");
+
+  const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+  return totalSeconds <= 60;
 }

@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import EpisodeCard from "@/components/EpisodeCard";
 import HostCard from "@/components/HostCard";
 import { Button } from "@/components/ui/button";
-import heroImage from '@assets/generated_images/Podcast_studio_hero_image_937d5396.png';
+import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
 import episode1 from '@assets/generated_images/Episode_thumbnail_artwork_one_c0701a6d.png';
 import episode2 from '@assets/generated_images/Episode_thumbnail_artwork_two_8052833c.png';
 import episode3 from '@assets/generated_images/Episode_thumbnail_artwork_three_820ed418.png';

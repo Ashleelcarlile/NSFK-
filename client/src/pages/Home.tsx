@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
+import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
@@ -21,6 +23,8 @@ interface Episode {
 const YOUTUBE_CHANNEL_HANDLE = "notsafeforkidspod";
 
 export default function Home() {
+  const [hostsButtonHover, setHostsButtonHover] = useState(false);
+  
   const { data, isLoading, error } = useQuery<{ episodes: Episode[] }>({
     queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_HANDLE],
     queryFn: async () => {
@@ -104,9 +108,18 @@ export default function Home() {
                 Get to know the voices behind the conversations
               </p>
               <Link href="/hosts">
-                <Button size="lg" data-testid="button-meet-hosts">
-                  Meet the Hosts
-                </Button>
+                <button
+                  onMouseEnter={() => setHostsButtonHover(true)}
+                  onMouseLeave={() => setHostsButtonHover(false)}
+                  className="relative flex items-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group"
+                  data-testid="button-meet-hosts"
+                  style={{ paddingRight: '4.5rem' }}
+                >
+                  <span className="relative z-10">Meet the Hosts</span>
+                  <div className={`absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 ${hostsButtonHover ? 'scale-110' : ''}`}>
+                    <ArrowUpRight className="h-6 w-6 text-black" />
+                  </div>
+                </button>
               </Link>
             </div>
           </div>

@@ -5,12 +5,18 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
 import { Mail } from "lucide-react";
 import contactPhoto from "@assets/contact-photo.jpg";
+
+const listenerFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 const guestFormSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -25,12 +31,22 @@ const sponsorFormSchema = z.object({
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
+type ListenerFormData = z.infer<typeof listenerFormSchema>;
 type GuestFormData = z.infer<typeof guestFormSchema>;
 type SponsorFormData = z.infer<typeof sponsorFormSchema>;
 
 export default function Contact() {
-  const [formType, setFormType] = useState<"guests" | "sponsors">("guests");
+  const [formType, setFormType] = useState<"listeners" | "guests" | "sponsors">("listeners");
   const { toast } = useToast();
+
+  const listenerForm = useForm<ListenerFormData>({
+    resolver: zodResolver(listenerFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
   const guestForm = useForm<GuestFormData>({
     resolver: zodResolver(guestFormSchema),
@@ -50,6 +66,15 @@ export default function Contact() {
       message: "",
     },
   });
+
+  const onSubmitListener = (data: ListenerFormData) => {
+    console.log("Listener form:", data);
+    toast({
+      title: "Message Sent!",
+      description: "Thanks for reaching out! We'll get back to you soon.",
+    });
+    listenerForm.reset();
+  };
 
   const onSubmitGuest = (data: GuestFormData) => {
     console.log("Guest form:", data);
@@ -78,7 +103,7 @@ export default function Contact() {
             <img
               src={contactPhoto}
               alt="Not Safe For Kids Podcast"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-lg border-2 border-black"
               style={{ minHeight: "600px", maxHeight: "800px" }}
               data-testid="img-contact-photo"
             />
@@ -86,30 +111,80 @@ export default function Contact() {
 
           {/* Right side - Contact Form */}
           <div className="space-y-6">
-            <Card className="p-8" style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}>
+            <div className="p-8 border-2 border-black rounded-lg">
               <h2 className="text-3xl font-bold mb-6 text-black">Get in Touch</h2>
 
-              {/* Toggle between Guests and Sponsors */}
-              <div className="flex gap-4 mb-6">
-                <Button
-                  type="button"
-                  variant={formType === "guests" ? "default" : "outline"}
-                  onClick={() => setFormType("guests")}
-                  className="flex-1"
-                  data-testid="button-toggle-guests"
-                >
-                  Guests
-                </Button>
-                <Button
-                  type="button"
-                  variant={formType === "sponsors" ? "default" : "outline"}
-                  onClick={() => setFormType("sponsors")}
-                  className="flex-1"
-                  data-testid="button-toggle-sponsors"
-                >
-                  Sponsors
-                </Button>
+              {/* Dropdown for form type */}
+              <div className="mb-6">
+                <Select value={formType} onValueChange={(value) => setFormType(value as "listeners" | "guests" | "sponsors")}>
+                  <SelectTrigger className="border-2 border-black" data-testid="select-form-type">
+                    <SelectValue placeholder="I am a..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="listeners">Listener</SelectItem>
+                    <SelectItem value="guests">Guest</SelectItem>
+                    <SelectItem value="sponsors">Sponsor</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
+
+              {/* Listener Form */}
+              {formType === "listeners" && (
+                <Form {...listenerForm}>
+                  <form onSubmit={listenerForm.handleSubmit(onSubmitListener)} className="space-y-4" data-testid="form-listeners">
+                    <FormField
+                      control={listenerForm.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-black">Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your name" {...field} className="border-2 border-black" data-testid="input-name" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={listenerForm.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-black">Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black" data-testid="input-email" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={listenerForm.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-black">Message</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Tell us what's on your mind..."
+                              className="min-h-[120px] border-2 border-black"
+                              {...field}
+                              data-testid="textarea-message"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button type="submit" className="w-full bg-black text-white hover:bg-black/90" data-testid="button-submit">
+                      Send Message
+                    </Button>
+                  </form>
+                </Form>
+              )}
 
               {/* Guest Form */}
               {formType === "guests" && (
@@ -122,7 +197,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} data-testid="input-name" />
+                            <Input placeholder="Your name" {...field} className="border-2 border-black" data-testid="input-name" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -136,7 +211,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} data-testid="input-email" />
+                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black" data-testid="input-email" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -152,7 +227,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="Tell us why you'd be a great guest..."
-                              className="min-h-[120px]"
+                              className="min-h-[120px] border-2 border-black"
                               {...field}
                               data-testid="textarea-message"
                             />
@@ -162,7 +237,7 @@ export default function Contact() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full" data-testid="button-submit">
+                    <Button type="submit" className="w-full bg-black text-white hover:bg-black/90" data-testid="button-submit">
                       Send Message
                     </Button>
                   </form>
@@ -180,7 +255,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} data-testid="input-name" />
+                            <Input placeholder="Your name" {...field} className="border-2 border-black" data-testid="input-name" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -194,7 +269,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} data-testid="input-email" />
+                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black" data-testid="input-email" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -208,7 +283,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Company</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your company name" {...field} data-testid="input-company" />
+                            <Input placeholder="Your company name" {...field} className="border-2 border-black" data-testid="input-company" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -224,7 +299,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="Tell us about your sponsorship interest..."
-                              className="min-h-[120px]"
+                              className="min-h-[120px] border-2 border-black"
                               {...field}
                               data-testid="textarea-message"
                             />
@@ -234,16 +309,16 @@ export default function Contact() {
                       )}
                     />
 
-                    <Button type="submit" className="w-full" data-testid="button-submit">
+                    <Button type="submit" className="w-full bg-black text-white hover:bg-black/90" data-testid="button-submit">
                       Send Message
                     </Button>
                   </form>
                 </Form>
               )}
-            </Card>
+            </div>
 
             {/* Contact Email */}
-            <Card className="p-6" style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}>
+            <div className="p-6 border-2 border-black rounded-lg">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-black" />
                 <div>
@@ -257,12 +332,12 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-            </Card>
+            </div>
 
             {/* Social Media Links */}
-            <Card className="p-6" style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}>
+            <div className="p-6 border-2 border-black rounded-lg">
               <h3 className="text-lg font-semibold mb-4 text-black">Follow Us</h3>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="https://www.instagram.com/notsafeforkidspod"
                   target="_blank"
@@ -294,7 +369,7 @@ export default function Contact() {
                   <span>TikTok</span>
                 </a>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>

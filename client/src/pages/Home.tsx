@@ -9,6 +9,7 @@ import FloatingIcons from "@/components/FloatingIcons";
 import { Button } from "@/components/ui/button";
 import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
 import hostsGroupPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 84_1763565217685.jpg';
+import stripedBg from '@assets/stripe-2_1763569878970.png';
 
 interface Episode {
   id: number;
@@ -126,24 +127,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Join Our Community</h2>
-          <p className="text-xl text-muted-foreground mb-8">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-90"
+          style={{
+            backgroundImage: `url(${stripedBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">Join Our Community</h2>
+          <p className="text-xl text-black mb-8">
             Subscribe to get the latest episodes and exclusive content
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md border bg-background"
+              className="flex-1 px-4 py-3 rounded-md border border-black bg-white text-black placeholder:text-gray-500"
               data-testid="input-newsletter"
             />
-            <Button size="lg" data-testid="button-subscribe-home">
+            <Button size="lg" className="bg-black text-white hover:bg-black/90" data-testid="button-subscribe-home">
               Subscribe
             </Button>
           </div>
-          <p className="text-sm text-muted-foreground mt-4">
+          <p className="text-sm text-black/70 mt-4">
             Join 10,000+ listeners already subscribed
           </p>
         </div>

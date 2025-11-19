@@ -43,12 +43,12 @@ export default function Home() {
         imageSrc={heroImage}
         title=""
         primaryCTA={{
-          label: "Listen Now",
-          onClick: () => console.log('Listen Now clicked'),
+          label: "Start Listening",
+          onClick: () => console.log('Start Listening clicked'),
         }}
         secondaryCTA={{
-          label: "Browse Episodes",
-          onClick: () => console.log('Browse Episodes clicked'),
+          label: "Subscribe",
+          onClick: () => console.log('Subscribe clicked'),
         }}
       />
 

@@ -14,7 +14,7 @@ export default function Home() {
   const episodes = [
     {
       id: 1,
-      thumbnail: episode1,
+      youtubeId: "GsJ0OyKOX3k",
       episodeNumber: "Episode 01",
       host: "Max Hudson",
       title: "Mindful Growth in Everyday Life",

@@ -2,7 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mic, Clock, ArrowRight } from "lucide-react";
 
 interface EpisodeCardProps {
-  thumbnail: string;
+  youtubeId?: string;
+  thumbnail?: string;
   episodeNumber: string;
   host: string;
   title: string;
@@ -12,6 +13,7 @@ interface EpisodeCardProps {
 }
 
 export default function EpisodeCard({
+  youtubeId,
   thumbnail,
   episodeNumber,
   host,
@@ -20,13 +22,17 @@ export default function EpisodeCard({
   duration,
   onPlay,
 }: EpisodeCardProps) {
+  const thumbnailSrc = youtubeId 
+    ? `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
+    : thumbnail;
+
   return (
     <Card className="overflow-hidden hover-elevate bg-white">
       <CardContent className="p-6">
         <div className="flex gap-6">
           <div className="flex-shrink-0">
             <img
-              src={thumbnail}
+              src={thumbnailSrc}
               alt={title}
               className="w-32 h-32 object-cover rounded-lg"
             />

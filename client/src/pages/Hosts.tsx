@@ -68,16 +68,16 @@ export default function Hosts() {
                       className="w-80 h-80 object-cover"
                       data-testid={`img-host-${index + 1}`}
                     />
-                    {/* Name tag doodle in top right corner */}
-                    <div className="absolute top-4 right-4">
+                    {/* Name tag doodle in top left corner */}
+                    <div className="absolute top-4 left-4">
                       <div className="relative">
                         <img
                           src={doodleNameTag}
                           alt=""
-                          className="w-32 h-32"
+                          className="w-48 h-48"
                         />
                         <h2 
-                          className="absolute inset-0 flex items-center justify-center text-base font-bold text-black px-4 text-center leading-tight"
+                          className="absolute inset-0 flex items-center justify-center text-xl font-bold text-black px-6 text-center leading-tight"
                           data-testid={`text-host-name-${index + 1}`}
                           style={{ transform: 'rotate(-8deg)' }}
                         >

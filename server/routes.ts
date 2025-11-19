@@ -5,16 +5,31 @@ import { storage } from "./storage";
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/youtube/latest-episodes", async (req, res) => {
     try {
-      const channelId = req.query.channelId as string;
+      let channelId = req.query.channelId as string;
+      const channelHandle = req.query.channelHandle as string;
       const maxResults = req.query.maxResults ? parseInt(req.query.maxResults as string) : 4;
       
-      if (!channelId) {
-        return res.status(400).json({ error: "channelId query parameter is required" });
-      }
-
       const apiKey = process.env.YOUTUBE_API_KEY;
       if (!apiKey) {
         return res.status(500).json({ error: "YouTube API key not configured" });
+      }
+
+      // If a handle is provided instead of channelId, resolve it first
+      if (channelHandle && !channelId) {
+        const handleUrl = `https://www.googleapis.com/youtube/v3/channels?key=${apiKey}&forHandle=${channelHandle}&part=id`;
+        const handleResponse = await fetch(handleUrl);
+        const handleData = await handleResponse.json();
+
+        if (!handleResponse.ok || !handleData.items || handleData.items.length === 0) {
+          console.error("YouTube handle resolution error:", handleData);
+          return res.status(404).json({ error: "Channel not found for handle: " + channelHandle });
+        }
+
+        channelId = handleData.items[0].id;
+      }
+
+      if (!channelId) {
+        return res.status(400).json({ error: "channelId or channelHandle query parameter is required" });
       }
 
       // Fetch latest videos from the channel

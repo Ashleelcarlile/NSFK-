@@ -18,7 +18,7 @@ interface Episode {
   duration: string;
 }
 
-const YOUTUBE_CHANNEL_ID = "UCX6OQ3DkcsbYNE6H8uQQuVA";
+const YOUTUBE_CHANNEL_HANDLE = "notsafeforkidspod";
 
 const episodeCategories = [
   "Mental Health, Personal Development",
@@ -29,9 +29,9 @@ const episodeCategories = [
 
 export default function Home() {
   const { data, isLoading, error } = useQuery<{ episodes: Episode[] }>({
-    queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_ID],
+    queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_HANDLE],
     queryFn: async () => {
-      const response = await fetch(`/api/youtube/latest-episodes?channelId=${YOUTUBE_CHANNEL_ID}&maxResults=4`);
+      const response = await fetch(`/api/youtube/latest-episodes?channelHandle=${YOUTUBE_CHANNEL_HANDLE}&maxResults=4`);
       if (!response.ok) {
         throw new Error('Failed to fetch episodes');
       }

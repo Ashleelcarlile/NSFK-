@@ -27,8 +27,8 @@ export default function LogoCarousel() {
     { src: listenNotesLogo, alt: "Listen Notes" },
   ];
 
-  // Create multiple duplicates for seamless infinite loop
-  const allLogos = [...logos, ...logos, ...logos, ...logos];
+  // Create just two sets for seamless scrolling loop
+  const allLogos = [...logos, ...logos];
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;
@@ -54,11 +54,8 @@ export default function LogoCarousel() {
   };
 
   return (
-    <section className="py-4 md:py-6 px-4 mb-8 md:mb-12 lg:mb-16 relative">
-      {/* Background banner */}
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section className="py-4 md:py-6 px-4 mb-8 md:mb-12 lg:mb-16">
+      <div className="max-w-7xl mx-auto">
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-4 md:mb-6 uppercase tracking-wider">
           Listen Now
         </h3>

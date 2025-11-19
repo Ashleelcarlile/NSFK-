@@ -147,7 +147,7 @@ export default function Home() {
               className="flex-1 px-4 py-3 rounded-md border bg-background"
               data-testid="input-newsletter"
             />
-            <Button size="lg" data-testid="button-subscribe-home">
+            <Button size="lg" className="bg-black text-white hover:bg-black/90" data-testid="button-subscribe-home">
               Subscribe
             </Button>
           </div>

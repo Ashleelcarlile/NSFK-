@@ -33,12 +33,12 @@ export default function LogoCarousel() {
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-4 md:mb-6 uppercase tracking-wider">
           Listen Now
         </h3>
-        <div className="relative overflow-hidden">
-          <div className="flex animate-scroll gap-8">
+        <div className="relative overflow-hidden group">
+          <div className="flex animate-scroll group-hover:[animation-play-state:paused] gap-8">
             {allLogos.map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100"
+                className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 cursor-pointer"
               >
                 <img
                   src={logo.src}

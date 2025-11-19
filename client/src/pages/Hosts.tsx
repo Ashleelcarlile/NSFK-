@@ -40,11 +40,26 @@ export default function Hosts() {
       <FloatingIcons />
       
       <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
-        {/* White doodle illustration in top right */}
+        {/* White doodle illustrations scattered around */}
         <img
           src={doodleWhite}
           alt=""
           className="absolute top-8 right-8 w-40 h-40 opacity-30 pointer-events-none"
+        />
+        <img
+          src={doodleWhite}
+          alt=""
+          className="absolute bottom-20 left-12 w-32 h-32 opacity-20 pointer-events-none"
+        />
+        <img
+          src={doodleWhite}
+          alt=""
+          className="absolute bottom-32 right-20 w-36 h-36 opacity-25 pointer-events-none hidden lg:block"
+        />
+        <img
+          src={doodleWhite}
+          alt=""
+          className="absolute top-1/3 left-8 w-28 h-28 opacity-20 pointer-events-none hidden xl:block"
         />
         
         <div className="max-w-7xl mx-auto">

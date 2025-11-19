@@ -17,7 +17,7 @@ export default function LogoCarousel() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section className="py-12 px-4 bg-background border-y">
+    <section className="py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-8 uppercase tracking-wider">
           Available On

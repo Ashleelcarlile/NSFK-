@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
-import HostCard from "@/components/HostCard";
 import FloatingIcons from "@/components/FloatingIcons";
 import { Button } from "@/components/ui/button";
 import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
-import host1 from '@assets/generated_images/Male_podcast_host_portrait_16783c7c.png';
-import host2 from '@assets/generated_images/Female_podcast_host_portrait_4637b335.png';
+import hostsGroupPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 84_1763565217685.jpg';
 
 interface Episode {
   id: number;
@@ -88,26 +87,28 @@ export default function Home() {
 
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Meet Your Hosts</h2>
-            <p className="text-xl text-muted-foreground">
-              The voices behind the conversations
-            </p>
-          </div>
-          <div className="space-y-20">
-            <HostCard
-              image={host1}
-              name="Alex Johnson"
-              role="Lead Host & Founder"
-              bio="Alex brings over 10 years of broadcasting experience to PodcastHub. With a passion for storytelling and a knack for asking the right questions, he creates conversations that resonate with audiences worldwide."
-            />
-            <HostCard
-              image={host2}
-              name="Sarah Mitchell"
-              role="Co-Host & Producer"
-              bio="Sarah's background in journalism and documentary filmmaking brings depth and nuance to every episode. She's passionate about uncovering untold stories and giving voice to diverse perspectives."
-              reverse
-            />
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <img
+                src={hostsGroupPhoto}
+                alt="Not Safe For Kids Podcast Hosts"
+                className="w-full h-auto rounded-lg"
+                data-testid="img-hosts-group"
+              />
+            </div>
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Meet Your Hosts
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Get to know the voices behind the conversations
+              </p>
+              <Link href="/hosts">
+                <Button size="lg" data-testid="button-meet-hosts">
+                  Meet the Hosts
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

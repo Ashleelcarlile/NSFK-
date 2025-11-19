@@ -9,11 +9,11 @@ import teamPhoto from '@assets/Screenshot 2025-11-19 at 16.47.26_1763571625646.p
 export default function About() {
   return (
     <div className="bg-white relative overflow-hidden min-h-screen">
-      {/* Floating illustrations with motion */}
+      {/* Floating illustrations with motion - brighter and bigger */}
       <motion.img
         src={pregnantBelly}
         alt=""
-        className="fixed top-20 left-10 w-28 opacity-60 pointer-events-none z-0"
+        className="fixed top-20 left-10 w-36 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, -20, 0],
           rotate: [-5, 5, -5],
@@ -27,7 +27,7 @@ export default function About() {
       <motion.img
         src={flower}
         alt=""
-        className="fixed top-40 right-20 w-24 opacity-60 pointer-events-none z-0"
+        className="fixed top-40 right-20 w-32 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, 18, 0],
           rotate: [6, -6, 6],
@@ -42,7 +42,7 @@ export default function About() {
       <motion.img
         src={planet}
         alt=""
-        className="fixed top-1/3 left-1/4 w-32 opacity-60 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-1/3 left-1/4 w-40 opacity-80 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, -15, 0],
           rotate: [-8, 8, -8],
@@ -57,7 +57,7 @@ export default function About() {
       <motion.img
         src={cloud}
         alt=""
-        className="fixed bottom-40 right-32 w-32 opacity-60 pointer-events-none z-0"
+        className="fixed bottom-40 right-32 w-40 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [5, -5, 5],
@@ -72,7 +72,7 @@ export default function About() {
       <motion.img
         src={pregnantBelly}
         alt=""
-        className="fixed bottom-32 left-1/3 w-28 opacity-60 pointer-events-none z-0 hidden md:block"
+        className="fixed bottom-32 left-1/3 w-36 opacity-80 pointer-events-none z-0 hidden md:block"
         animate={{
           y: [0, -18, 0],
           rotate: [-6, 6, -6],
@@ -87,7 +87,7 @@ export default function About() {
       <motion.img
         src={flower}
         alt=""
-        className="fixed bottom-20 left-20 w-28 opacity-60 pointer-events-none z-0"
+        className="fixed bottom-20 left-20 w-36 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, 15, 0],
           rotate: [8, -8, 8],
@@ -102,7 +102,7 @@ export default function About() {
       <motion.img
         src={planet}
         alt=""
-        className="fixed bottom-1/2 right-16 w-24 opacity-60 pointer-events-none z-0 hidden lg:block"
+        className="fixed bottom-1/2 right-16 w-32 opacity-80 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, -12, 0],
           rotate: [-7, 7, -7],

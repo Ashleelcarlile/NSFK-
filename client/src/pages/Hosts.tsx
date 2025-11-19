@@ -57,19 +57,19 @@ export default function Hosts() {
                 className="bg-white/75 rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
                 data-testid={`card-host-${index + 1}`}
               >
-                <div className="flex gap-6 p-6">
-                  {/* Photo on left */}
+                <div className="flex">
+                  {/* Photo on left - bleeds to edge */}
                   <div className="flex-shrink-0">
                     <img
                       src={host.photo}
                       alt={host.name}
-                      className="w-40 h-40 object-cover rounded-lg"
+                      className="w-80 h-80 object-cover"
                       data-testid={`img-host-${index + 1}`}
                     />
                   </div>
                   
                   {/* Content on right */}
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 p-6">
                     <div className="flex items-start justify-between gap-2 mb-3">
                       <h2 className="text-2xl font-bold leading-tight" data-testid={`text-host-name-${index + 1}`}>
                         {host.name}

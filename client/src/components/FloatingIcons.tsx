@@ -10,11 +10,11 @@ import flowerImage from "@assets/flower-Illustrations-assets_1763569680450.png";
 export default function FloatingIcons() {
   return (
     <>
-      {/* Rock On Hand - Top Right */}
+      {/* Rock On Hand - Far Top Right (away from carousel) */}
       <motion.img
         src={rockOnImage}
         alt=""
-        className="fixed top-20 right-10 w-32 md:w-40 opacity-20 pointer-events-none z-0"
+        className="fixed top-20 right-4 w-24 md:w-32 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, -20, 0],
           rotate: [-5, 5, -5],
@@ -26,11 +26,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Mouth - Moved lower to avoid title */}
+      {/* Mouth - Moved much lower to avoid carousel */}
       <motion.img
         src={mouthImage}
         alt=""
-        className="fixed top-2/3 left-1/4 w-24 md:w-32 opacity-12 pointer-events-none z-0 hidden md:block"
+        className="fixed top-3/4 left-1/4 w-24 md:w-32 opacity-12 pointer-events-none z-0 hidden md:block"
         animate={{
           y: [0, -12, 0],
           rotate: [-6, 6, -6],
@@ -43,11 +43,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Baby on Hand - Upper Left */}
+      {/* Baby on Hand - Far Upper Left (away from carousel) */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-1/4 left-8 w-36 md:w-44 opacity-15 pointer-events-none z-0"
+        className="fixed top-1/3 left-4 w-28 md:w-36 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [-8, 8, -8],
@@ -77,11 +77,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Mouth with Piercing - Middle Right */}
+      {/* Mouth with Piercing - Lower Middle Right (away from top) */}
       <motion.img
         src={mouthImage}
         alt=""
-        className="fixed top-1/2 right-12 w-28 md:w-36 opacity-18 pointer-events-none z-0"
+        className="fixed top-3/5 right-8 w-24 md:w-32 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, -18, 0],
           rotate: [5, -5, 5],

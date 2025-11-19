@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
@@ -10,14 +11,22 @@ import episode3 from '@assets/generated_images/Episode_thumbnail_artwork_three_8
 import host1 from '@assets/generated_images/Male_podcast_host_portrait_16783c7c.png';
 import host2 from '@assets/generated_images/Female_podcast_host_portrait_4637b335.png';
 
+interface Episode {
+  id: number;
+  youtubeId: string;
+  episodeNumber: string;
+  host?: string;
+  title?: string;
+  category: string;
+  duration: string;
+}
+
 export default function Home() {
-  const episodes = [
+  const [episodes, setEpisodes] = useState<Episode[]>([
     {
       id: 1,
       youtubeId: "GsJ0OyKOX3k",
       episodeNumber: "Episode 01",
-      host: "Max Hudson",
-      title: "Mindful Growth in Everyday Life",
       category: "Mental Health, Personal Development",
       duration: "1 hr 24 mins",
     },
@@ -25,8 +34,6 @@ export default function Home() {
       id: 2,
       youtubeId: "NdgFhbFrKGU",
       episodeNumber: "Episode 02",
-      host: "Max Hudson",
-      title: "Cool Side Hustles That Became Million-Dollar Successes",
       category: "Personal Development",
       duration: "90 mins",
     },
@@ -34,8 +41,6 @@ export default function Home() {
       id: 3,
       youtubeId: "sz9-RP4YimI",
       episodeNumber: "Episode 11",
-      host: "Max Hudson",
-      title: "The Dopamine Experiment",
       category: "Science and Nature",
       duration: "30 mins",
     },
@@ -43,12 +48,36 @@ export default function Home() {
       id: 4,
       youtubeId: "qXZNAhcDmMo",
       episodeNumber: "Episode 03",
-      host: "Ethan Carter",
-      title: "The Art of Deep Work",
       category: "Personal Development",
       duration: "45 mins",
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    const fetchVideoData = async () => {
+      const updatedEpisodes = await Promise.all(
+        episodes.map(async (episode) => {
+          try {
+            const response = await fetch(
+              `https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=${episode.youtubeId}`
+            );
+            const data = await response.json();
+            return {
+              ...episode,
+              title: data.title,
+              host: data.author_name,
+            };
+          } catch (error) {
+            console.error(`Failed to fetch data for ${episode.youtubeId}:`, error);
+            return episode;
+          }
+        })
+      );
+      setEpisodes(updatedEpisodes);
+    };
+
+    fetchVideoData();
+  }, []);
 
   return (
     <div>
@@ -78,7 +107,12 @@ export default function Home() {
             {episodes.map((episode) => (
               <EpisodeCard
                 key={episode.id}
-                {...episode}
+                youtubeId={episode.youtubeId}
+                episodeNumber={episode.episodeNumber}
+                host={episode.host || "Loading..."}
+                title={episode.title || "Loading..."}
+                category={episode.category}
+                duration={episode.duration}
                 onPlay={() => console.log(`Playing episode: ${episode.title}`)}
               />
             ))}

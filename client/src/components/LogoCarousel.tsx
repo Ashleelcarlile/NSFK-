@@ -25,7 +25,7 @@ export default function LogoCarousel() {
   const allLogos = [...logos, ...logos];
 
   return (
-    <section className="py-6 px-4 relative">
+    <section className="py-6 px-4 mb-12 relative">
       {/* Background banner */}
       <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
       

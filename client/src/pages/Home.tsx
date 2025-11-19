@@ -15,26 +15,38 @@ export default function Home() {
     {
       id: 1,
       thumbnail: episode1,
-      title: "The Future of Technology",
-      date: "Nov 15, 2025",
-      duration: "45 min",
-      description: "Exploring emerging trends in AI, blockchain, and quantum computing with industry experts.",
+      episodeNumber: "Episode 01",
+      host: "Max Hudson",
+      title: "Mindful Growth in Everyday Life",
+      category: "Mental Health, Personal Development",
+      duration: "1 hr 24 mins",
     },
     {
       id: 2,
       thumbnail: episode2,
-      title: "Creative Entrepreneurship",
-      date: "Nov 10, 2025",
-      duration: "38 min",
-      description: "How creators are building sustainable businesses in the digital age.",
+      episodeNumber: "Episode 02",
+      host: "Max Hudson",
+      title: "Cool Side Hustles That Became Million-Dollar Successes",
+      category: "Personal Development",
+      duration: "90 mins",
     },
     {
       id: 3,
       thumbnail: episode3,
-      title: "Mindful Leadership",
-      date: "Nov 5, 2025",
-      duration: "52 min",
-      description: "Leading with empathy and authenticity in modern organizations.",
+      episodeNumber: "Episode 11",
+      host: "Max Hudson",
+      title: "The Dopamine Experiment",
+      category: "Science and Nature",
+      duration: "30 mins",
+    },
+    {
+      id: 4,
+      thumbnail: episode1,
+      episodeNumber: "Episode 03",
+      host: "Ethan Carter",
+      title: "The Art of Deep Work",
+      category: "Personal Development",
+      duration: "45 mins",
     },
   ];
 
@@ -58,12 +70,11 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Featured Episodes</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Dive into our most popular conversations
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Discover the Latest Episodes<br />and Featured Highlights
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {episodes.map((episode) => (
               <EpisodeCard
                 key={episode.id}

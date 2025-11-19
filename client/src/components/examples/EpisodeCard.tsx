@@ -3,13 +3,14 @@ import episodeImg from '@assets/generated_images/Episode_thumbnail_artwork_one_c
 
 export default function EpisodeCardExample() {
   return (
-    <div className="p-6 max-w-sm">
+    <div className="p-6 max-w-2xl">
       <EpisodeCard
         thumbnail={episodeImg}
-        title="The Future of Technology"
-        date="Nov 15, 2025"
-        duration="45 min"
-        description="Exploring emerging trends in AI, blockchain, and quantum computing with industry experts."
+        episodeNumber="Episode 01"
+        host="Max Hudson"
+        title="Mindful Growth in Everyday Life"
+        category="Mental Health, Personal Development"
+        duration="1 hr 24 mins"
         onPlay={() => console.log('Play episode clicked')}
       />
     </div>

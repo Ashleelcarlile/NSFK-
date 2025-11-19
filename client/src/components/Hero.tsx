@@ -18,7 +18,7 @@ export default function Hero({
   height = "80vh",
 }: HeroProps) {
   return (
-    <div className="relative w-full" style={{ height }}>
+    <div className="relative w-full -mt-16 pt-16" style={{ height }}>
       <div className="absolute inset-0">
         <img
           src={imageSrc}

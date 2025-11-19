@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import logoIcon from "@assets/mouth-2-grunge_1763561433908.png";
 import stripedBg from '@assets/stripe-2_1763569878970.png';
 
@@ -23,7 +24,20 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-2">
-            <img src={logoIcon} alt="PodcastHub" className="h-20 w-auto" />
+            <motion.img
+              src={logoIcon}
+              alt="PodcastHub"
+              className="h-20 w-auto"
+              animate={{
+                y: [0, -8, 0],
+                rotate: [-3, 3, -3],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">

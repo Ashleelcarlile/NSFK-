@@ -1,17 +1,45 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { readFileSync, writeFileSync, existsSync } from "fs";
+import { join } from "path";
 
-// Simple in-memory cache for YouTube episodes
+// Cache file path
+const CACHE_FILE_PATH = join(process.cwd(), "youtube-episodes-cache.json");
+const CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
+
+// Simple persistent cache for YouTube episodes
 interface CachedEpisodes {
   data: any[];
   timestamp: number;
 }
 
-let episodesCache: CachedEpisodes | null = null;
-const CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
+// Load cache from file on startup
+function loadCache(): CachedEpisodes | null {
+  try {
+    if (existsSync(CACHE_FILE_PATH)) {
+      const cacheData = readFileSync(CACHE_FILE_PATH, 'utf-8');
+      return JSON.parse(cacheData);
+    }
+  } catch (error) {
+    console.error("Error loading cache:", error);
+  }
+  return null;
+}
 
-// Fallback episodes to show when API quota is exceeded
+// Save cache to file
+function saveCache(cache: CachedEpisodes): void {
+  try {
+    writeFileSync(CACHE_FILE_PATH, JSON.stringify(cache, null, 2));
+    console.log("Cache saved to file");
+  } catch (error) {
+    console.error("Error saving cache:", error);
+  }
+}
+
+let episodesCache: CachedEpisodes | null = loadCache();
+
+// Fallback episodes to show when API quota is exceeded and no cache exists
 const FALLBACK_EPISODES = [
   {
     id: 1,
@@ -61,7 +89,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Check if we have valid cached data (less than 6 hours old)
       const now = Date.now();
       if (episodesCache && (now - episodesCache.timestamp) < CACHE_DURATION) {
-        console.log("Returning cached YouTube episodes");
+        console.log("Returning cached YouTube episodes (from file)");
         return res.json({ episodes: episodesCache.data });
       }
 
@@ -168,11 +196,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
           duration: formatDuration(item.contentDetails.duration),
         }));
 
-      // Cache the successful response
+      // Cache the successful response both in memory and to file
       episodesCache = {
         data: regularEpisodes,
         timestamp: now,
       };
+      saveCache(episodesCache);
       console.log("Fetched and cached new YouTube episodes");
 
       res.json({ episodes: regularEpisodes });

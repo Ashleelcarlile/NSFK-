@@ -23,6 +23,23 @@ export default function FloatingIcons() {
         }}
       />
 
+      {/* Mouth - Top Center */}
+      <motion.img
+        src={mouthImage}
+        alt=""
+        className="fixed top-32 left-1/3 w-24 md:w-32 opacity-12 pointer-events-none z-0 hidden md:block"
+        animate={{
+          y: [0, -12, 0],
+          rotate: [-6, 6, -6],
+        }}
+        transition={{
+          duration: 6.8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2.5,
+        }}
+      />
+
       {/* Baby on Hand - Middle Left */}
       <motion.img
         src={babyHandImage}
@@ -37,6 +54,23 @@ export default function FloatingIcons() {
           repeat: Infinity,
           ease: "easeInOut",
           delay: 0.5,
+        }}
+      />
+
+      {/* Laptop - Middle Center */}
+      <motion.img
+        src={laptopImage}
+        alt=""
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
+        animate={{
+          y: [0, 18, 0],
+          rotate: [-4, 4, -4],
+        }}
+        transition={{
+          duration: 7.2,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
         }}
       />
 
@@ -57,6 +91,40 @@ export default function FloatingIcons() {
         }}
       />
 
+      {/* Rock On - Lower Middle Left */}
+      <motion.img
+        src={rockOnImage}
+        alt=""
+        className="fixed bottom-1/3 left-1/4 w-28 md:w-36 opacity-12 pointer-events-none z-0 hidden md:block"
+        animate={{
+          y: [0, -16, 0],
+          rotate: [8, -8, 8],
+        }}
+        transition={{
+          duration: 7.8,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      {/* Baby Hand - Lower Center Right */}
+      <motion.img
+        src={babyHandImage}
+        alt=""
+        className="fixed bottom-1/4 right-1/3 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        animate={{
+          y: [0, 14, 0],
+          rotate: [-7, 7, -7],
+        }}
+        transition={{
+          duration: 6.9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.8,
+        }}
+      />
+
       {/* Laptop - Bottom Left */}
       <motion.img
         src={laptopImage}
@@ -74,7 +142,7 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Rock On Hand - Bottom Right (smaller) */}
+      {/* Rock On Hand - Bottom Right */}
       <motion.img
         src={rockOnImage}
         alt=""

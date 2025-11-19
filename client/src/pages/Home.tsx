@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
 import HostCard from "@/components/HostCard";
+import FloatingIcons from "@/components/FloatingIcons";
 import { Button } from "@/components/ui/button";
 import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
 import host1 from '@assets/generated_images/Male_podcast_host_portrait_16783c7c.png';
@@ -36,6 +37,7 @@ export default function Home() {
 
   return (
     <div>
+      <FloatingIcons />
       <Hero
         imageSrc={heroImage}
         title=""

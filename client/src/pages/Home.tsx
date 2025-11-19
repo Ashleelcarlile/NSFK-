@@ -51,7 +51,7 @@ export default function Home() {
         }}
         secondaryCTA={{
           label: "Subscribe",
-          onClick: () => console.log('Subscribe clicked'),
+          onClick: () => window.open('https://www.youtube.com/@notsafeforkidspod?sub_confirmation=1', '_blank'),
         }}
       />
 

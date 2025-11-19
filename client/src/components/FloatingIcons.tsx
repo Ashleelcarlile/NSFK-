@@ -11,7 +11,7 @@ export default function FloatingIcons() {
       <motion.img
         src={rockOnImage}
         alt=""
-        className="fixed top-20 right-10 w-32 md:w-40 opacity-20 pointer-events-none z-10"
+        className="fixed top-20 right-10 w-32 md:w-40 opacity-20 pointer-events-none z-0"
         animate={{
           y: [0, -20, 0],
           rotate: [-5, 5, -5],
@@ -27,7 +27,7 @@ export default function FloatingIcons() {
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-1/3 left-8 w-36 md:w-44 opacity-15 pointer-events-none z-10"
+        className="fixed top-1/3 left-8 w-36 md:w-44 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [-8, 8, -8],
@@ -44,7 +44,7 @@ export default function FloatingIcons() {
       <motion.img
         src={mouthImage}
         alt=""
-        className="fixed top-1/2 right-12 w-28 md:w-36 opacity-18 pointer-events-none z-10"
+        className="fixed top-1/2 right-12 w-28 md:w-36 opacity-18 pointer-events-none z-0"
         animate={{
           y: [0, -18, 0],
           rotate: [5, -5, 5],
@@ -61,7 +61,7 @@ export default function FloatingIcons() {
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed bottom-20 left-10 w-40 md:w-48 opacity-15 pointer-events-none z-10"
+        className="fixed bottom-20 left-10 w-40 md:w-48 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 15, 0],
           rotate: [3, -3, 3],
@@ -78,7 +78,7 @@ export default function FloatingIcons() {
       <motion.img
         src={rockOnImage}
         alt=""
-        className="fixed bottom-32 right-20 w-24 md:w-32 opacity-10 pointer-events-none z-10 hidden lg:block"
+        className="fixed bottom-32 right-20 w-24 md:w-32 opacity-10 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, -15, 0],
           rotate: [10, -10, 10],

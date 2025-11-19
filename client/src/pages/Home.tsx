@@ -1,83 +1,45 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
 import HostCard from "@/components/HostCard";
 import { Button } from "@/components/ui/button";
 import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
-import episode1 from '@assets/generated_images/Episode_thumbnail_artwork_one_c0701a6d.png';
-import episode2 from '@assets/generated_images/Episode_thumbnail_artwork_two_8052833c.png';
-import episode3 from '@assets/generated_images/Episode_thumbnail_artwork_three_820ed418.png';
 import host1 from '@assets/generated_images/Male_podcast_host_portrait_16783c7c.png';
 import host2 from '@assets/generated_images/Female_podcast_host_portrait_4637b335.png';
 
 interface Episode {
   id: number;
   youtubeId: string;
-  episodeNumber: string;
-  host?: string;
-  title?: string;
-  category: string;
+  title: string;
+  host: string;
+  publishedAt: string;
+  thumbnail: string;
   duration: string;
 }
 
+const YOUTUBE_CHANNEL_ID = "UCX6OQ3DkcsbYNE6H8uQQuVA";
+
+const episodeCategories = [
+  "Mental Health, Personal Development",
+  "Personal Development",
+  "Science and Nature",
+  "Business & Leadership",
+];
+
 export default function Home() {
-  const [episodes, setEpisodes] = useState<Episode[]>([
-    {
-      id: 1,
-      youtubeId: "GsJ0OyKOX3k",
-      episodeNumber: "Episode 01",
-      category: "Mental Health, Personal Development",
-      duration: "1 hr 24 mins",
+  const { data, isLoading, error } = useQuery<{ episodes: Episode[] }>({
+    queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_ID],
+    queryFn: async () => {
+      const response = await fetch(`/api/youtube/latest-episodes?channelId=${YOUTUBE_CHANNEL_ID}&maxResults=4`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch episodes');
+      }
+      return response.json();
     },
-    {
-      id: 2,
-      youtubeId: "NdgFhbFrKGU",
-      episodeNumber: "Episode 02",
-      category: "Personal Development",
-      duration: "90 mins",
-    },
-    {
-      id: 3,
-      youtubeId: "sz9-RP4YimI",
-      episodeNumber: "Episode 11",
-      category: "Science and Nature",
-      duration: "30 mins",
-    },
-    {
-      id: 4,
-      youtubeId: "qXZNAhcDmMo",
-      episodeNumber: "Episode 03",
-      category: "Personal Development",
-      duration: "45 mins",
-    },
-  ]);
+  });
 
-  useEffect(() => {
-    const fetchVideoData = async () => {
-      const updatedEpisodes = await Promise.all(
-        episodes.map(async (episode) => {
-          try {
-            const response = await fetch(
-              `https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=${episode.youtubeId}`
-            );
-            const data = await response.json();
-            return {
-              ...episode,
-              title: data.title,
-              host: data.author_name,
-            };
-          } catch (error) {
-            console.error(`Failed to fetch data for ${episode.youtubeId}:`, error);
-            return episode;
-          }
-        })
-      );
-      setEpisodes(updatedEpisodes);
-    };
-
-    fetchVideoData();
-  }, []);
+  const episodes = data?.episodes || [];
 
   return (
     <div>
@@ -103,20 +65,30 @@ export default function Home() {
               Discover the Latest Episodes<br />and Featured Highlights
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {episodes.map((episode) => (
-              <EpisodeCard
-                key={episode.id}
-                youtubeId={episode.youtubeId}
-                episodeNumber={episode.episodeNumber}
-                host={episode.host || "Loading..."}
-                title={episode.title || "Loading..."}
-                category={episode.category}
-                duration={episode.duration}
-                onPlay={() => console.log(`Playing episode: ${episode.title}`)}
-              />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="text-center py-12">
+              <p className="text-xl text-muted-foreground">Loading latest episodes...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-xl text-destructive">Failed to load episodes. Please try again later.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {episodes.map((episode, index) => (
+                <EpisodeCard
+                  key={episode.id}
+                  youtubeId={episode.youtubeId}
+                  episodeNumber={`Episode ${String(episodes.length - index).padStart(2, '0')}`}
+                  host={episode.host}
+                  title={episode.title}
+                  category={episodeCategories[index % episodeCategories.length]}
+                  duration={episode.duration}
+                  onPlay={() => console.log(`Playing episode: ${episode.title}`)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

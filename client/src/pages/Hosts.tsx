@@ -3,13 +3,14 @@ import { Instagram } from "lucide-react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
 import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
 import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
+import ashleePhoto from '@assets/DSCF2268_1763580792853.jpg';
 
 const hosts = [
   {
     name: "Ashlee Carlile",
-    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    photo: ashleePhoto,
     bio: "Host 1 bio goes here. Share your story about motherhood, parenting adventures, and what makes you passionate about this podcast.",
-    instagram: "https://www.instagram.com/notsafeforkidspod/",
+    instagram: "https://www.instagram.com/ashleecarlile?igsh=YzN2aWpueWJ6eXR0",
   },
   {
     name: "Kate Akuz",

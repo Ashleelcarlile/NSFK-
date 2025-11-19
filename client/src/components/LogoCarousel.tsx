@@ -21,8 +21,8 @@ export default function LogoCarousel() {
     { src: listenNotesLogo, alt: "Listen Notes" },
   ];
 
-  // Duplicate logos for seamless loop
-  const allLogos = [...logos, ...logos];
+  // Create multiple duplicates for seamless infinite loop
+  const allLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
     <section className="py-4 md:py-6 px-4 mb-8 md:mb-12 lg:mb-16 relative">

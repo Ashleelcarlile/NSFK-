@@ -67,8 +67,8 @@ export default function Hosts() {
                     />
                   </div>
                   
-                  {/* Content on right - opaque yellow background */}
-                  <div className="flex-1 min-w-0 p-6 rounded-r-lg" style={{ backgroundColor: 'rgba(218, 223, 125, 0.75)' }}>
+                  {/* Content on right - semi-transparent white background */}
+                  <div className="flex-1 min-w-0 p-6 rounded-r-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)' }}>
                     <div className="flex items-start justify-between gap-2 mb-3">
                       <h2 className="text-2xl font-bold leading-tight text-black" data-testid={`text-host-name-${index + 1}`}>
                         {host.name}

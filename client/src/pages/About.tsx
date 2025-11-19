@@ -1,29 +1,46 @@
 import pregnantBelly from '@assets/pregnant-Illustrations-assets-mellow-yellow_1763571381811.png';
 import flower from '@assets/flower-Illustrations-assets-mellow-yellow_1763571379874.png';
+import planet from '@assets/space-Illustrations-assets-mellow-yellow_1763571606086.png';
+import cloud from '@assets/cloud-Illustrations-assets-mellow-yellow_1763571614043.png';
 
 export default function About() {
   return (
     <div className="bg-white relative overflow-hidden">
-      {/* Scattered illustrations throughout the page */}
+      {/* Scattered illustrations throughout the page - more visible */}
       <img
         src={pregnantBelly}
         alt=""
-        className="absolute top-20 left-10 w-24 h-24 opacity-40 z-0"
+        className="absolute top-20 left-10 w-28 h-28 opacity-70 z-0"
       />
       <img
         src={flower}
         alt=""
-        className="absolute top-40 right-20 w-20 h-20 opacity-40 z-0"
+        className="absolute top-40 right-20 w-24 h-24 opacity-70 z-0"
+      />
+      <img
+        src={planet}
+        alt=""
+        className="absolute top-60 left-1/4 w-32 h-32 opacity-60 z-0"
+      />
+      <img
+        src={cloud}
+        alt=""
+        className="absolute bottom-40 right-32 w-32 h-32 opacity-70 z-0"
       />
       <img
         src={pregnantBelly}
         alt=""
-        className="absolute bottom-32 right-40 w-28 h-28 opacity-30 z-0"
+        className="absolute bottom-32 right-1/3 w-28 h-28 opacity-60 z-0"
       />
       <img
         src={flower}
         alt=""
-        className="absolute bottom-20 left-20 w-24 h-24 opacity-40 z-0"
+        className="absolute bottom-20 left-20 w-28 h-28 opacity-70 z-0"
+      />
+      <img
+        src={planet}
+        alt=""
+        className="absolute bottom-60 left-1/3 w-24 h-24 opacity-60 z-0"
       />
 
       <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative z-10">

@@ -25,7 +25,7 @@ export default function EpisodeCard({
     : thumbnail;
 
   return (
-    <Card className="overflow-hidden hover-elevate bg-white/90">
+    <Card className="overflow-hidden hover-elevate bg-white/75">
       <CardContent className="p-6">
         <div className="flex gap-6">
           <div className="flex-shrink-0">

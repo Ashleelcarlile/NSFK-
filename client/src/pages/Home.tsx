@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
 import hostsGroupPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 84_1763565217685.jpg';
 import stripedBg from '@assets/stripe-2_1763569878970.png';
+import corner1 from '@assets/corner1-Illustrations-assets_1763570596737.png';
+import corner2 from '@assets/corner2-Illustrations-assets_1763570594330.png';
 
 interface Episode {
   id: number;
@@ -93,7 +95,31 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 relative">
+              {/* Top Left Corner */}
+              <img
+                src={corner1}
+                alt=""
+                className="absolute -top-3 -left-3 w-8 h-8 z-10"
+              />
+              {/* Top Right Corner */}
+              <img
+                src={corner2}
+                alt=""
+                className="absolute -top-3 -right-3 w-8 h-8 z-10 rotate-90"
+              />
+              {/* Bottom Left Corner */}
+              <img
+                src={corner2}
+                alt=""
+                className="absolute -bottom-3 -left-3 w-8 h-8 z-10 -rotate-90"
+              />
+              {/* Bottom Right Corner */}
+              <img
+                src={corner1}
+                alt=""
+                className="absolute -bottom-3 -right-3 w-8 h-8 z-10 rotate-180"
+              />
               <img
                 src={hostsGroupPhoto}
                 alt="Not Safe For Kids Podcast Hosts"

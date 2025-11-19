@@ -2,6 +2,55 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 
+// Simple in-memory cache for YouTube episodes
+interface CachedEpisodes {
+  data: any[];
+  timestamp: number;
+}
+
+let episodesCache: CachedEpisodes | null = null;
+const CACHE_DURATION = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
+
+// Fallback episodes to show when API quota is exceeded
+const FALLBACK_EPISODES = [
+  {
+    id: 1,
+    youtubeId: "8c9mfhPUu0A",
+    title: "Episode: Working Mums vs Stay-at-Home Mums",
+    host: "Not Safe For Kids Podcast",
+    publishedAt: "2024-11-18T12:00:00Z",
+    thumbnail: "https://i.ytimg.com/vi/8c9mfhPUu0A/hqdefault.jpg",
+    duration: "45 mins",
+  },
+  {
+    id: 2,
+    youtubeId: "placeholder2",
+    title: "Recent Episode",
+    host: "Not Safe For Kids Podcast",
+    publishedAt: "2024-11-15T12:00:00Z",
+    thumbnail: "https://via.placeholder.com/480x360?text=Episode+2",
+    duration: "38 mins",
+  },
+  {
+    id: 3,
+    youtubeId: "placeholder3",
+    title: "Recent Episode",
+    host: "Not Safe For Kids Podcast",
+    publishedAt: "2024-11-12T12:00:00Z",
+    thumbnail: "https://via.placeholder.com/480x360?text=Episode+3",
+    duration: "42 mins",
+  },
+  {
+    id: 4,
+    youtubeId: "placeholder4",
+    title: "Recent Episode",
+    host: "Not Safe For Kids Podcast",
+    publishedAt: "2024-11-08T12:00:00Z",
+    thumbnail: "https://via.placeholder.com/480x360?text=Episode+4",
+    duration: "50 mins",
+  },
+];
+
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/youtube/latest-episodes", async (req, res) => {
     try {
@@ -9,9 +58,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const channelHandle = req.query.channelHandle as string;
       const maxResults = req.query.maxResults ? parseInt(req.query.maxResults as string) : 4;
       
+      // Check if we have valid cached data (less than 6 hours old)
+      const now = Date.now();
+      if (episodesCache && (now - episodesCache.timestamp) < CACHE_DURATION) {
+        console.log("Returning cached YouTube episodes");
+        return res.json({ episodes: episodesCache.data });
+      }
+
       const apiKey = process.env.YOUTUBE_API_KEY;
       if (!apiKey) {
-        return res.status(500).json({ error: "YouTube API key not configured" });
+        // If no API key but we have cached data, return it
+        if (episodesCache) {
+          console.log("No API key, returning cached episodes");
+          return res.json({ episodes: episodesCache.data });
+        }
+        // Return fallback episodes
+        console.log("No API key, returning fallback episodes");
+        return res.json({ episodes: FALLBACK_EPISODES });
       }
 
       // If a handle is provided instead of channelId, resolve it first
@@ -22,14 +85,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
         if (!handleResponse.ok || !handleData.items || handleData.items.length === 0) {
           console.error("YouTube handle resolution error:", handleData);
-          return res.status(404).json({ error: "Channel not found for handle: " + channelHandle });
+          // Return cached data if available, even if old
+          if (episodesCache) {
+            console.log("Handle resolution failed, returning cached episodes");
+            return res.json({ episodes: episodesCache.data });
+          }
+          // Return fallback episodes
+          console.log("Handle resolution failed, returning fallback episodes");
+          return res.json({ episodes: FALLBACK_EPISODES });
         }
 
         channelId = handleData.items[0].id;
       }
 
       if (!channelId) {
-        return res.status(400).json({ error: "channelId or channelHandle query parameter is required" });
+        // Return cached data if available
+        if (episodesCache) {
+          console.log("No channel ID, returning cached episodes");
+          return res.json({ episodes: episodesCache.data });
+        }
+        // Return fallback episodes
+        console.log("No channel ID, returning fallback episodes");
+        return res.json({ episodes: FALLBACK_EPISODES });
       }
 
       // Fetch latest 50 videos (to ensure we get 4 non-shorts)
@@ -39,14 +116,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       if (!searchResponse.ok) {
         console.error("YouTube API error:", searchData);
-        return res.status(searchResponse.status).json({ error: searchData.error?.message || "Failed to fetch videos" });
+        // If API fails (quota exceeded), return cached data if available
+        if (episodesCache) {
+          console.log("API quota exceeded, returning cached episodes");
+          return res.json({ episodes: episodesCache.data });
+        }
+        // Return fallback episodes
+        console.log("API quota exceeded, returning fallback episodes");
+        return res.json({ episodes: FALLBACK_EPISODES });
       }
 
       // Get video IDs
       const videoIds = searchData.items.map((item: any) => item.id.videoId).join(',');
 
       if (!videoIds) {
-        return res.json({ episodes: [] });
+        // Return cached data if available
+        if (episodesCache) {
+          return res.json({ episodes: episodesCache.data });
+        }
+        return res.json({ episodes: FALLBACK_EPISODES });
       }
 
       // Fetch detailed video information including duration
@@ -56,7 +144,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       if (!videosResponse.ok) {
         console.error("YouTube API error:", videosData);
-        return res.status(videosResponse.status).json({ error: videosData.error?.message || "Failed to fetch video details" });
+        // If API fails, return cached data if available
+        if (episodesCache) {
+          console.log("Video details fetch failed, returning cached episodes");
+          return res.json({ episodes: episodesCache.data });
+        }
+        // Return fallback episodes
+        console.log("Video details fetch failed, returning fallback episodes");
+        return res.json({ episodes: FALLBACK_EPISODES });
       }
 
       // Filter out shorts (<=60 seconds) and keep only regular episodes
@@ -73,10 +168,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
           duration: formatDuration(item.contentDetails.duration),
         }));
 
+      // Cache the successful response
+      episodesCache = {
+        data: regularEpisodes,
+        timestamp: now,
+      };
+      console.log("Fetched and cached new YouTube episodes");
+
       res.json({ episodes: regularEpisodes });
     } catch (error) {
       console.error("Error fetching YouTube episodes:", error);
-      res.status(500).json({ error: "Internal server error" });
+      // If any error occurs, return cached data if available
+      if (episodesCache) {
+        console.log("Error occurred, returning cached episodes");
+        return res.json({ episodes: episodesCache.data });
+      }
+      // Return fallback episodes
+      console.log("Error occurred, returning fallback episodes");
+      res.json({ episodes: FALLBACK_EPISODES });
     }
   });
 

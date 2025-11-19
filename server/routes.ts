@@ -32,8 +32,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "channelId or channelHandle query parameter is required" });
       }
 
-      // Fetch top 20 videos by view count (we'll filter client-side for shorts vs regular)
-      const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=viewCount&type=video&maxResults=20`;
+      // Fetch latest 50 videos (to ensure we get 4 non-shorts)
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=50`;
       const searchResponse = await fetch(searchUrl);
       const searchData = await searchResponse.json();
 
@@ -49,8 +49,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.json({ episodes: [] });
       }
 
-      // Fetch detailed video information including duration and statistics
-      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=snippet,contentDetails,statistics`;
+      // Fetch detailed video information including duration
+      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=snippet,contentDetails`;
       const videosResponse = await fetch(videosUrl);
       const videosData = await videosResponse.json();
 
@@ -59,44 +59,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(videosResponse.status).json({ error: videosData.error?.message || "Failed to fetch video details" });
       }
 
-      // Separate shorts (<=60 seconds) from regular videos (>60 seconds)
-      type VideoData = {
-        youtubeId: string;
-        title: string;
-        host: string;
-        publishedAt: string;
-        thumbnail: string;
-        duration: string;
-        viewCount: number;
-        isShort: boolean;
-      };
+      // Filter out shorts (<=60 seconds) and keep only regular episodes
+      const regularEpisodes = videosData.items
+        .filter((item: any) => !isShortVideo(item.contentDetails.duration))
+        .slice(0, maxResults)
+        .map((item: any, index: number) => ({
+          id: index + 1,
+          youtubeId: item.id,
+          title: item.snippet.title,
+          host: item.snippet.channelTitle,
+          publishedAt: item.snippet.publishedAt,
+          thumbnail: item.snippet.thumbnails.high.url,
+          duration: formatDuration(item.contentDetails.duration),
+        }));
 
-      const allVideos: VideoData[] = videosData.items.map((item: any) => ({
-        youtubeId: item.id,
-        title: item.snippet.title,
-        host: item.snippet.channelTitle,
-        publishedAt: item.snippet.publishedAt,
-        thumbnail: item.snippet.thumbnails.high.url,
-        duration: formatDuration(item.contentDetails.duration),
-        viewCount: parseInt(item.statistics.viewCount || "0"),
-        isShort: isShortVideo(item.contentDetails.duration),
-      }));
-
-      // Sort by view count (already sorted by API, but ensure it)
-      allVideos.sort((a: VideoData, b: VideoData) => b.viewCount - a.viewCount);
-
-      // Get top regular video and top 2 shorts
-      const topRegular = allVideos.find((v: VideoData) => !v.isShort);
-      const topShorts = allVideos.filter((v: VideoData) => v.isShort).slice(0, 2);
-
-      // Combine results
-      const episodes: any[] = [];
-      if (topRegular) episodes.push({ id: 1, ...topRegular });
-      topShorts.forEach((short: VideoData, index: number) => {
-        episodes.push({ id: episodes.length + 1, ...short });
-      });
-
-      res.json({ episodes });
+      res.json({ episodes: regularEpisodes });
     } catch (error) {
       console.error("Error fetching YouTube episodes:", error);
       res.status(500).json({ error: "Internal server error" });

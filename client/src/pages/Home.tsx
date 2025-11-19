@@ -16,8 +16,6 @@ interface Episode {
   publishedAt: string;
   thumbnail: string;
   duration: string;
-  viewCount: number;
-  isShort: boolean;
 }
 
 const YOUTUBE_CHANNEL_HANDLE = "notsafeforkidspod";
@@ -33,7 +31,7 @@ export default function Home() {
   const { data, isLoading, error } = useQuery<{ episodes: Episode[] }>({
     queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_HANDLE],
     queryFn: async () => {
-      const response = await fetch(`/api/youtube/latest-episodes?channelHandle=${YOUTUBE_CHANNEL_HANDLE}`);
+      const response = await fetch(`/api/youtube/latest-episodes?channelHandle=${YOUTUBE_CHANNEL_HANDLE}&maxResults=4`);
       if (!response.ok) {
         throw new Error('Failed to fetch episodes');
       }
@@ -42,9 +40,6 @@ export default function Home() {
   });
 
   const episodes = data?.episodes || [];
-  
-  const topRegularEpisode = episodes.find(ep => !ep.isShort);
-  const topShorts = episodes.filter(ep => ep.isShort);
 
   return (
     <div>
@@ -72,7 +67,7 @@ export default function Home() {
           </div>
           {isLoading ? (
             <div className="text-center py-12">
-              <p className="text-xl text-muted-foreground">Loading top episodes...</p>
+              <p className="text-xl text-muted-foreground">Loading latest episodes...</p>
             </div>
           ) : error ? (
             <div className="text-center py-12">
@@ -80,28 +75,16 @@ export default function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {topRegularEpisode && (
+              {episodes.map((episode, index) => (
                 <EpisodeCard
-                  key={topRegularEpisode.id}
-                  youtubeId={topRegularEpisode.youtubeId}
-                  episodeNumber="Top Episode"
-                  host={topRegularEpisode.host}
-                  title={topRegularEpisode.title}
-                  category="Most Viewed"
-                  duration={topRegularEpisode.duration}
-                  onPlay={() => console.log(`Playing episode: ${topRegularEpisode.title}`)}
-                />
-              )}
-              {topShorts.map((short, index) => (
-                <EpisodeCard
-                  key={short.id}
-                  youtubeId={short.youtubeId}
-                  episodeNumber={`Top Short ${index + 1}`}
-                  host={short.host}
-                  title={short.title}
-                  category="Most Viewed Short"
-                  duration={short.duration}
-                  onPlay={() => console.log(`Playing short: ${short.title}`)}
+                  key={episode.id}
+                  youtubeId={episode.youtubeId}
+                  episodeNumber={`Episode ${String(episodes.length - index).padStart(2, '0')}`}
+                  host={episode.host}
+                  title={episode.title}
+                  category={episodeCategories[index % episodeCategories.length]}
+                  duration={episode.duration}
+                  onPlay={() => console.log(`Playing episode: ${episode.title}`)}
                 />
               ))}
             </div>

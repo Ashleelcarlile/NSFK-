@@ -20,7 +20,7 @@ export default function LogoCarousel() {
     <section className="py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-8 uppercase tracking-wider">
-          Available On
+          Listen Now
         </h3>
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll gap-16">
@@ -32,7 +32,7 @@ export default function LogoCarousel() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-12 w-auto object-contain"
+                  className="h-16 w-auto object-contain"
                 />
               </div>
             ))}

@@ -61,35 +61,21 @@ export default function Hosts() {
               >
                 <div className="flex">
                   {/* Photo on left - bleeds to edge */}
-                  <div className="flex-shrink-0 relative">
+                  <div className="flex-shrink-0">
                     <img
                       src={host.photo}
                       alt={host.name}
                       className="w-80 h-80 object-cover"
                       data-testid={`img-host-${index + 1}`}
                     />
-                    {/* Name tag doodle in top left corner */}
-                    <div className="absolute -top-16 -left-16">
-                      <div className="relative">
-                        <img
-                          src={doodleNameTag}
-                          alt=""
-                          className="w-72 h-72"
-                        />
-                        <h2 
-                          className="absolute inset-0 flex items-center justify-center text-xl font-bold text-black px-8 text-center leading-tight"
-                          data-testid={`text-host-name-${index + 1}`}
-                          style={{ transform: 'rotate(-8deg)' }}
-                        >
-                          {host.name}
-                        </h2>
-                      </div>
-                    </div>
                   </div>
                   
                   {/* Content on right */}
                   <div className="flex-1 min-w-0 p-6">
-                    <div className="flex items-start justify-end gap-2 mb-3">
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <h2 className="text-2xl font-bold leading-tight" data-testid={`text-host-name-${index + 1}`}>
+                        {host.name}
+                      </h2>
                       <a
                         href={host.instagram}
                         target="_blank"

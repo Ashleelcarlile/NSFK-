@@ -34,7 +34,7 @@ export default function LogoCarousel() {
           Listen Now
         </h3>
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll gap-16">
+          <div className="flex animate-scroll gap-12">
             {allLogos.map((logo, index) => (
               <div
                 key={index}
@@ -43,7 +43,7 @@ export default function LogoCarousel() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-16 w-auto object-contain"
+                  className="h-10 md:h-12 w-auto object-contain"
                 />
               </div>
             ))}

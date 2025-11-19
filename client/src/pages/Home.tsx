@@ -41,8 +41,7 @@ export default function Home() {
     <div>
       <Hero
         imageSrc={heroImage}
-        title="Welcome to PodcastHub"
-        subtitle="Engaging conversations, inspiring stories, unfiltered insights"
+        title=""
         primaryCTA={{
           label: "Listen Now",
           onClick: () => console.log('Listen Now clicked'),

@@ -1,90 +1,53 @@
-import Hero from "@/components/Hero";
-import { Card, CardContent } from "@/components/ui/card";
-import teamImage from '@assets/generated_images/Team_photo_for_about_page_4979476b.png';
+import photo1 from '@assets/Screenshot 2025-11-19 at 16.47.20_1763570865707.png';
+import photo2 from '@assets/Screenshot 2025-11-19 at 16.47.26_1763570868241.png';
+import photo3 from '@assets/Screenshot 2025-11-19 at 16.47.32_1763570871200.png';
 
 export default function About() {
-  const values = [
-    {
-      title: "Authentic Conversations",
-      description: "We believe in real, unscripted dialogue that explores ideas deeply and honestly.",
-    },
-    {
-      title: "Diverse Perspectives",
-      description: "Every episode features voices from different backgrounds, industries, and experiences.",
-    },
-    {
-      title: "Community First",
-      description: "Our listeners are at the heart of everything we do, shaping topics and driving conversations.",
-    },
-  ];
-
   return (
     <div>
-      <Hero
-        imageSrc={teamImage}
-        title="Our Story"
-        subtitle="Building a platform for meaningful dialogue"
-        height="60vh"
-      />
-
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="font-serif text-lg leading-relaxed space-y-6 text-muted-foreground">
-            <p>
-              PodcastHub was born from a simple idea: that the best conversations happen when
-              people come together with curiosity, openness, and authenticity. In 2020, we
-              started recording discussions in a small home studio, never imagining where this
-              journey would take us.
-            </p>
-            <p>
-              Today, we've grown into a community of over 10,000 listeners across the globe,
-              all united by a love for thoughtful dialogue and diverse perspectives. Our
-              episodes have featured entrepreneurs, artists, scientists, activists, and
-              everyday people with extraordinary stories to share.
-            </p>
-            <p>
-              What sets us apart is our commitment to depth over virality, understanding over
-              controversy, and connection over content. Every episode is crafted with care,
-              ensuring that both our guests and our listeners walk away with something valuable.
-            </p>
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold text-center mb-16">About Us</h1>
+          
+          {/* Photo Collage */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {/* Large Photo - Takes full left column */}
+            <div className="md:row-span-2">
+              <img
+                src={photo1}
+                alt="Not Safe For Kids Podcast Hosts"
+                className="w-full h-full object-cover rounded-lg"
+                data-testid="img-about-1"
+              />
+            </div>
+            
+            {/* Two stacked photos on right */}
+            <div>
+              <img
+                src={photo2}
+                alt="Not Safe For Kids Podcast Team"
+                className="w-full h-full object-cover rounded-lg"
+                data-testid="img-about-2"
+              />
+            </div>
+            <div>
+              <img
+                src={photo3}
+                alt="Not Safe For Kids Podcast"
+                className="w-full h-full object-cover rounded-lg"
+                data-testid="img-about-3"
+              />
+            </div>
           </div>
-        </div>
-      </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-muted-foreground">
-              The principles that guide every conversation
-            </p>
+          {/* About Text */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/75 rounded-lg p-8 md:p-12">
+              <p className="text-lg md:text-xl leading-relaxed text-gray-800">
+                Not Safe For Kids is a podcast where four mums navigate the wild, wonderful, and sometimes chaotic world of parenthood. From the highs of milestones to the lows of sleepless nights, we're here to share the real, unfiltered stories that happen behind closed doors. Join us as we laugh, cry, and commiserate over the adventures of raising kids in a world that's constantly evolving. Whether you're a parent, planning to be one, or just curious about the madness, this podcast is your safe space to embrace the messy, beautiful journey of motherhood.
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <Card key={index}>
-                <CardContent className="p-8 text-center">
-                  <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Want to be a guest?</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            We're always looking for interesting people with unique perspectives to join us.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 text-lg bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2"
-            data-testid="link-contact"
-          >
-            Get in Touch
-          </a>
         </div>
       </section>
     </div>

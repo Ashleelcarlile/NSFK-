@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
 import HostCard from "@/components/HostCard";
 import { Button } from "@/components/ui/button";
@@ -51,6 +52,8 @@ export default function Home() {
           onClick: () => console.log('Subscribe clicked'),
         }}
       />
+
+      <LogoCarousel />
 
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

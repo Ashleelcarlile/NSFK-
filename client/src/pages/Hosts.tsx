@@ -1,6 +1,7 @@
 import FloatingIcons from "@/components/FloatingIcons";
 import { Instagram } from "lucide-react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
+import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
 
 const hosts = [
   {
@@ -17,9 +18,9 @@ const hosts = [
   },
   {
     name: "Keisha Forte-Hercules",
-    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    photo: keishaPhoto,
     bio: "Host 3 bio goes here. Share your unique perspective on parenting and what inspired you to join this podcast.",
-    instagram: "https://www.instagram.com/notsafeforkidspod/",
+    instagram: "https://www.instagram.com/her.forte?igsh=NXZpdnU3eHBnbHpj",
   },
   {
     name: "Hollie Nwagboso",

@@ -5,6 +5,7 @@ import doodleNameTag from '@assets/doodle-Illustrations-assets-white_17635804329
 import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
 import ashleePhoto from '@assets/DSCF2268_1763580792853.jpg';
 import holliePhoto from '@assets/DSCF2301_1763580875491.jpg';
+import katePhoto from '@assets/DSCF2172_1763580939921.jpg';
 
 const hosts = [
   {
@@ -15,9 +16,9 @@ const hosts = [
   },
   {
     name: "Kate Akuz",
-    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    photo: katePhoto,
     bio: "Host 2 bio goes here. Tell us about your journey as a mum and what you bring to the Not Safe For Kids community.",
-    instagram: "https://www.instagram.com/notsafeforkidspod/",
+    instagram: "https://www.instagram.com/kate.akyuz?igsh=Mm8zOHJ0YmN2cGRu",
   },
   {
     name: "Keisha Forte-Hercules",

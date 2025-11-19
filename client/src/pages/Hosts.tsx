@@ -52,12 +52,12 @@ export default function Hosts() {
             {hosts.map((host, index) => (
               <div
                 key={index}
-                className="bg-white/75 rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
+                className="rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
                 data-testid={`card-host-${index + 1}`}
               >
                 <div className="flex">
                   {/* Photo on left - bleeds to edge */}
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 bg-white/75 rounded-l-lg overflow-hidden">
                     <img
                       src={host.photo}
                       alt={host.name}
@@ -69,7 +69,7 @@ export default function Hosts() {
                   {/* Content on right */}
                   <div className="flex-1 min-w-0 p-6">
                     <div className="flex items-start justify-between gap-2 mb-3">
-                      <h2 className="text-2xl font-bold leading-tight" data-testid={`text-host-name-${index + 1}`}>
+                      <h2 className="text-2xl font-bold leading-tight text-black" data-testid={`text-host-name-${index + 1}`}>
                         {host.name}
                       </h2>
                       <a
@@ -83,7 +83,7 @@ export default function Hosts() {
                         <Instagram className="w-5 h-5" />
                       </a>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed" data-testid={`text-bio-${index + 1}`}>
+                    <p className="text-black leading-relaxed" data-testid={`text-bio-${index + 1}`}>
                       {host.bio}
                     </p>
                   </div>

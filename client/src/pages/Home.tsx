@@ -47,7 +47,7 @@ export default function Home() {
         title=""
         primaryCTA={{
           label: "Start Listening",
-          onClick: () => console.log('Start Listening clicked'),
+          onClick: () => window.open('https://podcasts.apple.com/us/podcast/not-safe-for-kids-pilot/id1821373205', '_blank'),
         }}
         secondaryCTA={{
           label: "Subscribe",

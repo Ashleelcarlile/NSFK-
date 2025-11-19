@@ -1,6 +1,7 @@
 import FloatingIcons from "@/components/FloatingIcons";
 import { Instagram } from "lucide-react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
+import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
 import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
 
 const hosts = [
@@ -60,21 +61,35 @@ export default function Hosts() {
               >
                 <div className="flex">
                   {/* Photo on left - bleeds to edge */}
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 relative">
                     <img
                       src={host.photo}
                       alt={host.name}
                       className="w-80 h-80 object-cover"
                       data-testid={`img-host-${index + 1}`}
                     />
+                    {/* Name tag doodle in top right corner */}
+                    <div className="absolute top-4 right-4">
+                      <div className="relative">
+                        <img
+                          src={doodleNameTag}
+                          alt=""
+                          className="w-32 h-32"
+                        />
+                        <h2 
+                          className="absolute inset-0 flex items-center justify-center text-base font-bold text-black px-4 text-center leading-tight"
+                          data-testid={`text-host-name-${index + 1}`}
+                          style={{ transform: 'rotate(-8deg)' }}
+                        >
+                          {host.name}
+                        </h2>
+                      </div>
+                    </div>
                   </div>
                   
                   {/* Content on right */}
                   <div className="flex-1 min-w-0 p-6">
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <h2 className="text-2xl font-bold leading-tight" data-testid={`text-host-name-${index + 1}`}>
-                        {host.name}
-                      </h2>
+                    <div className="flex items-start justify-end gap-2 mb-3">
                       <a
                         href={host.instagram}
                         target="_blank"

@@ -59,10 +59,10 @@ export default function Home() {
 
       <LogoCarousel />
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Discover the Latest Episodes<br />and Featured Highlights
             </h2>
           </div>
@@ -92,49 +92,49 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 relative">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
+            <div className="w-full lg:w-1/2 relative">
               {/* Top Left Corner */}
               <img
                 src={corner1}
                 alt=""
-                className="absolute -top-3 -left-3 w-8 h-8 z-10"
+                className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-6 h-6 md:w-8 md:h-8 z-10"
               />
               {/* Top Right Corner */}
               <img
                 src={corner2}
                 alt=""
-                className="absolute -top-3 -right-3 w-8 h-8 z-10 rotate-90"
+                className="absolute -top-2 -right-2 md:-top-3 md:-right-3 w-6 h-6 md:w-8 md:h-8 z-10 rotate-90"
               />
               {/* Bottom Left Corner */}
               <img
                 src={corner2}
                 alt=""
-                className="absolute -bottom-3 -left-3 w-8 h-8 z-10 -rotate-90"
+                className="absolute -bottom-2 -left-2 md:-bottom-3 md:-left-3 w-6 h-6 md:w-8 md:h-8 z-10 -rotate-90"
               />
               {/* Bottom Right Corner */}
               <img
                 src={corner1}
                 alt=""
-                className="absolute -bottom-3 -right-3 w-8 h-8 z-10 rotate-180"
+                className="absolute -bottom-2 -right-2 md:-bottom-3 md:-right-3 w-6 h-6 md:w-8 md:h-8 z-10 rotate-180"
               />
               <img
                 src={hostsGroupPhoto}
                 alt="Not Safe For Kids Podcast Hosts"
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto rounded-lg object-cover max-h-[400px] md:max-h-[500px] lg:max-h-none"
                 data-testid="img-hosts-group"
               />
             </div>
-            <div className="lg:w-1/2 text-center lg:text-left relative">
+            <div className="w-full lg:w-1/2 text-center lg:text-left relative">
               <div className="relative inline-block mb-6">
                 <img
                   src={stripedBg}
                   alt=""
-                  className="absolute -left-8 top-1/2 -translate-y-1/2 w-64 h-24 object-cover opacity-40 -z-10"
+                  className="absolute left-0 lg:-left-8 top-1/2 -translate-y-1/2 w-48 md:w-64 h-20 md:h-24 object-cover opacity-40 -z-10 hidden sm:block"
                 />
-                <h2 className="text-4xl md:text-5xl font-bold relative z-10">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold relative z-10">
                   Meet Your Hosts
                 </h2>
               </div>
@@ -160,9 +160,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Join Our Community</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Community</h2>
           <p className="text-xl text-muted-foreground mb-8">
             Subscribe to get the latest episodes and exclusive content
           </p>

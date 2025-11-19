@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logoIcon from "@assets/mouth-2-grunge_1763561433908.png";
+import stripedBg from '@assets/stripe-2_1763569878970.png';
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -28,12 +29,22 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
-                <Button
-                  variant={isActive(item.path) ? "secondary" : "ghost"}
-                  data-testid={`link-${item.label.toLowerCase().replace(" ", "-")}`}
-                >
-                  {item.label}
-                </Button>
+                <div className="relative">
+                  {isActive(item.path) && (
+                    <img
+                      src={stripedBg}
+                      alt=""
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-10 object-cover opacity-50 pointer-events-none"
+                    />
+                  )}
+                  <Button
+                    variant="ghost"
+                    className="relative z-10"
+                    data-testid={`link-${item.label.toLowerCase().replace(" ", "-")}`}
+                  >
+                    {item.label}
+                  </Button>
+                </div>
               </Link>
             ))}
           </div>
@@ -55,14 +66,23 @@ export default function Navigation() {
           <div className="px-4 py-2 space-y-1">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
-                <Button
-                  variant={isActive(item.path) ? "secondary" : "ghost"}
-                  className="w-full justify-start"
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`link-mobile-${item.label.toLowerCase().replace(" ", "-")}`}
-                >
-                  {item.label}
-                </Button>
+                <div className="relative">
+                  {isActive(item.path) && (
+                    <img
+                      src={stripedBg}
+                      alt=""
+                      className="absolute top-1/2 left-8 -translate-y-1/2 w-32 h-10 object-cover opacity-50 pointer-events-none"
+                    />
+                  )}
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start relative z-10"
+                    onClick={() => setMobileMenuOpen(false)}
+                    data-testid={`link-mobile-${item.label.toLowerCase().replace(" ", "-")}`}
+                  >
+                    {item.label}
+                  </Button>
+                </div>
               </Link>
             ))}
           </div>

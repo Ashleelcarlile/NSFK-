@@ -20,13 +20,6 @@ interface Episode {
 
 const YOUTUBE_CHANNEL_HANDLE = "notsafeforkidspod";
 
-const episodeCategories = [
-  "Mental Health, Personal Development",
-  "Personal Development",
-  "Science and Nature",
-  "Business & Leadership",
-];
-
 export default function Home() {
   const { data, isLoading, error } = useQuery<{ episodes: Episode[] }>({
     queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_HANDLE],
@@ -82,7 +75,6 @@ export default function Home() {
                   episodeNumber={`Episode ${String(episodes.length - index).padStart(2, '0')}`}
                   host={episode.host}
                   title={episode.title}
-                  category={episodeCategories[index % episodeCategories.length]}
                   duration={episode.duration}
                   onPlay={() => console.log(`Playing episode: ${episode.title}`)}
                 />

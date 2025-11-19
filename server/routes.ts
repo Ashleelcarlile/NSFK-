@@ -102,7 +102,7 @@ function formatDuration(isoDuration: string): string {
   return parts.join(' ') || "Unknown";
 }
 
-// Helper function to determine if a video is a short (under 60 seconds)
+// Helper function to determine if a video is a short (under 5 minutes)
 function isShortVideo(isoDuration: string): boolean {
   const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
   if (!match) return false;
@@ -112,5 +112,5 @@ function isShortVideo(isoDuration: string): boolean {
   const seconds = parseInt(match[3] || "0");
 
   const totalSeconds = hours * 3600 + minutes * 60 + seconds;
-  return totalSeconds <= 60;
+  return totalSeconds < 300; // Less than 5 minutes
 }

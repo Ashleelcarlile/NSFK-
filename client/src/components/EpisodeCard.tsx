@@ -7,7 +7,6 @@ interface EpisodeCardProps {
   episodeNumber: string;
   host: string;
   title: string;
-  category: string;
   duration: string;
   onPlay?: () => void;
 }
@@ -18,7 +17,6 @@ export default function EpisodeCard({
   episodeNumber,
   host,
   title,
-  category,
   duration,
   onPlay,
 }: EpisodeCardProps) {
@@ -47,13 +45,9 @@ export default function EpisodeCard({
               <span className="text-sm font-medium" data-testid="text-episode-host">{host}</span>
             </div>
             
-            <h3 className="text-xl font-bold mb-2 line-clamp-2" data-testid="text-episode-title">
+            <h3 className="text-xl font-bold mb-4 line-clamp-2" data-testid="text-episode-title">
               {title}
             </h3>
-            
-            <p className="text-sm text-muted-foreground mb-4" data-testid="text-episode-category">
-              {category}
-            </p>
             
             <div className="mt-auto flex items-center justify-between">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

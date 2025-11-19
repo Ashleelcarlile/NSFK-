@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoIcon from "@assets/mouth-2-grunge_1763561433908.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -21,7 +22,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary">PodcastHub</div>
+            <img src={logoIcon} alt="PodcastHub" className="h-10 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">

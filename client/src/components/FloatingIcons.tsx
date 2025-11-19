@@ -26,11 +26,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Mouth - Top Center */}
+      {/* Mouth - Moved lower to avoid title */}
       <motion.img
         src={mouthImage}
         alt=""
-        className="fixed top-32 left-1/3 w-24 md:w-32 opacity-12 pointer-events-none z-0 hidden md:block"
+        className="fixed top-2/3 left-1/4 w-24 md:w-32 opacity-12 pointer-events-none z-0 hidden md:block"
         animate={{
           y: [0, -12, 0],
           rotate: [-6, 6, -6],

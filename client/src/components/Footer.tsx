@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -90,10 +91,14 @@ export default function Footer() {
             </p>
             <Link href="/contact">
               <button
-                className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover-elevate active-elevate-2 w-full"
+                className="relative flex items-center justify-center gap-4 bg-black text-white px-6 py-3 rounded-full text-sm font-semibold overflow-hidden group w-full"
                 data-testid="button-contact-footer"
+                style={{ paddingRight: '3.5rem' }}
               >
-                Contact Us
+                <span className="relative z-10">Contact Us</span>
+                <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <ArrowUpRight className="h-5 w-5 text-black" />
+                </div>
               </button>
             </Link>
           </div>

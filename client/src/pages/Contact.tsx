@@ -117,7 +117,7 @@ export default function Contact() {
               {/* Dropdown for form type */}
               <div className="mb-6">
                 <Select value={formType} onValueChange={(value) => setFormType(value as "listeners" | "guests" | "sponsors")}>
-                  <SelectTrigger className="border-2 border-black" data-testid="select-form-type">
+                  <SelectTrigger className="border-2 border-black/30" data-testid="select-form-type">
                     <SelectValue placeholder="I am a..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -139,7 +139,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} className="border-2 border-black" data-testid="input-name" />
+                            <Input placeholder="Your name" {...field} className="border-2 border-black/30" data-testid="input-name" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -153,7 +153,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black" data-testid="input-email" />
+                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black/30" data-testid="input-email" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -205,7 +205,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} className="border-2 border-black" data-testid="input-name" />
+                            <Input placeholder="Your name" {...field} className="border-2 border-black/30" data-testid="input-name" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -219,7 +219,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black" data-testid="input-email" />
+                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black/30" data-testid="input-email" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -271,7 +271,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your name" {...field} className="border-2 border-black" data-testid="input-name" />
+                            <Input placeholder="Your name" {...field} className="border-2 border-black/30" data-testid="input-name" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -285,7 +285,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black" data-testid="input-email" />
+                            <Input type="email" placeholder="your.email@example.com" {...field} className="border-2 border-black/30" data-testid="input-email" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -299,7 +299,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel className="text-black">Company</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your company name" {...field} className="border-2 border-black" data-testid="input-company" />
+                            <Input placeholder="Your company name" {...field} className="border-2 border-black/30" data-testid="input-company" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

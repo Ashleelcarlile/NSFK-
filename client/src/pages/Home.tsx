@@ -23,7 +23,7 @@ export default function Home() {
     },
     {
       id: 2,
-      thumbnail: episode2,
+      youtubeId: "NdgFhbFrKGU",
       episodeNumber: "Episode 02",
       host: "Max Hudson",
       title: "Cool Side Hustles That Became Million-Dollar Successes",
@@ -32,7 +32,7 @@ export default function Home() {
     },
     {
       id: 3,
-      thumbnail: episode3,
+      youtubeId: "sz9-RP4YimI",
       episodeNumber: "Episode 11",
       host: "Max Hudson",
       title: "The Dopamine Experiment",
@@ -41,7 +41,7 @@ export default function Home() {
     },
     {
       id: 4,
-      thumbnail: episode1,
+      youtubeId: "qXZNAhcDmMo",
       episodeNumber: "Episode 03",
       host: "Ethan Carter",
       title: "The Art of Deep Work",

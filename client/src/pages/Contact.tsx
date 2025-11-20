@@ -112,7 +112,8 @@ export default function Contact() {
           {/* Right side - Contact Form */}
           <div className="space-y-4 sm:space-y-6">
             <div className="p-4 sm:p-8">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">Get in Touch</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3 text-black">Get in Touch</h2>
+              <p className="text-base sm:text-lg text-black mb-4 sm:mb-6">Want to work with us, be a guest or simply share some goss - get in touch!</p>
 
               {/* Dropdown for form type */}
               <div className="mb-6">
@@ -190,6 +191,12 @@ export default function Contact() {
                         <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
+                    <p className="text-sm text-black mt-4">
+                      Contact us directly at{' '}
+                      <a href="mailto:hello@nsfkpod.com" className="underline hover:text-gray-700">
+                        hello@nsfkpod.com
+                      </a>
+                    </p>
                   </form>
                 </Form>
               )}
@@ -256,6 +263,12 @@ export default function Contact() {
                         <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
+                    <p className="text-sm text-black mt-4">
+                      Contact us directly at{' '}
+                      <a href="mailto:hello@nsfkpod.com" className="underline hover:text-gray-700">
+                        hello@nsfkpod.com
+                      </a>
+                    </p>
                   </form>
                 </Form>
               )}
@@ -336,26 +349,15 @@ export default function Contact() {
                         <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
+                    <p className="text-sm text-black mt-4">
+                      Contact us directly at{' '}
+                      <a href="mailto:hello@nsfkpod.com" className="underline hover:text-gray-700">
+                        hello@nsfkpod.com
+                      </a>
+                    </p>
                   </form>
                 </Form>
               )}
-            </div>
-
-            {/* Contact Email */}
-            <div className="p-4 sm:p-6">
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-black" />
-                <div>
-                  <p className="text-sm font-semibold text-black">Contact us at</p>
-                  <a
-                    href="mailto:hello@nsfkpod.com"
-                    className="text-black hover:underline"
-                    data-testid="link-email"
-                  >
-                    hello@nsfkpod.com
-                  </a>
-                </div>
-              </div>
             </div>
 
             {/* Social Media Links */}
@@ -383,7 +385,7 @@ export default function Contact() {
                   <span>YouTube</span>
                 </a>
                 <a
-                  href="https://tiktok.com/notsafeforkidspod"
+                  href="https://tiktok.com/@notsafeforkidspodcast"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover-elevate active-elevate-2"

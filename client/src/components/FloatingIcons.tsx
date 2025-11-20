@@ -61,23 +61,6 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Rock Hand - Center-right */}
-      <motion.img
-        src={rockOnImage}
-        alt=""
-        className="absolute top-1/2 left-1/2 translate-x-12 md:translate-x-20 -translate-y-1/2 w-32 md:w-40 opacity-35 pointer-events-none z-0 hidden lg:block"
-        animate={{
-          y: [0, 15, 0],
-          rotate: [-5, 5, -5],
-        }}
-        transition={{
-          duration: 6.8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
-
     </>
   );
 }

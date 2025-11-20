@@ -122,17 +122,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             <div className="w-full lg:w-1/2 relative">
-              {/* Floating Tongue - Top Left */}
+              {/* Floating Rock Fingers - Top Left */}
               <motion.img
-                src={tongueImage}
+                src={rockOnImage}
                 alt=""
-                className="absolute -top-12 -left-8 w-24 md:w-32 opacity-40 pointer-events-none z-20 hidden sm:block"
+                className="absolute -top-12 -left-8 w-32 md:w-40 opacity-40 pointer-events-none z-20 hidden sm:block"
                 animate={{
-                  y: [0, -12, 0],
-                  rotate: [-3, 3, -3],
+                  y: [0, -15, 0],
+                  rotate: [-5, 5, -5],
                 }}
                 transition={{
-                  duration: 6.5,
+                  duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}

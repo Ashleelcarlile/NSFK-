@@ -15,6 +15,7 @@ import corner1 from '@assets/corner1-Illustrations-assets_1763570596737.png';
 import corner2 from '@assets/corner2-Illustrations-assets_1763570594330.png';
 import rockOnImage from '@assets/rock-on-grunge_1763564824906.png';
 import babyHandImage from '@assets/hand-grunge (1)_1763565023807.png';
+import tongueImage from '@assets/mouth-grunge_1763638747697.png';
 import { motion } from "framer-motion";
 
 interface Episode {
@@ -120,17 +121,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             <div className="w-full lg:w-1/2 relative">
-              {/* Floating Rock Hand - Top Left */}
+              {/* Floating Tongue - Top Left */}
               <motion.img
-                src={rockOnImage}
+                src={tongueImage}
                 alt=""
-                className="absolute -top-12 -left-8 w-32 md:w-40 opacity-40 pointer-events-none z-20 hidden sm:block"
+                className="absolute -top-12 -left-8 w-24 md:w-32 opacity-40 pointer-events-none z-20 hidden sm:block"
                 animate={{
-                  y: [0, -15, 0],
-                  rotate: [-5, 5, -5],
+                  y: [0, -12, 0],
+                  rotate: [-3, 3, -3],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 6.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}

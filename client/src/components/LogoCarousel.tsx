@@ -15,14 +15,14 @@ export default function LogoCarousel() {
   const [scrollLeft, setScrollLeft] = useState(0);
 
   const logos = [
-    { src: spotifyLogo, alt: "Spotify" },
-    { src: appleLogo, alt: "Apple Podcasts" },
-    { src: youtubeLogo, alt: "YouTube" },
-    { src: amazonLogo, alt: "Amazon Music" },
-    { src: iheartLogo, alt: "iHeartRadio" },
-    { src: podbeanLogo, alt: "Podbean" },
-    { src: playerFmLogo, alt: "Player FM" },
-    { src: boomplayLogo, alt: "Boomplay" },
+    { src: spotifyLogo, alt: "Spotify", url: "https://open.spotify.com/show/78YroXH545Wk9luVTz91X8" },
+    { src: appleLogo, alt: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/not-safe-for-kids-pilot/id1821373205" },
+    { src: youtubeLogo, alt: "YouTube", url: "https://www.youtube.com/@notsafeforkidspod" },
+    { src: amazonLogo, alt: "Amazon Music", url: "https://music.amazon.com/podcasts/364c65d9-a2ed-495a-9dcf-9603eaf08b6a" },
+    { src: iheartLogo, alt: "iHeartRadio", url: "https://iheart.com/podcast/281793884" },
+    { src: podbeanLogo, alt: "Podbean", url: "https://www.podbean.com/pw/pbblog-kvnid-13d4f1f" },
+    { src: playerFmLogo, alt: "Player FM", url: "https://player.fm/series/3672504" },
+    { src: boomplayLogo, alt: "Boomplay", url: "https://www.boomplaymusic.com/podcasts/133881" },
   ];
 
   // Create multiple sets for seamless scrolling loop
@@ -68,9 +68,13 @@ export default function LogoCarousel() {
         >
           <div className={`flex gap-8 ${!isDragging ? 'animate-scroll group-hover:[animation-play-state:paused]' : ''}`}>
             {allLogos.map((logo, index) => (
-              <div
+              <a
                 key={index}
+                href={logo.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 select-none"
+                data-testid={`link-platform-${logo.alt.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 <img
                   src={logo.src}
@@ -78,7 +82,7 @@ export default function LogoCarousel() {
                   className="h-6 md:h-8 w-auto object-contain pointer-events-none"
                   draggable="false"
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>

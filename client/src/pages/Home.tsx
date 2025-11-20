@@ -12,6 +12,8 @@ import hostsGroupPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoo
 import stripedBg from '@assets/stripe-2_1763569878970.png';
 import corner1 from '@assets/corner1-Illustrations-assets_1763570596737.png';
 import corner2 from '@assets/corner2-Illustrations-assets_1763570594330.png';
+import rockOnImage from '@assets/rock-on-grunge_1763564824906.png';
+import { motion } from "framer-motion";
 
 interface Episode {
   id: number;
@@ -96,6 +98,21 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             <div className="w-full lg:w-1/2 relative">
+              {/* Floating Rock Hand - Top Left */}
+              <motion.img
+                src={rockOnImage}
+                alt=""
+                className="absolute -top-12 -left-8 w-20 md:w-24 opacity-40 pointer-events-none z-0"
+                animate={{
+                  y: [0, -15, 0],
+                  rotate: [-5, 5, -5],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
               {/* Top Left Corner */}
               <img
                 src={corner1}

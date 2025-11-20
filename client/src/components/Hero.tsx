@@ -56,7 +56,7 @@ export default function Hero({
                   onClick={primaryCTA.onClick}
                   onMouseEnter={() => setPrimaryHover(true)}
                   onMouseLeave={() => setPrimaryHover(false)}
-                  className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto pr-14 sm:pr-[3.5rem]"
+                  className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto pr-14 sm:pr-16"
                   data-testid="button-hero-primary"
                 >
                   <span className="relative z-10">{primaryCTA.label}</span>
@@ -70,7 +70,7 @@ export default function Hero({
                   onClick={secondaryCTA.onClick}
                   onMouseEnter={() => setSecondaryHover(true)}
                   onMouseLeave={() => setSecondaryHover(false)}
-                  className="relative flex items-center justify-center gap-4 bg-transparent border-2 border-black text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto pr-14 sm:pr-[3.5rem]"
+                  className="relative flex items-center justify-center gap-4 bg-transparent border-2 border-black text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto pr-14 sm:pr-16"
                   data-testid="button-hero-secondary"
                 >
                   <span className="relative z-10">{secondaryCTA.label}</span>

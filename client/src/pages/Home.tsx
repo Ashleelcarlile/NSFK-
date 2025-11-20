@@ -16,7 +16,7 @@ import corner1 from '@assets/corner1-Illustrations-assets_1763570596737.png';
 import corner2 from '@assets/corner2-Illustrations-assets_1763570594330.png';
 import rockOnImage from '@assets/rock-on-grunge_1763564824906.png';
 import babyHandImage from '@assets/hand-grunge (1)_1763565023807.png';
-import tongueImage from '@assets/mouth-grunge_1763638747697.png';
+import tongueImage from '@assets/mouth-grunge (1)_1763639596084.png';
 import { motion } from "framer-motion";
 
 interface Episode {
@@ -103,17 +103,17 @@ export default function Home() {
       </section>
 
       <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-        {/* Floating Baby Hand with Lollipop - Right side */}
+        {/* Floating Tongue - Right side */}
         <motion.img
-          src={babyHandImage}
+          src={tongueImage}
           alt=""
-          className="absolute -top-4 md:top-0 right-8 w-40 md:w-48 lg:w-56 opacity-40 pointer-events-none z-10 hidden sm:block"
+          className="absolute -top-4 md:top-0 right-8 w-32 md:w-40 opacity-40 pointer-events-none z-10 hidden sm:block"
           animate={{
-            y: [0, 20, 0],
-            rotate: [-8, 8, -8],
+            y: [0, 12, 0],
+            rotate: [-3, 3, -3],
           }}
           transition={{
-            duration: 7.5,
+            duration: 6.5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 0.5,

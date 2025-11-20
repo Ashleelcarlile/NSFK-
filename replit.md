@@ -146,8 +146,3 @@ Preferred communication style: Simple, everyday language.
   - SMTP_PASS (email password or app-specific password)
 - Form should include: Form type (Listener/Guest/Sponsor), name, email, company (if sponsor), and message
 
-**TikTok Link:**
-- User requested TikTok link update in footer but didn't provide complete URL
-- Current footer link: https://tiktok.com/notsafeforkidspod
-- Contact page link: https://tiktok.com/@notsafeforkidspodcast
-- Awaiting user to provide final TikTok URL to ensure consistency across all pages

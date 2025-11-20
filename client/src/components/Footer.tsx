@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://tiktok.com/notsafeforkidspod" 
+                  href="https://www.tiktok.com/@notsafeforkidspodcast" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground flex items-center gap-2"

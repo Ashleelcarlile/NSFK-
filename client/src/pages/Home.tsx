@@ -232,7 +232,7 @@ export default function Home() {
               <span>YouTube</span>
             </a>
             <a
-              href="https://tiktok.com/notsafeforkidspod"
+              href="https://www.tiktok.com/@notsafeforkidspodcast"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover-elevate active-elevate-2"

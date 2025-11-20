@@ -1,10 +1,10 @@
 import { Instagram } from "lucide-react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
 import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
-import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
-import ashleePhoto from '@assets/DSCF2268_1763580792853.jpg';
-import holliePhoto from '@assets/DSCF2301_1763580875491.jpg';
-import katePhoto from '@assets/DSCF2172_1763580939921.jpg';
+import ashleePhoto from '@assets/5_1763640163648.png';
+import katePhoto from '@assets/4_1763640165993.png';
+import keishaPhoto from '@assets/3_1763640168366.png';
+import holliePhoto from '@assets/2_1763640170628.png';
 import stripedBg from '@assets/stripe-2_1763632826305.png';
 import mouthIcon from '@assets/mouth-grunge_1763633213473.png';
 import babyHandIcon from '@assets/hand-grunge (1)_1763633210367.png';
@@ -153,7 +153,7 @@ export default function Hosts() {
                     <img
                       src={host.photo}
                       alt={host.name}
-                      className="w-full h-64 md:h-full object-cover grayscale"
+                      className="w-full h-64 md:h-full object-cover"
                       data-testid={`img-host-${index + 1}`}
                     />
                   </div>

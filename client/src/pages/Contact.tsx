@@ -169,7 +169,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="Tell us what's on your mind..."
-                              className="min-h-[120px] border-2 border-black"
+                              className="min-h-[120px] border-2 border-black/30"
                               {...field}
                               data-testid="textarea-message"
                             />
@@ -235,7 +235,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="Tell us why you'd be a great guest..."
-                              className="min-h-[120px] border-2 border-black"
+                              className="min-h-[120px] border-2 border-black/30"
                               {...field}
                               data-testid="textarea-message"
                             />
@@ -315,7 +315,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="Tell us about your sponsorship interest..."
-                              className="min-h-[120px] border-2 border-black"
+                              className="min-h-[120px] border-2 border-black/30"
                               {...field}
                               data-testid="textarea-message"
                             />

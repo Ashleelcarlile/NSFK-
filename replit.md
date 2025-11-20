@@ -33,8 +33,9 @@ Preferred communication style: Simple, everyday language.
 **Application Structure:**
 - Four main pages: Home, About, Hosts, Contact
 - Shared Navigation and Footer components
-- Reusable UI components: Hero, EpisodeCard, HostCard, ContactForm, LogoCarousel
+- Reusable UI components: Hero, EpisodeCard (clickable links to YouTube), HostCard, ContactForm, LogoCarousel
 - Path aliases configured for clean imports (@/, @shared/, @assets/)
+- Mobile-responsive design with optimized layouts for 320px-414px viewports
 
 ### Backend Architecture
 
@@ -65,6 +66,8 @@ Preferred communication style: Simple, everyday language.
 **Data Models:**
 - Users: id (UUID), username (unique), password
 - Episode data (from YouTube API): id, youtubeId, title, host, publishedAt, thumbnail, duration
+  - Episode titles are automatically cleaned to remove "Not Safe For Kids Podcast" prefix/suffix
+  - Each episode card is a clickable link to the YouTube video
 - Host profiles: image, name, role, bio
 
 **Storage Strategy:**
@@ -79,6 +82,9 @@ Preferred communication style: Simple, everyday language.
   - Endpoints used: search (for latest videos), videos (for detailed metadata including duration)
   - API key required via `YOUTUBE_API_KEY` environment variable
   - Configurable max results per request (default: 4 episodes)
+  - Filters out shorts (videos under 5 minutes)
+  - Automatically cleans episode titles by removing podcast name
+  - Episodes link directly to YouTube for playback
 
 **Database (Configured but not active):**
 - Neon serverless PostgreSQL (via @neondatabase/serverless)

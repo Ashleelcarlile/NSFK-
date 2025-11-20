@@ -186,15 +186,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const regularEpisodes = videosData.items
         .filter((item: any) => !isShortVideo(item.contentDetails.duration))
         .slice(0, maxResults)
-        .map((item: any, index: number) => ({
-          id: index + 1,
-          youtubeId: item.id,
-          title: item.snippet.title,
-          host: item.snippet.channelTitle,
-          publishedAt: item.snippet.publishedAt,
-          thumbnail: item.snippet.thumbnails.high.url,
-          duration: formatDuration(item.contentDetails.duration),
-        }));
+        .map((item: any, index: number) => {
+          // Remove "Not Safe For Kids Podcast" from title
+          let cleanTitle = item.snippet.title
+            .replace(/Not Safe For Kids Podcast\s*[-–—:]\s*/gi, '')
+            .replace(/\s*[-–—:]\s*Not Safe For Kids Podcast/gi, '')
+            .trim();
+          
+          return {
+            id: index + 1,
+            youtubeId: item.id,
+            title: cleanTitle,
+            host: item.snippet.channelTitle,
+            publishedAt: item.snippet.publishedAt,
+            thumbnail: item.snippet.thumbnails.high.url,
+            duration: formatDuration(item.contentDetails.duration),
+          };
+        });
 
       // Cache the successful response both in memory and to file
       episodesCache = {

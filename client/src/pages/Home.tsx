@@ -91,7 +91,6 @@ export default function Home() {
                   host={episode.host}
                   title={episode.title}
                   duration={episode.duration}
-                  onPlay={() => console.log(`Playing episode: ${episode.title}`)}
                 />
               ))}
             </div>

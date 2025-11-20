@@ -10,11 +10,11 @@ import flowerImage from "@assets/flower-Illustrations-assets_1763569680450.png";
 export default function FloatingIcons() {
   return (
     <>
-      {/* Baby on Hand - Discovery section, left side */}
+      {/* Baby on Hand - Section 3: Discovery, left side */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-[calc(80vh+8rem)] left-4 w-28 md:w-36 opacity-15 pointer-events-none z-0"
+        className="fixed top-[calc(80vh+20rem)] left-4 w-28 md:w-36 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [-8, 8, -8],
@@ -27,11 +27,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Discovery section, right side */}
+      {/* Laptop - Section 3: Discovery, right side */}
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-[calc(80vh+10rem)] right-8 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden md:block"
+        className="fixed top-[calc(80vh+25rem)] right-8 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden md:block"
         animate={{
           y: [0, 18, 0],
           rotate: [-4, 4, -4],
@@ -44,11 +44,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Baby Hand - Mid section, left */}
+      {/* Baby Hand - Section 3/4: Between sections, center left */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-[calc(80vh+35rem)] left-12 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[calc(80vh+45rem)] left-12 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 14, 0],
           rotate: [-7, 7, -7],
@@ -61,11 +61,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Mid section, center right */}
+      {/* Laptop - Section 4: Hosts section, center right */}
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-[calc(80vh+30rem)] left-2/3 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[calc(80vh+50rem)] left-2/3 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 18, 0],
           rotate: [-4, 4, -4],
@@ -78,11 +78,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Baby Hand - Lower right */}
+      {/* Baby Hand - Section 4: Hosts section, right */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-[calc(80vh+50rem)] right-16 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[calc(80vh+60rem)] right-16 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 14, 0],
           rotate: [-7, 7, -7],
@@ -95,11 +95,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Lower left */}
+      {/* Laptop - Section 4: Hosts section, left */}
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-[calc(80vh+55rem)] left-12 w-40 md:w-48 opacity-15 pointer-events-none z-0"
+        className="fixed top-[calc(80vh+65rem)] left-12 w-40 md:w-48 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 15, 0],
           rotate: [3, -3, 3],

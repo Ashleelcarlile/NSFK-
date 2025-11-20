@@ -10,22 +10,6 @@ import flowerImage from "@assets/flower-Illustrations-assets_1763569680450.png";
 export default function FloatingIcons() {
   return (
     <>
-      {/* Rock On Hand - Very Top Right Corner */}
-      <motion.img
-        src={rockOnImage}
-        alt=""
-        className="fixed top-4 right-4 w-20 md:w-24 opacity-15 pointer-events-none z-0"
-        animate={{
-          y: [0, -20, 0],
-          rotate: [-5, 5, -5],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
       {/* Mouth - Much lower to avoid carousel */}
       <motion.img
         src={mouthImage}

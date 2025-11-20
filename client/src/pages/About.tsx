@@ -53,16 +53,16 @@ export default function About() {
               </div>
               
               {/* Decorative illustrations below text */}
-              <div className="relative mt-12 sm:mt-16">
+              <div className="relative mt-12 sm:mt-16 h-40 sm:h-48">
                 <img
                   src={pregnantBelly}
                   alt=""
-                  className="absolute -bottom-8 right-8 w-24 sm:w-32 opacity-60"
+                  className="absolute top-0 right-8 w-24 sm:w-32 opacity-60"
                 />
                 <img
                   src={cloud}
                   alt=""
-                  className="absolute -bottom-12 left-12 w-20 sm:w-28 opacity-60"
+                  className="absolute bottom-0 left-4 w-40 sm:w-52 opacity-60"
                 />
               </div>
             </div>

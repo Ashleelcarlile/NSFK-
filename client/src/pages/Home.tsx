@@ -102,7 +102,7 @@ export default function Home() {
               <motion.img
                 src={rockOnImage}
                 alt=""
-                className="absolute -top-12 -left-8 w-20 md:w-24 opacity-40 pointer-events-none z-0"
+                className="absolute -top-12 -left-8 w-32 md:w-40 opacity-40 pointer-events-none z-20"
                 animate={{
                   y: [0, -15, 0],
                   rotate: [-5, 5, -5],

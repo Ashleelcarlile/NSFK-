@@ -1,10 +1,10 @@
 import { Instagram } from "lucide-react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
 import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
-import ashleePhoto from '@assets/5_1763640163648.png';
-import katePhoto from '@assets/4_1763640165993.png';
-import keishaPhoto from '@assets/3_1763640168366.png';
-import holliePhoto from '@assets/2_1763640170628.png';
+import ashleePhoto from '@assets/4_1763640165993.png';
+import katePhoto from '@assets/3_1763640168366.png';
+import keishaPhoto from '@assets/2_1763640170628.png';
+import holliePhoto from '@assets/5_1763640163648.png';
 import stripedBg from '@assets/stripe-2_1763632826305.png';
 import mouthIcon from '@assets/mouth-grunge_1763633213473.png';
 import babyHandIcon from '@assets/hand-grunge (1)_1763633210367.png';

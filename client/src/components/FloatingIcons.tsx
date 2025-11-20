@@ -14,7 +14,7 @@ export default function FloatingIcons() {
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-[110vh] left-4 w-28 md:w-36 opacity-15 pointer-events-none z-0"
+        className="fixed top-[110vh] left-4 w-28 md:w-36 opacity-40 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [-8, 8, -8],
@@ -31,7 +31,7 @@ export default function FloatingIcons() {
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-[115vh] right-8 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden md:block"
+        className="fixed top-[115vh] right-8 w-32 md:w-40 opacity-35 pointer-events-none z-0"
         animate={{
           y: [0, 18, 0],
           rotate: [-4, 4, -4],
@@ -48,7 +48,7 @@ export default function FloatingIcons() {
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-[140vh] left-12 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[140vh] left-12 w-32 md:w-40 opacity-35 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 14, 0],
           rotate: [-7, 7, -7],
@@ -65,7 +65,7 @@ export default function FloatingIcons() {
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-[180vh] left-2/3 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[180vh] left-2/3 w-32 md:w-40 opacity-30 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 18, 0],
           rotate: [-4, 4, -4],
@@ -82,7 +82,7 @@ export default function FloatingIcons() {
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-[195vh] right-16 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[195vh] right-16 w-32 md:w-40 opacity-35 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 14, 0],
           rotate: [-7, 7, -7],
@@ -99,7 +99,7 @@ export default function FloatingIcons() {
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-[220vh] left-12 w-40 md:w-48 opacity-15 pointer-events-none z-0"
+        className="fixed top-[220vh] left-12 w-40 md:w-48 opacity-40 pointer-events-none z-0"
         animate={{
           y: [0, 15, 0],
           rotate: [3, -3, 3],

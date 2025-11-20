@@ -36,14 +36,14 @@ const hosts = [
 
 export default function Hosts() {
   return (
-    <div>
+    <div className="bg-black min-h-screen">
       <FloatingIcons />
       
       <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Meet Your Hosts</h1>
-            <p className="text-xl text-muted-foreground">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">Meet Your Hosts</h1>
+            <p className="text-xl text-white/70">
               The four mums behind Not Safe For Kids
             </p>
           </div>

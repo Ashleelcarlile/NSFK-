@@ -52,7 +52,7 @@ export default function Home() {
         mobileImageSrc={heroImageMobile}
         title=""
         primaryCTA={{
-          label: "Start Listening",
+          label: "Listen",
           onClick: () => window.open('https://podcasts.apple.com/us/podcast/not-safe-for-kids-pilot/id1821373205', '_blank'),
         }}
         secondaryCTA={{

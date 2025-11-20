@@ -59,7 +59,9 @@ export default function Home() {
         }}
       />
 
-      <LogoCarousel />
+      <div className="hidden sm:block">
+        <LogoCarousel />
+      </div>
 
       <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 z-20">
         <div className="hidden sm:block">

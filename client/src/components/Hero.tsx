@@ -50,19 +50,18 @@ export default function Hero({
             </p>
           )}
           {(primaryCTA || secondaryCTA) && (
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-md sm:max-w-none mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:max-w-none mx-auto">
               {primaryCTA && (
                 <button
                   onClick={primaryCTA.onClick}
                   onMouseEnter={() => setPrimaryHover(true)}
                   onMouseLeave={() => setPrimaryHover(false)}
-                  className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto"
+                  className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto pr-14 sm:pr-[3.5rem]"
                   data-testid="button-hero-primary"
-                  style={{ paddingRight: '3.5rem' }}
                 >
                   <span className="relative z-10">{primaryCTA.label}</span>
-                  <div className={`absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 ${primaryHover ? 'scale-110' : ''}`}>
-                    <ArrowUpRight className="h-6 w-6 text-black" />
+                  <div className={`absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 ${primaryHover ? 'scale-110' : ''}`}>
+                    <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                   </div>
                 </button>
               )}
@@ -71,13 +70,12 @@ export default function Hero({
                   onClick={secondaryCTA.onClick}
                   onMouseEnter={() => setSecondaryHover(true)}
                   onMouseLeave={() => setSecondaryHover(false)}
-                  className="relative flex items-center justify-center gap-4 bg-transparent border-2 border-black text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto"
+                  className="relative flex items-center justify-center gap-4 bg-transparent border-2 border-black text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto pr-14 sm:pr-[3.5rem]"
                   data-testid="button-hero-secondary"
-                  style={{ paddingRight: '3.5rem' }}
                 >
                   <span className="relative z-10">{secondaryCTA.label}</span>
-                  <div className={`absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black rounded-full flex items-center justify-center transition-transform duration-300 ${secondaryHover ? 'scale-110' : ''}`}>
-                    <ArrowUpRight className="h-6 w-6 text-white" />
+                  <div className={`absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-full flex items-center justify-center transition-transform duration-300 ${secondaryHover ? 'scale-110' : ''}`}>
+                    <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                 </button>
               )}

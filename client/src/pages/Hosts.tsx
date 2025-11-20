@@ -67,24 +67,24 @@ export default function Hosts() {
                     />
                   </div>
                   
-                  {/* Content on right - transparent white background */}
-                  <div className="flex-1 min-w-0 p-6 rounded-r-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)' }}>
+                  {/* Content on right - black background */}
+                  <div className="flex-1 min-w-0 p-6 rounded-r-lg bg-black">
                     <div className="flex items-start justify-between gap-2 mb-3">
-                      <h2 className="text-2xl font-bold leading-tight text-black" data-testid={`text-host-name-${index + 1}`}>
+                      <h2 className="text-2xl font-bold leading-tight text-white" data-testid={`text-host-name-${index + 1}`}>
                         {host.name}
                       </h2>
                       <a
                         href={host.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover-elevate active-elevate-2"
+                        className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 bg-white text-black rounded-full hover-elevate active-elevate-2"
                         data-testid={`link-instagram-${index + 1}`}
                         aria-label={`${host.name} Instagram`}
                       >
                         <Instagram className="w-5 h-5" />
                       </a>
                     </div>
-                    <p className="text-black leading-relaxed" data-testid={`text-bio-${index + 1}`}>
+                    <p className="text-white leading-relaxed" data-testid={`text-bio-${index + 1}`}>
                       {host.bio}
                     </p>
                   </div>

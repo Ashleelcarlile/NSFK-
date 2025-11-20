@@ -38,7 +38,7 @@ export default function Hero({
           <img
             src={mobileImageSrc}
             alt="Hero background"
-            className="w-full h-full object-cover object-[40%_center] sm:hidden"
+            className="w-full h-full object-cover object-[30%_center] sm:hidden"
           />
         )}
         <img
@@ -48,7 +48,7 @@ export default function Hero({
         />
       </div>
 
-      <div className="relative h-full flex flex-col sm:flex-row sm:items-end justify-end sm:justify-center pb-4 sm:pb-8 md:pb-12">
+      <div className="relative h-full flex items-end justify-center pb-4 sm:pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto px-4 text-center w-full">
           {title && (
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import rockOnImage from "@assets/rock-on-grunge_1763564824906.png";
 import laptopImage from "@assets/laptop-grunge_1763564826655.png";
 import babyHandImage from "@assets/hand-grunge (1)_1763565023807.png";
-import mouthImage from "@assets/mouth-grunge_1763638308397.png";
 import pregnantImage from "@assets/pregnant-Illustrations-assets_1763569667487.png";
 import heartsImage from "@assets/heart1-Illustrations-assets_1763569671668.png";
 import flowerImage from "@assets/flower-Illustrations-assets_1763569680450.png";
@@ -27,20 +26,19 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Mouth - Middle left */}
+      {/* Rock Hand - Bottom right corner */}
       <motion.img
-        src={mouthImage}
+        src={rockOnImage}
         alt=""
-        className="absolute top-64 left-12 w-24 md:w-32 opacity-35 pointer-events-none z-0 hidden lg:block"
+        className="absolute bottom-4 right-12 w-28 md:w-36 opacity-40 pointer-events-none z-0 hidden lg:block"
         animate={{
-          y: [0, 12, 0],
-          rotate: [-3, 3, -3],
+          y: [0, -15, 0],
+          rotate: [-5, 5, -5],
         }}
         transition={{
-          duration: 6.5,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2,
         }}
       />
 

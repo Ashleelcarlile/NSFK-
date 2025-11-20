@@ -80,30 +80,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* Join Our Community Section */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-gray-900">Join Our Community</h2>
-          <p className="text-base sm:text-xl text-gray-700 mb-6 sm:mb-8">
-            Subscribe to get the latest episodes and exclusive content
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md border border-gray-300 bg-white text-gray-900"
-              data-testid="input-newsletter"
-            />
-            <Button size="lg" className="bg-black text-white hover:bg-black/90" data-testid="button-subscribe-about">
-              Subscribe
-            </Button>
-          </div>
-          <p className="text-sm text-gray-600 mt-4">
-            Join 10,000+ listeners already subscribed
-          </p>
-        </div>
-      </section>
     </div>
   );
 }

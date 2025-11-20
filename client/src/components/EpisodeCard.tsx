@@ -31,12 +31,12 @@ export default function EpisodeCard({
       href={youtubeUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="block"
+      className="block h-full"
       data-testid="link-episode"
     >
-      <Card className="overflow-hidden hover-elevate bg-white/75 cursor-pointer">
-        <CardContent className="p-6">
-          <div className="flex gap-6">
+      <Card className="overflow-hidden hover-elevate bg-white/75 cursor-pointer h-full">
+        <CardContent className="p-6 h-full">
+          <div className="flex gap-6 h-full">
             <div className="flex-shrink-0">
               <img
                 src={thumbnailSrc}
@@ -45,7 +45,7 @@ export default function EpisodeCard({
               />
             </div>
             
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col min-h-[132px]">
               <div className="flex items-center mb-3">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Mic className="h-4 w-4" />

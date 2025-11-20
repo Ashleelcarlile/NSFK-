@@ -74,7 +74,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-20">
           <div className="text-center mb-6 sm:mb-8 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-              Weekly Episodes - Every Tuesday
+              Weekly Episodes & Videos
             </h2>
           </div>
           {isLoading ? (

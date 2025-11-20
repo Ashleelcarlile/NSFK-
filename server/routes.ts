@@ -187,10 +187,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         .filter((item: any) => !isShortVideo(item.contentDetails.duration))
         .slice(0, maxResults)
         .map((item: any, index: number) => {
-          // Remove "Not Safe For Kids Podcast" from title
+          // Remove "Not Safe For Kids Podcast" and related terms from title
           let cleanTitle = item.snippet.title
-            .replace(/Not Safe For Kids Podcast\s*[-–—:]\s*/gi, '')
-            .replace(/\s*[-–—:]\s*Not Safe For Kids Podcast/gi, '')
+            .replace(/Not Safe For Kids Podcast/gi, '')
+            .replace(/NSFK Podcast/gi, '')
+            .replace(/[\s-–—:|]+$/g, '') // Remove trailing separators
+            .replace(/^[\s-–—:|]+/g, '') // Remove leading separators
+            .replace(/\s{2,}/g, ' ') // Collapse multiple spaces
             .trim();
           
           return {

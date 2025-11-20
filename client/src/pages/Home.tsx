@@ -202,9 +202,9 @@ export default function Home() {
 
       <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Keep Up to Date</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Follow Us on Social Media</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Follow us on social media for the latest episodes and exclusive content
+            Never miss an episode and stay up to date with the latest in our world
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a

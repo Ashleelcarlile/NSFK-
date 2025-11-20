@@ -42,22 +42,22 @@ const hosts = [
 export default function Hosts() {
   return (
     <div className="bg-white min-h-screen">
-      <section className="pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
+      <section className="pt-20 sm:pt-32 md:pt-40 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24 md:mb-32 relative">
+          <div className="text-center mb-12 sm:mb-24 md:mb-32 relative">
             {/* Striped background behind title */}
             <img
               src={stripedBg}
               alt=""
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl opacity-90 pointer-events-none z-0"
             />
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-black relative z-10">Meet Your Hosts</h1>
-            <p className="text-xl text-black relative z-10">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 text-black relative z-10">Meet Your Hosts</h1>
+            <p className="text-base sm:text-xl text-black relative z-10">
               The four mums behind Not Safe For Kids
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative">
             {/* Floating Icons - positioned in empty spaces, go behind cards when scrolling */}
             
             {/* Baby Hand with Lollipop - Far Left */}

@@ -95,24 +95,24 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
           {/* Left side - Photo */}
           <div className="relative">
             <img
               src={contactPhoto}
               alt="Not Safe For Kids Podcast"
               className="w-full h-full object-cover rounded-lg"
-              style={{ minHeight: "600px", maxHeight: "800px" }}
+              style={{ minHeight: "300px", maxHeight: "800px" }}
               data-testid="img-contact-photo"
             />
           </div>
 
           {/* Right side - Contact Form */}
-          <div className="space-y-6">
-            <div className="p-8">
-              <h2 className="text-3xl font-bold mb-6 text-black">Get in Touch</h2>
+          <div className="space-y-4 sm:space-y-6">
+            <div className="p-4 sm:p-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">Get in Touch</h2>
 
               {/* Dropdown for form type */}
               <div className="mb-6">
@@ -181,13 +181,13 @@ export default function Contact() {
 
                     <button 
                       type="submit" 
-                      className="relative flex items-center justify-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group w-full"
+                      className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full"
                       data-testid="button-submit"
-                      style={{ paddingRight: '4.5rem' }}
+                      style={{ paddingRight: '3.5rem' }}
                     >
                       <span className="relative z-10">Send Message</span>
-                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                        <ArrowUpRight className="h-6 w-6 text-black" />
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
                   </form>
@@ -247,13 +247,13 @@ export default function Contact() {
 
                     <button 
                       type="submit" 
-                      className="relative flex items-center justify-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group w-full"
+                      className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full"
                       data-testid="button-submit"
-                      style={{ paddingRight: '4.5rem' }}
+                      style={{ paddingRight: '3.5rem' }}
                     >
                       <span className="relative z-10">Send Message</span>
-                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                        <ArrowUpRight className="h-6 w-6 text-black" />
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
                   </form>
@@ -327,13 +327,13 @@ export default function Contact() {
 
                     <button 
                       type="submit" 
-                      className="relative flex items-center justify-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group w-full"
+                      className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full"
                       data-testid="button-submit"
-                      style={{ paddingRight: '4.5rem' }}
+                      style={{ paddingRight: '3.5rem' }}
                     >
                       <span className="relative z-10">Send Message</span>
-                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                        <ArrowUpRight className="h-6 w-6 text-black" />
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
                   </form>
@@ -342,7 +342,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Email */}
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-black" />
                 <div>
@@ -359,8 +359,8 @@ export default function Contact() {
             </div>
 
             {/* Social Media Links */}
-            <div className="p-6">
-              <h3 className="text-lg font-semibold mb-4 text-black">Follow Us</h3>
+            <div className="p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-black">Follow Us</h3>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://instagram.com/notsafeforkidspod"

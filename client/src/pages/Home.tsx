@@ -61,11 +61,13 @@ export default function Home() {
 
       <LogoCarousel />
 
-      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 z-20">
-        <FloatingIcons />
+      <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 z-20">
+        <div className="hidden sm:block">
+          <FloatingIcons />
+        </div>
         <div className="max-w-7xl mx-auto relative z-20">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
               Discover the Latest Episodes<br />and Featured Highlights
             </h2>
           </div>
@@ -95,12 +97,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         {/* Floating Baby Hand with Lollipop - Right side */}
         <motion.img
           src={babyHandImage}
           alt=""
-          className="absolute -top-4 md:top-0 right-8 w-40 md:w-48 lg:w-56 opacity-40 pointer-events-none z-10"
+          className="absolute -top-4 md:top-0 right-8 w-40 md:w-48 lg:w-56 opacity-40 pointer-events-none z-10 hidden sm:block"
           animate={{
             y: [0, 20, 0],
             rotate: [-8, 8, -8],
@@ -119,7 +121,7 @@ export default function Home() {
               <motion.img
                 src={rockOnImage}
                 alt=""
-                className="absolute -top-12 -left-8 w-32 md:w-40 opacity-40 pointer-events-none z-20"
+                className="absolute -top-12 -left-8 w-32 md:w-40 opacity-40 pointer-events-none z-20 hidden sm:block"
                 animate={{
                   y: [0, -15, 0],
                   rotate: [-5, 5, -5],
@@ -168,20 +170,20 @@ export default function Home() {
                   alt=""
                   className="absolute left-0 lg:-left-8 top-1/2 -translate-y-1/2 w-48 md:w-64 h-20 md:h-24 object-cover opacity-40 -z-10 hidden sm:block"
                 />
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold relative z-10">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold relative z-10">
                   Meet Your Hosts
                 </h2>
               </div>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8">
                 Get to know the voices behind the conversations
               </p>
               <Link href="/hosts">
                 <button
                   onMouseEnter={() => setHostsButtonHover(true)}
                   onMouseLeave={() => setHostsButtonHover(false)}
-                  className="relative flex items-center gap-4 bg-black text-white px-8 py-4 rounded-full text-lg font-semibold overflow-hidden group"
+                  className="relative flex items-center justify-center gap-4 bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto"
                   data-testid="button-meet-hosts"
-                  style={{ paddingRight: '4.5rem' }}
+                  style={{ paddingRight: '3.5rem' }}
                 >
                   <span className="relative z-10">Meet the Hosts</span>
                   <div className={`absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 ${hostsButtonHover ? 'scale-110' : ''}`}>

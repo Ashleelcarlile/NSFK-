@@ -22,12 +22,12 @@ export default function Navigation() {
   return (
     <nav className="z-50" style={{ backgroundColor: '#DADF7D' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <Link href="/" className="flex items-center space-x-2">
             <motion.img
               src={logoIcon}
               alt="PodcastHub"
-              className="h-20 w-auto"
+              className="h-12 sm:h-20 w-auto"
               animate={{
                 y: [0, -8, 0],
                 rotate: [-3, 3, -3],

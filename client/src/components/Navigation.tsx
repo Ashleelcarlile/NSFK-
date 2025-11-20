@@ -20,7 +20,7 @@ export default function Navigation() {
   const isActive = (path: string) => location === path;
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur" style={{ backgroundColor: '#DADF7D' }}>
+    <nav className="z-50" style={{ backgroundColor: '#DADF7D' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-2">

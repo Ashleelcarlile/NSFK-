@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import pregnantBelly from '@assets/pregnant-Illustrations-assets-mellow-yellow_1763571381811.png';
+import pregnantBelly from '@assets/pregnant-Illustrations-assets-mellow-yellow_1763639850234.png';
 import flower from '@assets/flower-Illustrations-assets-mellow-yellow_1763571379874.png';
 import planet from '@assets/space-Illustrations-assets-mellow-yellow_1763571606086.png';
-import cloud from '@assets/cloud-Illustrations-assets-mellow-yellow_1763571614043.png';
+import cloud from '@assets/cloud-Illustrations-assets-mellow-yellow_1763639854371.png';
 import doodle from '@assets/doodle-Illustrations-assets-mellow-yellow_1763571629355.png';
 import teamPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 1_1763639707825.jpg';
 
@@ -50,6 +50,20 @@ export default function About() {
                 <p className="text-base sm:text-lg leading-relaxed">
                   Meet Keisha, Hollie, Kate & Ashlee - hosts of Not Safe For Kids, the (almost) weekly podcast about life & parenting. We chew the fat on all things kid-related and generally 'av a laff whilst we do it. Each show we catch up on the glamour of things like award-show after parties and the mundane everyday, like scooping sh*t out of your kids bath. Catch us every Tuesday wherever you get your podcasts and on Youtube!
                 </p>
+              </div>
+              
+              {/* Decorative illustrations below text */}
+              <div className="relative mt-12 sm:mt-16">
+                <img
+                  src={pregnantBelly}
+                  alt=""
+                  className="absolute -bottom-8 right-8 w-24 sm:w-32 opacity-60"
+                />
+                <img
+                  src={cloud}
+                  alt=""
+                  className="absolute -bottom-12 left-12 w-20 sm:w-28 opacity-60"
+                />
               </div>
             </div>
           </div>

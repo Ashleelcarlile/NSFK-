@@ -56,7 +56,7 @@ export default function Hero({
                   onClick={primaryCTA.onClick}
                   onMouseEnter={() => setPrimaryHover(true)}
                   onMouseLeave={() => setPrimaryHover(false)}
-                  className="relative flex items-center bg-black text-white pl-6 sm:pl-8 pr-16 sm:pr-16 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group max-w-xs sm:max-w-none mx-auto sm:mx-0 w-full sm:w-auto"
+                  className="relative flex items-center bg-black text-white pl-6 sm:pl-8 pr-16 sm:pr-16 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group max-w-[260px] sm:max-w-none mx-auto sm:mx-0 w-auto sm:w-auto"
                   data-testid="button-hero-primary"
                 >
                   <span className="relative z-10 mr-4 sm:mr-4">{primaryCTA.label}</span>
@@ -70,7 +70,7 @@ export default function Hero({
                   onClick={secondaryCTA.onClick}
                   onMouseEnter={() => setSecondaryHover(true)}
                   onMouseLeave={() => setSecondaryHover(false)}
-                  className="relative flex items-center bg-transparent border-2 border-black text-black pl-6 sm:pl-8 pr-16 sm:pr-16 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group max-w-xs sm:max-w-none mx-auto sm:mx-0 w-full sm:w-auto"
+                  className="relative flex items-center bg-transparent border-2 border-black text-black pl-6 sm:pl-8 pr-16 sm:pr-16 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group max-w-[260px] sm:max-w-none mx-auto sm:mx-0 w-auto sm:w-auto"
                   data-testid="button-hero-secondary"
                 >
                   <span className="relative z-10 mr-4 sm:mr-4">{secondaryCTA.label}</span>

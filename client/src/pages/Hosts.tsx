@@ -127,6 +127,23 @@ export default function Hosts() {
               }}
             />
 
+            {/* Baby Hand - Under Keisha (bottom left card) */}
+            <motion.img
+              src={babyHandIcon}
+              alt=""
+              className="absolute bottom-0 left-[20%] w-24 md:w-32 opacity-35 pointer-events-none z-10 hidden md:block"
+              animate={{
+                y: [0, 18, 0],
+                rotate: [6, -6, 6],
+              }}
+              transition={{
+                duration: 7.3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.8,
+              }}
+            />
+
             {hosts.map((host, index) => (
               <div
                 key={index}

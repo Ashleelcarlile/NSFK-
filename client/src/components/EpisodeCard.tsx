@@ -46,12 +46,11 @@ export default function EpisodeCard({
             </div>
             
             <div className="flex-1 flex flex-col">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center mb-3">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Mic className="h-4 w-4" />
                   <span data-testid="text-episode-number">{episodeNumber}</span>
                 </div>
-                <span className="text-sm font-medium" data-testid="text-episode-host">{host}</span>
               </div>
               
               <h3 className="text-xl font-bold mb-4 line-clamp-2" data-testid="text-episode-title">

@@ -5,7 +5,7 @@ import flower from '@assets/flower-Illustrations-assets-mellow-yellow_1763571379
 import planet from '@assets/space-Illustrations-assets-mellow-yellow_1763571606086.png';
 import cloud from '@assets/cloud-Illustrations-assets-mellow-yellow_1763571614043.png';
 import doodle from '@assets/doodle-Illustrations-assets-mellow-yellow_1763571629355.png';
-import teamPhoto from '@assets/Screenshot 2025-11-19 at 16.47.26_1763571625646.png';
+import teamPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 1_1763639707825.jpg';
 
 export default function About() {
   return (
@@ -49,10 +49,7 @@ export default function About() {
               <div className="space-y-4 sm:space-y-6 text-gray-900">
                 <h2 className="text-xl sm:text-2xl font-bold">TL;DR</h2>
                 <p className="text-base sm:text-lg leading-relaxed">
-                  Not Safe For Kids is a podcast where four mums navigate the wild, wonderful, and sometimes chaotic world of parenthood. From the highs of milestones to the lows of sleepless nights, we're here to share the real, unfiltered stories that happen behind closed doors.
-                </p>
-                <p className="text-base sm:text-lg leading-relaxed">
-                  Join us as we laugh, cry, and commiserate over the adventures of raising kids in a world that's constantly evolving. Whether you're a parent, planning to be one, or just curious about the madness, this podcast is your safe space to embrace the messy, beautiful journey of motherhood.
+                  Meet Keisha, Hollie, Kate & Ashlee - hosts of Not Safe For Kids, the (almost) weekly podcast about life & parenting. We chew the fat on all things kid-related and generally 'av a laff whilst we do it. Each show we catch up on the glamour of things like award-show after parties and the mundane everyday, like scooping sh*t out of your kids bath. Catch us every Tuesday wherever you get your podcasts and on Youtube!
                 </p>
               </div>
             </div>

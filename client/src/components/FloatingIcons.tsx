@@ -61,20 +61,20 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Middle right */}
+      {/* Rock Hand - Middle right */}
       <motion.img
-        src={laptopImage}
+        src={rockOnImage}
         alt=""
-        className="absolute top-96 right-12 w-32 md:w-40 opacity-30 pointer-events-none z-0 hidden lg:block"
+        className="absolute top-96 right-12 w-32 md:w-40 opacity-35 pointer-events-none z-0 hidden lg:block"
         animate={{
-          y: [0, 18, 0],
-          rotate: [-4, 4, -4],
+          y: [0, 15, 0],
+          rotate: [-5, 5, -5],
         }}
         transition={{
-          duration: 7.2,
+          duration: 6.8,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 3,
+          delay: 2,
         }}
       />
 
@@ -95,22 +95,6 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Lower right */}
-      <motion.img
-        src={laptopImage}
-        alt=""
-        className="absolute bottom-16 right-16 w-40 md:w-48 opacity-40 pointer-events-none z-0"
-        animate={{
-          y: [0, 15, 0],
-          rotate: [3, -3, 3],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-      />
     </>
   );
 }

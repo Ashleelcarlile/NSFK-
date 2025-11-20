@@ -36,7 +36,7 @@ export default function Hero({
       {/* Mobile Layout - Stacked */}
       {mobileImageSrc && (
         <div className="sm:hidden flex flex-col">
-          <div className="relative h-[380px]">
+          <div className="relative h-[320px]">
             <img
               src={mobileImageSrc}
               alt="Hero background"

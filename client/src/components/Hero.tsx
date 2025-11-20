@@ -24,8 +24,8 @@ export default function Hero({
   const [secondaryHover, setSecondaryHover] = useState(false);
 
   const getResponsiveHeightClass = () => {
-    if (height === "80vh") return "h-[480px] sm:h-[80vh]";
-    if (height === "100vh") return "h-[480px] sm:h-[100vh]";
+    if (height === "80vh") return "sm:h-[80vh]";
+    if (height === "100vh") return "sm:h-[100vh]";
     return "";
   };
   
@@ -35,8 +35,8 @@ export default function Hero({
     <div className={`relative w-full -mt-16 pt-16 ${heightClass}`} style={{ height: heightClass ? undefined : height }}>
       {/* Mobile Layout - Stacked */}
       {mobileImageSrc && (
-        <div className="sm:hidden flex flex-col h-full">
-          <div className="flex-1 relative">
+        <div className="sm:hidden flex flex-col">
+          <div className="relative h-[380px]">
             <img
               src={mobileImageSrc}
               alt="Hero background"
@@ -44,7 +44,7 @@ export default function Hero({
               style={{ objectPosition: '20% center' }}
             />
           </div>
-          <div className="bg-[#DADF7D] px-4 py-8">
+          <div className="bg-[#DADF7D] px-4 py-6 pb-8">
             {title && (
               <h1 className="text-3xl font-bold text-black mb-4 text-center">
                 {title}

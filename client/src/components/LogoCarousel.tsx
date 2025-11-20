@@ -27,8 +27,8 @@ export default function LogoCarousel() {
     { src: listenNotesLogo, alt: "Listen Notes" },
   ];
 
-  // Create just two sets for seamless scrolling loop
-  const allLogos = [...logos, ...logos];
+  // Create multiple sets for seamless scrolling loop
+  const allLogos = [...logos, ...logos, ...logos, ...logos];
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return;

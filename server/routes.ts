@@ -137,8 +137,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.json({ episodes: FALLBACK_EPISODES });
       }
 
-      // Fetch videos sorted by view count
-      const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=viewCount&type=video&maxResults=50`;
+      // Fetch latest 50 videos (to ensure we get 4 full episodes after filtering)
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=50`;
       const searchResponse = await fetch(searchUrl);
       const searchData = await searchResponse.json();
 
@@ -165,8 +165,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.json({ episodes: FALLBACK_EPISODES });
       }
 
-      // Fetch detailed video information including duration and statistics
-      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=snippet,contentDetails,statistics`;
+      // Fetch detailed video information including duration
+      const videosUrl = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=snippet,contentDetails`;
       const videosResponse = await fetch(videosUrl);
       const videosData = await videosResponse.json();
 
@@ -182,27 +182,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.json({ episodes: FALLBACK_EPISODES });
       }
 
-      // Separate full episodes and shorts
-      const allVideos = videosData.items.map((item: any) => ({
-        ...item,
-        isShort: isShortVideo(item.contentDetails.duration),
-        viewCount: parseInt(item.statistics.viewCount || '0')
-      }));
-
-      // Get top 2 full episodes by views
-      const fullEpisodes = allVideos
-        .filter((item: any) => !item.isShort)
-        .sort((a: any, b: any) => b.viewCount - a.viewCount)
-        .slice(0, 2);
-
-      // Get top 2 shorts by views
-      const shorts = allVideos
-        .filter((item: any) => item.isShort)
-        .sort((a: any, b: any) => b.viewCount - a.viewCount)
-        .slice(0, 2);
-
-      // Combine them - full episodes first, then shorts
-      const combinedVideos = [...fullEpisodes, ...shorts]
+      // Filter out shorts and keep only full episodes
+      const fullEpisodes = videosData.items
+        .filter((item: any) => !isShortVideo(item.contentDetails.duration))
+        .slice(0, maxResults)
         .map((item: any, index: number) => {
           // Remove "Not Safe For Kids Podcast" and related terms from title
           let cleanTitle = item.snippet.title
@@ -226,13 +209,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Cache the successful response both in memory and to file
       episodesCache = {
-        data: combinedVideos,
+        data: fullEpisodes,
         timestamp: now,
       };
       saveCache(episodesCache);
-      console.log("Fetched and cached new YouTube episodes (2 full episodes + 2 shorts by views)");
+      console.log("Fetched and cached new YouTube episodes (full episodes only, by date)");
 
-      res.json({ episodes: combinedVideos });
+      res.json({ episodes: fullEpisodes });
     } catch (error) {
       console.error("Error fetching YouTube episodes:", error);
       // If any error occurs, return cached data if available

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import pregnantBelly from '@assets/pregnant-Illustrations-assets-mellow-yellow_1763639850234.png';
 import flower from '@assets/flower-Illustrations-assets-mellow-yellow_1763571379874.png';
@@ -8,6 +9,10 @@ import doodle from '@assets/doodle-Illustrations-assets-mellow-yellow_1763571629
 import teamPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 1_1763639707825.jpg';
 
 export default function About() {
+  useEffect(() => {
+    document.title = "About Us | Not Safe For Kids Podcast";
+  }, []);
+  
   return (
     <div className="bg-white relative overflow-hidden min-h-screen">
       <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative z-10">

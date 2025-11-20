@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -38,6 +38,10 @@ type SponsorFormData = z.infer<typeof sponsorFormSchema>;
 export default function Contact() {
   const [formType, setFormType] = useState<"listeners" | "guests" | "sponsors">("listeners");
   const { toast } = useToast();
+
+  useEffect(() => {
+    document.title = "Contact Us | Not Safe For Kids Podcast";
+  }, []);
 
   const listenerForm = useForm<ListenerFormData>({
     resolver: zodResolver(listenerFormSchema),

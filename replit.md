@@ -113,3 +113,41 @@ Preferred communication style: Simple, everyday language.
 - `DATABASE_URL`: PostgreSQL connection string (configured for future use)
 - `YOUTUBE_API_KEY`: Required for fetching YouTube episode data
 - `NODE_ENV`: Environment mode (development/production)
+
+## SEO & Metadata
+
+**Implemented (November 2025):**
+- Primary meta tags: Page title, description, keywords, author
+- Open Graph tags for Facebook/LinkedIn social sharing
+- Twitter Card tags for Twitter sharing
+- Dynamic page titles for each route:
+  - Home: "Not Safe For Kids Podcast | Four Mums. No Filter."
+  - About: "About Us | Not Safe For Kids Podcast"
+  - Hosts: "Our Hosts | Not Safe For Kids Podcast"
+  - Contact: "Contact Us | Not Safe For Kids Podcast"
+
+**Future Enhancements:**
+- Add og:image and twitter:image meta tags (requires social share image)
+- Implement JSON-LD structured data for Podcast schema
+- Add episode-specific metadata if individual episode pages are created
+- Consider adding transcripts for episodes to improve SEO
+
+## Pending Tasks
+
+**Contact Form Email Integration:**
+- Status: Form submissions currently only show toast notifications and log to console
+- Required: Email functionality to send form submissions to hello@nsfkpod.com
+- User dismissed Resend and SendGrid integrations
+- User preference: SMTP email integration (Option 4)
+- Needed from user:
+  - SMTP_HOST (mail server address)
+  - SMTP_PORT (usually 587 or 465)
+  - SMTP_USER (hello@nsfkpod.com)
+  - SMTP_PASS (email password or app-specific password)
+- Form should include: Form type (Listener/Guest/Sponsor), name, email, company (if sponsor), and message
+
+**TikTok Link:**
+- User requested TikTok link update in footer but didn't provide complete URL
+- Current footer link: https://tiktok.com/notsafeforkidspod
+- Contact page link: https://tiktok.com/@notsafeforkidspodcast
+- Awaiting user to provide final TikTok URL to ensure consistency across all pages

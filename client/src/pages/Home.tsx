@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
 import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
@@ -33,6 +33,10 @@ const YOUTUBE_CHANNEL_HANDLE = "notsafeforkidspod";
 
 export default function Home() {
   const [hostsButtonHover, setHostsButtonHover] = useState(false);
+  
+  useEffect(() => {
+    document.title = "Not Safe For Kids Podcast | Four Mums. No Filter.";
+  }, []);
   
   const { data, isLoading, error } = useQuery<{ episodes: Episode[] }>({
     queryKey: ['/api/youtube/latest-episodes', YOUTUBE_CHANNEL_HANDLE],

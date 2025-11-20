@@ -1,4 +1,5 @@
 import { Instagram } from "lucide-react";
+import { useEffect } from "react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
 import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
 import ashleePhoto from '@assets/4_1763640165993.png';
@@ -40,6 +41,10 @@ const hosts = [
 ];
 
 export default function Hosts() {
+  useEffect(() => {
+    document.title = "Our Hosts | Not Safe For Kids Podcast";
+  }, []);
+  
   return (
     <div className="bg-white min-h-screen">
       <section className="pt-20 sm:pt-32 md:pt-40 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">

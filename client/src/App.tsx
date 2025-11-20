@@ -1,4 +1,5 @@
 import { Switch, Route } from "wouter";
+import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -10,8 +11,13 @@ import About from "@/pages/About";
 import Hosts from "@/pages/Hosts";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
+import { initGA } from "./lib/analytics";
+import { useAnalytics } from "./hooks/use-analytics";
 
 function Router() {
+  // Track page views when routes change - from blueprint:javascript_google_analytics
+  useAnalytics();
+  
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -24,6 +30,15 @@ function Router() {
 }
 
 function App() {
+  // Initialize Google Analytics when app loads - from blueprint:javascript_google_analytics
+  useEffect(() => {
+    if (!import.meta.env.VITE_GA_MEASUREMENT_ID) {
+      console.warn('Missing required Google Analytics key: VITE_GA_MEASUREMENT_ID');
+    } else {
+      initGA();
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

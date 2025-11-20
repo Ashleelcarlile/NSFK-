@@ -46,7 +46,7 @@ export default function About() {
               {/* Short thick vertical line */}
               <div className="hidden lg:block absolute -left-8 top-0 w-1 h-32 bg-gray-800"></div>
               
-              <div className="space-y-4 sm:space-y-6 text-gray-900 bg-[#DADF7D] p-6 sm:p-8 rounded-lg">
+              <div className="space-y-4 sm:space-y-6 text-gray-900">
                 <h2 className="text-xl sm:text-2xl font-bold">TL;DR</h2>
                 <p className="text-base sm:text-lg leading-relaxed">
                   Not Safe For Kids is a podcast where four mums navigate the wild, wonderful, and sometimes chaotic world of parenthood. From the highs of milestones to the lows of sleepless nights, we're here to share the real, unfiltered stories that happen behind closed doors.

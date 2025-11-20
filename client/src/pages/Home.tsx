@@ -91,7 +91,7 @@ export default function Home() {
                 <EpisodeCard
                   key={episode.id}
                   youtubeId={episode.youtubeId}
-                  episodeNumber={`Episode ${String(episodes.length - index).padStart(2, '0')}`}
+                  episodeNumber={`Episode ${String(index + 1).padStart(2, '0')}`}
                   host={episode.host}
                   title={episode.title}
                   duration={episode.duration}

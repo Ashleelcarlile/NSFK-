@@ -13,6 +13,7 @@ import stripedBg from '@assets/stripe-2_1763569878970.png';
 import corner1 from '@assets/corner1-Illustrations-assets_1763570596737.png';
 import corner2 from '@assets/corner2-Illustrations-assets_1763570594330.png';
 import rockOnImage from '@assets/rock-on-grunge_1763564824906.png';
+import babyHandImage from '@assets/hand-grunge (1)_1763565023807.png';
 import { motion } from "framer-motion";
 
 interface Episode {
@@ -60,9 +61,9 @@ export default function Home() {
 
       <LogoCarousel />
 
-      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 z-20">
         <FloatingIcons />
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto relative z-20">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Discover the Latest Episodes<br />and Featured Highlights
@@ -94,7 +95,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        {/* Floating Baby Hand with Lollipop - Right side */}
+        <motion.img
+          src={babyHandImage}
+          alt=""
+          className="absolute top-32 right-8 w-40 md:w-48 lg:w-56 opacity-40 pointer-events-none z-10"
+          animate={{
+            y: [0, 20, 0],
+            rotate: [-8, 8, -8],
+          }}
+          transition={{
+            duration: 7.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        />
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             <div className="w-full lg:w-1/2 relative">

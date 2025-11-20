@@ -36,12 +36,12 @@ export default function Hero({
       {/* Mobile Layout - Stacked */}
       {mobileImageSrc && (
         <div className="sm:hidden flex flex-col">
-          <div className="relative h-[320px]">
+          <div className="relative h-[450px]">
             <img
               src={mobileImageSrc}
               alt="Hero background"
               className="w-full h-full object-cover"
-              style={{ objectPosition: '20% 20%' }}
+              style={{ objectPosition: 'center top' }}
             />
           </div>
           <div className="bg-[#DADF7D] px-4 py-6 pb-8">

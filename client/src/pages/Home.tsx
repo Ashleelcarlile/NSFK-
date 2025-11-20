@@ -100,7 +100,7 @@ export default function Home() {
         <motion.img
           src={babyHandImage}
           alt=""
-          className="absolute top-8 md:top-12 right-8 w-40 md:w-48 lg:w-56 opacity-40 pointer-events-none z-10"
+          className="absolute -top-4 md:top-0 right-8 w-40 md:w-48 lg:w-56 opacity-40 pointer-events-none z-10"
           animate={{
             y: [0, 20, 0],
             rotate: [-8, 8, -8],

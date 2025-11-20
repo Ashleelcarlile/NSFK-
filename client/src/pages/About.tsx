@@ -21,12 +21,12 @@ export default function About() {
                 alt=""
                 className="absolute -top-16 -left-16 w-48 h-48 opacity-40 z-0 hidden sm:block"
               />
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight text-gray-900 relative z-10">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight text-gray-900 relative z-10 mb-8 sm:mb-0">
                 About Us
               </h1>
               
               {/* Photo below About Us, offset to the left */}
-              <div className="mt-8 sm:mt-12 sm:-ml-8 relative">
+              <div className="mt-0 sm:mt-12 sm:-ml-8 relative">
                 {/* Yellow portrait box behind photo */}
                 <div 
                   className="absolute -top-4 left-4 sm:left-8 right-8 sm:right-16 bottom-0 bg-[#DADF7D] rounded-lg -z-10"
@@ -42,11 +42,11 @@ export default function About() {
             </div>
 
             {/* Right Column - About Text with line */}
-            <div className="relative">
+            <div className="relative mt-12 lg:mt-0">
               {/* Short thick vertical line */}
               <div className="hidden lg:block absolute -left-8 top-0 w-1 h-32 bg-gray-800"></div>
               
-              <div className="space-y-4 sm:space-y-6 text-gray-900">
+              <div className="space-y-4 sm:space-y-6 text-gray-900 bg-[#DADF7D] p-6 sm:p-8 rounded-lg">
                 <h2 className="text-xl sm:text-2xl font-bold">TL;DR</h2>
                 <p className="text-base sm:text-lg leading-relaxed">
                   Not Safe For Kids is a podcast where four mums navigate the wild, wonderful, and sometimes chaotic world of parenthood. From the highs of milestones to the lows of sleepless nights, we're here to share the real, unfiltered stories that happen behind closed doors.

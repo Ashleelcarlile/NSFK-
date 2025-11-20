@@ -191,7 +191,8 @@ export default function Contact() {
                         <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
-                    <p className="text-sm text-black mt-4">
+                    <p className="text-sm text-black mt-2 flex items-center gap-2">
+                      <Mail className="h-4 w-4" />
                       Contact us directly at{' '}
                       <a href="mailto:hello@nsfkpod.com" className="underline hover:text-gray-700">
                         hello@nsfkpod.com
@@ -263,7 +264,8 @@ export default function Contact() {
                         <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
-                    <p className="text-sm text-black mt-4">
+                    <p className="text-sm text-black mt-2 flex items-center gap-2">
+                      <Mail className="h-4 w-4" />
                       Contact us directly at{' '}
                       <a href="mailto:hello@nsfkpod.com" className="underline hover:text-gray-700">
                         hello@nsfkpod.com
@@ -349,7 +351,8 @@ export default function Contact() {
                         <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                       </div>
                     </button>
-                    <p className="text-sm text-black mt-4">
+                    <p className="text-sm text-black mt-2 flex items-center gap-2">
+                      <Mail className="h-4 w-4" />
                       Contact us directly at{' '}
                       <a href="mailto:hello@nsfkpod.com" className="underline hover:text-gray-700">
                         hello@nsfkpod.com

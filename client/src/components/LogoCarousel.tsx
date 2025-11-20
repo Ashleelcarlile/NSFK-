@@ -7,7 +7,6 @@ import iheartLogo from '@assets/iheartradio.png';
 import podbeanLogo from '@assets/podbean.png';
 import playerFmLogo from '@assets/player-fm.png';
 import boomplayLogo from '@assets/boomplay.png';
-import listenNotesLogo from '@assets/listen-notes.png';
 
 export default function LogoCarousel() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -24,7 +23,6 @@ export default function LogoCarousel() {
     { src: podbeanLogo, alt: "Podbean" },
     { src: playerFmLogo, alt: "Player FM" },
     { src: boomplayLogo, alt: "Boomplay" },
-    { src: listenNotesLogo, alt: "Listen Notes" },
   ];
 
   // Create multiple sets for seamless scrolling loop
@@ -57,7 +55,7 @@ export default function LogoCarousel() {
     <section className="pt-12 md:pt-16 lg:pt-20 pb-4 md:pb-6 px-4 mb-8 md:mb-12 lg:mb-16">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-4 md:mb-6 uppercase tracking-wider">
-          Listen
+          Listen Now
         </h3>
         <div 
           ref={scrollContainerRef}

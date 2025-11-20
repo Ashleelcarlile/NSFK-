@@ -58,13 +58,13 @@ export default function Hosts() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-            {/* Floating Icons - visible in front but go behind cards when scrolling */}
+            {/* Floating Icons - positioned in empty spaces, go behind cards when scrolling */}
             
-            {/* Baby Hand with Lollipop - Top Left */}
+            {/* Baby Hand with Lollipop - Far Left */}
             <motion.img
               src={babyHandIcon}
               alt=""
-              className="absolute top-12 left-8 w-32 md:w-40 opacity-35 pointer-events-none z-10"
+              className="absolute -top-8 -left-12 w-28 md:w-36 opacity-30 pointer-events-none z-10 hidden lg:block"
               animate={{
                 y: [0, 20, 0],
                 rotate: [-8, 8, -8],
@@ -76,11 +76,11 @@ export default function Hosts() {
               }}
             />
 
-            {/* Mouth Icon - Top Right */}
+            {/* Mouth Icon - Far Right */}
             <motion.img
               src={mouthIcon}
               alt=""
-              className="absolute top-20 right-8 w-24 md:w-32 opacity-40 pointer-events-none z-10"
+              className="absolute top-32 -right-8 w-20 md:w-28 opacity-35 pointer-events-none z-10 hidden lg:block"
               animate={{
                 y: [0, 15, 0],
                 rotate: [-5, 5, -5],
@@ -93,11 +93,11 @@ export default function Hosts() {
               }}
             />
 
-            {/* Rock Hand - Middle Left */}
+            {/* Rock Hand - Center between cards */}
             <motion.img
               src={rockHandIcon}
               alt=""
-              className="absolute top-1/2 left-12 w-28 md:w-36 opacity-35 pointer-events-none z-10 hidden lg:block"
+              className="absolute top-[45%] left-1/2 -translate-x-1/2 w-24 md:w-32 opacity-25 pointer-events-none z-10 hidden xl:block"
               animate={{
                 y: [0, 18, 0],
                 rotate: [-6, 6, -6],
@@ -110,11 +110,11 @@ export default function Hosts() {
               }}
             />
 
-            {/* Laptop - Bottom Right */}
+            {/* Laptop - Far Bottom Right */}
             <motion.img
               src={laptopIcon}
               alt=""
-              className="absolute bottom-20 right-16 w-36 md:w-44 opacity-40 pointer-events-none z-10"
+              className="absolute -bottom-12 -right-12 w-32 md:w-40 opacity-30 pointer-events-none z-10 hidden lg:block"
               animate={{
                 y: [0, 16, 0],
                 rotate: [4, -4, 4],

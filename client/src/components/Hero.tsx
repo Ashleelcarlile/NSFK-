@@ -3,6 +3,7 @@ import { useState } from "react";
 
 interface HeroProps {
   imageSrc: string;
+  mobileImageSrc?: string;
   title: string;
   subtitle?: string;
   primaryCTA?: { label: string; onClick: () => void };
@@ -12,6 +13,7 @@ interface HeroProps {
 
 export default function Hero({
   imageSrc,
+  mobileImageSrc,
   title,
   subtitle,
   primaryCTA,
@@ -32,10 +34,17 @@ export default function Hero({
   return (
     <div className={`relative w-full -mt-16 pt-16 ${heightClass}`} style={{ height: heightClass ? undefined : height }}>
       <div className="absolute inset-0">
+        {mobileImageSrc && (
+          <img
+            src={mobileImageSrc}
+            alt="Hero background"
+            className="w-full h-full object-cover sm:hidden"
+          />
+        )}
         <img
           src={imageSrc}
           alt="Hero background"
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${mobileImageSrc ? 'hidden sm:block' : ''}`}
         />
       </div>
 

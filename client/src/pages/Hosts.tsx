@@ -144,16 +144,16 @@ export default function Hosts() {
             {hosts.map((host, index) => (
               <div
                 key={index}
-                className={`rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all relative z-20 md:h-80 ${index % 2 === 1 ? 'md:mt-32' : ''}`}
+                className={`rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all relative z-20 ${index % 2 === 1 ? 'md:mt-32' : ''}`}
                 data-testid={`card-host-${index + 1}`}
               >
-                <div className="flex flex-col md:flex-row h-full">
+                <div className="flex flex-col md:flex-row md:min-h-80">
                   {/* Photo on top (mobile) / left (desktop) */}
-                  <div className="flex-shrink-0 bg-white/75 rounded-t-lg md:rounded-l-lg md:rounded-tr-none overflow-hidden">
+                  <div className="flex-shrink-0 bg-white/75 rounded-t-lg md:rounded-l-lg md:rounded-tr-none overflow-hidden md:w-80">
                     <img
                       src={host.photo}
                       alt={host.name}
-                      className="w-full md:w-80 h-64 md:h-80 object-cover grayscale"
+                      className="w-full h-64 md:h-full object-cover grayscale"
                       data-testid={`img-host-${index + 1}`}
                     />
                   </div>
@@ -175,7 +175,7 @@ export default function Hosts() {
                         <Instagram className="w-5 h-5" />
                       </a>
                     </div>
-                    <p className="text-black leading-relaxed flex-1 overflow-y-auto" data-testid={`text-bio-${index + 1}`}>
+                    <p className="text-black leading-relaxed" data-testid={`text-bio-${index + 1}`}>
                       {host.bio}
                     </p>
                   </div>

@@ -41,7 +41,7 @@ export default function Hero({
               src={mobileImageSrc}
               alt="Hero background"
               className="w-full h-full object-cover"
-              style={{ objectPosition: '20% center' }}
+              style={{ objectPosition: '20% 20%' }}
             />
           </div>
           <div className="bg-[#DADF7D] px-4 py-6 pb-8">

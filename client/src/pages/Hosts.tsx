@@ -147,23 +147,22 @@ export default function Hosts() {
             {hosts.map((host, index) => (
               <div
                 key={index}
-                className="rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all relative z-20 h-80"
-                style={{ marginTop: index % 2 === 1 ? '8rem' : '0' }}
+                className={`rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all relative z-20 md:h-80 ${index % 2 === 1 ? 'md:mt-32' : ''}`}
                 data-testid={`card-host-${index + 1}`}
               >
-                <div className="flex h-full">
-                  {/* Photo on left - bleeds to edge */}
-                  <div className="flex-shrink-0 bg-white/75 rounded-l-lg overflow-hidden">
+                <div className="flex flex-col md:flex-row h-full">
+                  {/* Photo on top (mobile) / left (desktop) */}
+                  <div className="flex-shrink-0 bg-white/75 rounded-t-lg md:rounded-l-lg md:rounded-tr-none overflow-hidden">
                     <img
                       src={host.photo}
                       alt={host.name}
-                      className="w-80 h-80 object-cover"
+                      className="w-full md:w-80 h-64 md:h-80 object-cover"
                       data-testid={`img-host-${index + 1}`}
                     />
                   </div>
                   
-                  {/* Content on right - white background */}
-                  <div className="flex-1 min-w-0 p-6 rounded-r-lg bg-white flex flex-col">
+                  {/* Content below (mobile) / right (desktop) */}
+                  <div className="flex-1 min-w-0 p-6 rounded-b-lg md:rounded-r-lg md:rounded-bl-none bg-white flex flex-col">
                     <div className="flex items-start justify-between gap-2 mb-3">
                       <h2 className="text-2xl font-bold leading-tight text-black" data-testid={`text-host-name-${index + 1}`}>
                         {host.name}

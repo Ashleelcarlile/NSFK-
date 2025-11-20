@@ -33,12 +33,12 @@ export default function Hero({
   
   return (
     <div className={`relative w-full -mt-16 pt-16 ${heightClass}`} style={{ height: heightClass ? undefined : height }}>
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 sm:inset-0">
         {mobileImageSrc && (
           <img
             src={mobileImageSrc}
             alt="Hero background"
-            className="w-full h-full object-cover sm:hidden"
+            className="w-full h-full object-cover object-[40%_center] sm:hidden"
           />
         )}
         <img
@@ -48,18 +48,20 @@ export default function Hero({
         />
       </div>
 
-      <div className="relative h-full flex items-end justify-center pb-4 sm:pb-8 md:pb-12">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
-            {title}
-          </h1>
+      <div className="relative h-full flex flex-col sm:flex-row sm:items-end justify-end sm:justify-center pb-4 sm:pb-8 md:pb-12">
+        <div className="max-w-4xl mx-auto px-4 text-center w-full">
+          {title && (
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
+              {title}
+            </h1>
+          )}
           {subtitle && (
             <p className="text-base sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto">
               {subtitle}
             </p>
           )}
           {(primaryCTA || secondaryCTA) && (
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:max-w-none mx-auto mt-16 sm:mt-0">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full sm:max-w-none mx-auto mt-0 sm:mt-0">
               {primaryCTA && (
                 <button
                   onClick={primaryCTA.onClick}

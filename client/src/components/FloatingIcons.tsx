@@ -10,23 +10,6 @@ import flowerImage from "@assets/flower-Illustrations-assets_1763569680450.png";
 export default function FloatingIcons() {
   return (
     <>
-      {/* Mouth - Much lower to avoid carousel */}
-      <motion.img
-        src={mouthImage}
-        alt=""
-        className="fixed top-3/4 left-1/4 w-24 md:w-32 opacity-12 pointer-events-none z-0 hidden md:block"
-        animate={{
-          y: [0, -12, 0],
-          rotate: [-6, 6, -6],
-        }}
-        transition={{
-          duration: 6.8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2.5,
-        }}
-      />
-
       {/* Baby on Hand - Middle Left (below carousel area) */}
       <motion.img
         src={babyHandImage}
@@ -61,40 +44,6 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Mouth with Piercing - Lower Middle Right (away from top) */}
-      <motion.img
-        src={mouthImage}
-        alt=""
-        className="fixed top-3/5 right-8 w-24 md:w-32 opacity-15 pointer-events-none z-0"
-        animate={{
-          y: [0, -18, 0],
-          rotate: [5, -5, 5],
-        }}
-        transition={{
-          duration: 6.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.5,
-        }}
-      />
-
-      {/* Rock On - Lower Middle Left */}
-      <motion.img
-        src={rockOnImage}
-        alt=""
-        className="fixed bottom-1/3 left-1/4 w-28 md:w-36 opacity-12 pointer-events-none z-0 hidden md:block"
-        animate={{
-          y: [0, -16, 0],
-          rotate: [8, -8, 8],
-        }}
-        transition={{
-          duration: 7.8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      />
-
       {/* Baby Hand - Lower Right */}
       <motion.img
         src={babyHandImage}
@@ -126,23 +75,6 @@ export default function FloatingIcons() {
           repeat: Infinity,
           ease: "easeInOut",
           delay: 1,
-        }}
-      />
-
-      {/* Rock On Hand - Bottom Right */}
-      <motion.img
-        src={rockOnImage}
-        alt=""
-        className="fixed bottom-32 right-20 w-24 md:w-32 opacity-10 pointer-events-none z-0 hidden lg:block"
-        animate={{
-          y: [0, -15, 0],
-          rotate: [10, -10, 10],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
         }}
       />
     </>

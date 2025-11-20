@@ -115,7 +115,7 @@ export default function Hero({
                     onClick={primaryCTA.onClick}
                     onMouseEnter={() => setPrimaryHover(true)}
                     onMouseLeave={() => setPrimaryHover(false)}
-                    className="relative flex items-center bg-black text-white pl-8 pr-16 py-4 rounded-full text-lg font-semibold overflow-hidden group w-auto"
+                    className="relative flex items-center bg-black text-white pl-8 pr-16 py-4 rounded-full text-lg font-semibold overflow-hidden group min-w-[240px]"
                     data-testid="button-hero-primary"
                   >
                     <span className="relative z-10 mr-4">{primaryCTA.label}</span>
@@ -129,7 +129,7 @@ export default function Hero({
                     onClick={secondaryCTA.onClick}
                     onMouseEnter={() => setSecondaryHover(true)}
                     onMouseLeave={() => setSecondaryHover(false)}
-                    className="relative flex items-center bg-transparent border-2 border-black text-black pl-8 pr-16 py-4 rounded-full text-lg font-semibold overflow-hidden group w-auto"
+                    className="relative flex items-center bg-transparent border-2 border-black text-black pl-8 pr-16 py-4 rounded-full text-lg font-semibold overflow-hidden group min-w-[240px]"
                     data-testid="button-hero-secondary"
                   >
                     <span className="relative z-10 mr-4">{secondaryCTA.label}</span>

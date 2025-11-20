@@ -348,11 +348,11 @@ export default function Contact() {
                 <div>
                   <p className="text-sm font-semibold text-black">Contact us at</p>
                   <a
-                    href="mailto:NSFK@gmail.com"
+                    href="mailto:hello@nsfkpod.com"
                     className="text-black hover:underline"
                     data-testid="link-email"
                   >
-                    NSFK@gmail.com
+                    hello@nsfkpod.com
                   </a>
                 </div>
               </div>

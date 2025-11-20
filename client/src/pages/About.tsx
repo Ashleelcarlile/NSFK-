@@ -42,7 +42,7 @@ export default function About() {
             </div>
 
             {/* Right Column - About Text with line */}
-            <div className="relative mt-12 lg:mt-0">
+            <div className="relative mt-20 lg:mt-0">
               {/* Short thick vertical line */}
               <div className="hidden lg:block absolute -left-8 top-0 w-1 h-32 bg-gray-800"></div>
               

@@ -7,6 +7,9 @@ import holliePhoto from '@assets/DSCF2301_1763580875491.jpg';
 import katePhoto from '@assets/DSCF2172_1763580939921.jpg';
 import stripedBg from '@assets/stripe-2_1763632826305.png';
 import mouthIcon from '@assets/mouth-grunge_1763633213473.png';
+import babyHandIcon from '@assets/hand-grunge (1)_1763633210367.png';
+import rockHandIcon from '@assets/rock-on-grunge_1763633216625.png';
+import laptopIcon from '@assets/laptop-grunge_1763633219405.png';
 import { motion } from "framer-motion";
 
 const hosts = [
@@ -55,11 +58,29 @@ export default function Hosts() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-            {/* Floating Mouth Icon */}
+            {/* Floating Icons - visible in front but go behind cards when scrolling */}
+            
+            {/* Baby Hand with Lollipop - Top Left */}
+            <motion.img
+              src={babyHandIcon}
+              alt=""
+              className="absolute top-12 left-8 w-32 md:w-40 opacity-35 pointer-events-none z-10"
+              animate={{
+                y: [0, 20, 0],
+                rotate: [-8, 8, -8],
+              }}
+              transition={{
+                duration: 7.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+
+            {/* Mouth Icon - Top Right */}
             <motion.img
               src={mouthIcon}
               alt=""
-              className="absolute top-20 right-8 w-24 md:w-32 opacity-40 pointer-events-none z-0"
+              className="absolute top-20 right-8 w-24 md:w-32 opacity-40 pointer-events-none z-10"
               animate={{
                 y: [0, 15, 0],
                 rotate: [-5, 5, -5],
@@ -68,12 +89,48 @@ export default function Hosts() {
                 duration: 7,
                 repeat: Infinity,
                 ease: "easeInOut",
+                delay: 1,
               }}
             />
+
+            {/* Rock Hand - Middle Left */}
+            <motion.img
+              src={rockHandIcon}
+              alt=""
+              className="absolute top-1/2 left-12 w-28 md:w-36 opacity-35 pointer-events-none z-10 hidden lg:block"
+              animate={{
+                y: [0, 18, 0],
+                rotate: [-6, 6, -6],
+              }}
+              transition={{
+                duration: 6.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2,
+              }}
+            />
+
+            {/* Laptop - Bottom Right */}
+            <motion.img
+              src={laptopIcon}
+              alt=""
+              className="absolute bottom-20 right-16 w-36 md:w-44 opacity-40 pointer-events-none z-10"
+              animate={{
+                y: [0, 16, 0],
+                rotate: [4, -4, 4],
+              }}
+              transition={{
+                duration: 7.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.5,
+              }}
+            />
+
             {hosts.map((host, index) => (
               <div
                 key={index}
-                className="rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all"
+                className="rounded-lg overflow-hidden hover-elevate active-elevate-2 transition-all relative z-20"
                 style={{ marginTop: index % 2 === 1 ? '8rem' : '0' }}
                 data-testid={`card-host-${index + 1}`}
               >

@@ -49,8 +49,8 @@ export default function Hosts() {
               alt=""
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl opacity-70 pointer-events-none z-0"
             />
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white relative z-10">Meet Your Hosts</h1>
-            <p className="text-xl text-white/70 relative z-10">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-black relative z-10">Meet Your Hosts</h1>
+            <p className="text-xl text-black/70 relative z-10">
               The four mums behind Not Safe For Kids
             </p>
           </div>

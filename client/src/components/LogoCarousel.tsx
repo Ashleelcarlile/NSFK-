@@ -57,7 +57,7 @@ export default function LogoCarousel() {
     <section className="pt-12 md:pt-16 lg:pt-20 pb-4 md:pb-6 px-4 mb-8 md:mb-12 lg:mb-16">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-center text-sm font-semibold text-muted-foreground mb-4 md:mb-6 uppercase tracking-wider">
-          Listen Now
+          Listen
         </h3>
         <div 
           ref={scrollContainerRef}

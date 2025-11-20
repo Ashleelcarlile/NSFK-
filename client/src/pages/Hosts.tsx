@@ -6,6 +6,7 @@ import keishaPhoto from '@assets/DSCF2440_1763580329647.jpg';
 import ashleePhoto from '@assets/DSCF2268_1763580792853.jpg';
 import holliePhoto from '@assets/DSCF2301_1763580875491.jpg';
 import katePhoto from '@assets/DSCF2172_1763580939921.jpg';
+import stripedBg from '@assets/stripe-2_1763632826305.png';
 
 const hosts = [
   {
@@ -39,11 +40,17 @@ export default function Hosts() {
     <div className="bg-black min-h-screen">
       <FloatingIcons />
       
-      <section className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
+      <section className="pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">Meet Your Hosts</h1>
-            <p className="text-xl text-white/70">
+          <div className="text-center mb-24 md:mb-32 relative">
+            {/* Striped background behind title */}
+            <img
+              src={stripedBg}
+              alt=""
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl opacity-30 pointer-events-none z-0"
+            />
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white relative z-10">Meet Your Hosts</h1>
+            <p className="text-xl text-white/70 relative z-10">
               The four mums behind Not Safe For Kids
             </p>
           </div>

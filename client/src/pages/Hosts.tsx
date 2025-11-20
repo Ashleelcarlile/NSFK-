@@ -14,27 +14,27 @@ import { motion } from "framer-motion";
 
 const hosts = [
   {
-    name: "Ashlee Carlile",
+    name: "Ashlee",
     photo: ashleePhoto,
-    bio: "Host 1 bio goes here. Share your story about motherhood, parenting adventures, and what makes you passionate about this podcast.",
+    bio: "Business woman and ADHD-advocate. Loves bed, co-sleeping with her little man, and being led astray by her mates on nights out. Will always tell it to you straight and ask you 'how your heart's feeling' if you're overwhelmed - true BFF vibes right here.",
     instagram: "https://www.instagram.com/ashleecarlile?igsh=YzN2aWpueWJ6eXR0",
   },
   {
-    name: "Kate Akuz",
+    name: "Kate",
     photo: katePhoto,
-    bio: "Host 2 bio goes here. Tell us about your journey as a mum and what you bring to the Not Safe For Kids community.",
+    bio: "Podcast obsessive and generally laid-back gal. Refuses to take life too seriously, will do anything for a laff and loves a good old moan to her mates. Will dabble in gossip at any given opportunity.",
     instagram: "https://www.instagram.com/kate.akyuz?igsh=Mm8zOHJ0YmN2cGRu",
   },
   {
-    name: "Keisha Forte-Hercules",
+    name: "Keisha",
     photo: keishaPhoto,
-    bio: "Host 3 bio goes here. Share your unique perspective on parenting and what inspired you to join this podcast.",
+    bio: "Music fanatic and always out on the town. You can rely on this one for a good parenting story with the most infectious laugh thrown in. She IS the devil's advocate, a safe space for all who join us on the sofa.",
     instagram: "https://www.instagram.com/her.forte?igsh=NXZpdnU3eHBnbHpj",
   },
   {
-    name: "Hollie Nwagboso",
+    name: "Hollie",
     photo: holliePhoto,
-    bio: "Host 4 bio goes here. Talk about your experiences as a parent and what makes this podcast special to you.",
+    bio: "Health goddess and full of love and wisdom! Loves making babies and music with her man, being Northern, and having a right old giggle. Regularly slips into Nigerian accent when putting people straight, nothing gets past our Hollie.",
     instagram: "https://www.instagram.com/hollienwagboso?igsh=MWdzNHg4YXVnOHBybg==",
   },
 ];
@@ -51,10 +51,7 @@ export default function Hosts() {
               alt=""
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl opacity-90 pointer-events-none z-0"
             />
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 text-black relative z-10">Meet Your Hosts</h1>
-            <p className="text-base sm:text-xl text-black relative z-10">
-              The four mums behind Not Safe For Kids
-            </p>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-black relative z-10">Meet Your Hosts</h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative">
@@ -156,7 +153,7 @@ export default function Hosts() {
                     <img
                       src={host.photo}
                       alt={host.name}
-                      className="w-full md:w-80 h-64 md:h-80 object-cover"
+                      className="w-full md:w-80 h-64 md:h-80 object-cover grayscale"
                       data-testid={`img-host-${index + 1}`}
                     />
                   </div>

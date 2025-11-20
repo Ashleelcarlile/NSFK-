@@ -88,7 +88,7 @@ export default function Home() {
               <p className="text-xl text-destructive">Failed to load episodes. Please try again later.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
               {episodes.map((episode, index) => (
                 <EpisodeCard
                   key={episode.id}
@@ -99,28 +99,28 @@ export default function Home() {
                   duration={episode.duration}
                 />
               ))}
+              {/* Floating Mouth - Centered below Patrick Hutchinson episode (bottom-left card) */}
+              <motion.img
+                src={tongueImage}
+                alt=""
+                className="absolute -bottom-32 left-1/4 -translate-x-1/2 w-28 md:w-36 opacity-40 pointer-events-none z-0 hidden lg:block"
+                animate={{
+                  y: [0, 12, 0],
+                  rotate: [-3, 3, -3],
+                }}
+                transition={{
+                  duration: 6.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              />
             </div>
           )}
         </div>
       </section>
 
       <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-        {/* Floating Tongue - Right side */}
-        <motion.img
-          src={tongueImage}
-          alt=""
-          className="absolute -top-4 md:top-0 right-8 w-32 md:w-40 opacity-40 pointer-events-none z-10 hidden sm:block"
-          animate={{
-            y: [0, 12, 0],
-            rotate: [-3, 3, -3],
-          }}
-          transition={{
-            duration: 6.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-        />
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
             <div className="w-full lg:w-1/2 relative">

@@ -1,4 +1,3 @@
-import FloatingIcons from "@/components/FloatingIcons";
 import { Instagram } from "lucide-react";
 import doodleWhite from '@assets/doodle-Illustrations-assets-white_1763579577683.png';
 import doodleNameTag from '@assets/doodle-Illustrations-assets-white_1763580432961.png';
@@ -7,6 +6,8 @@ import ashleePhoto from '@assets/DSCF2268_1763580792853.jpg';
 import holliePhoto from '@assets/DSCF2301_1763580875491.jpg';
 import katePhoto from '@assets/DSCF2172_1763580939921.jpg';
 import stripedBg from '@assets/stripe-2_1763632826305.png';
+import mouthIcon from '@assets/mouth-grunge_1763633213473.png';
+import { motion } from "framer-motion";
 
 const hosts = [
   {
@@ -38,8 +39,6 @@ const hosts = [
 export default function Hosts() {
   return (
     <div className="bg-white min-h-screen">
-      <FloatingIcons />
-      
       <section className="pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 md:mb-32 relative">
@@ -55,7 +54,22 @@ export default function Hosts() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+            {/* Floating Mouth Icon */}
+            <motion.img
+              src={mouthIcon}
+              alt=""
+              className="absolute top-20 right-8 w-24 md:w-32 opacity-40 pointer-events-none z-0"
+              animate={{
+                y: [0, 15, 0],
+                rotate: [-5, 5, -5],
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
             {hosts.map((host, index) => (
               <div
                 key={index}

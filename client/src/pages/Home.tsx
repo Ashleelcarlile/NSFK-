@@ -42,8 +42,7 @@ export default function Home() {
   const episodes = data?.episodes || [];
 
   return (
-    <div>
-      <FloatingIcons />
+    <div className="relative">
       <Hero
         imageSrc={heroImage}
         title=""
@@ -59,7 +58,8 @@ export default function Home() {
 
       <LogoCarousel />
 
-      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <FloatingIcons />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">

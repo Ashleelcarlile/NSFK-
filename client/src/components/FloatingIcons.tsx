@@ -10,11 +10,11 @@ import flowerImage from "@assets/flower-Illustrations-assets_1763569680450.png";
 export default function FloatingIcons() {
   return (
     <>
-      {/* Baby on Hand - Middle Left (below carousel area) */}
+      {/* Baby on Hand - Start at Discover level, left side */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed top-1/2 left-4 w-28 md:w-36 opacity-15 pointer-events-none z-0"
+        className="fixed top-[calc(80vh+10rem)] left-4 w-28 md:w-36 opacity-15 pointer-events-none z-0"
         animate={{
           y: [0, 20, 0],
           rotate: [-8, 8, -8],
@@ -27,11 +27,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Laptop - Middle Center Right */}
+      {/* Laptop - Start at Discover level, right side */}
       <motion.img
         src={laptopImage}
         alt=""
-        className="fixed top-1/2 left-2/3 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[calc(80vh+12rem)] right-12 w-32 md:w-40 opacity-10 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 18, 0],
           rotate: [-4, 4, -4],
@@ -44,11 +44,11 @@ export default function FloatingIcons() {
         }}
       />
 
-      {/* Baby Hand - Lower Right */}
+      {/* Baby Hand - Mid page left */}
       <motion.img
         src={babyHandImage}
         alt=""
-        className="fixed bottom-32 right-16 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[calc(80vh+40rem)] left-16 w-32 md:w-40 opacity-14 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, 14, 0],
           rotate: [-7, 7, -7],

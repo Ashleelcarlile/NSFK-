@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
 import { Mail, ArrowUpRight } from "lucide-react";
-import contactPhoto from "@assets/contact-photo.jpg";
+import contactPhoto from "@assets/Untitled design (8)_1763640362625.png";
 
 const listenerFormSchema = z.object({
   name: z.string().min(1, "Name is required"),

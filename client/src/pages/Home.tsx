@@ -9,7 +9,7 @@ import EpisodeCard from "@/components/EpisodeCard";
 import FloatingIcons from "@/components/FloatingIcons";
 import { Button } from "@/components/ui/button";
 import heroImage from '@assets/Screenshot 2025-11-19 at 12.08.57_1763561486779.png';
-import heroImageMobile from '@assets/20251102-nfsk-artwork-3000x3000px-RGB_1763637645404.jpg';
+import heroImageMobile from '@assets/Untitled design (7)_1763640573793.png';
 import hostsGroupPhoto from '@assets/Not Safe For Kids _Media Campaign Photoshoot _October 5, 2025_ BMURPHYFile 84_1763565217685.jpg';
 import stripedBg from '@assets/stripe-2_1763569878970.png';
 import corner1 from '@assets/corner1-Illustrations-assets_1763570596737.png';

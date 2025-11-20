@@ -59,7 +59,7 @@ export default function Hosts() {
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-black relative z-10">Meet Your Hosts</h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative mt-8 sm:mt-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative mt-16 sm:mt-0">
             {/* Floating Icons - positioned in empty spaces, go behind cards when scrolling */}
             
             {/* Baby Hand with Lollipop - Far Left */}

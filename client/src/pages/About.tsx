@@ -47,7 +47,6 @@ export default function About() {
               <div className="hidden lg:block absolute -left-8 top-0 w-1 h-32 bg-gray-800"></div>
               
               <div className="space-y-4 sm:space-y-6 text-gray-900">
-                <h2 className="text-xl sm:text-2xl font-bold">TL;DR</h2>
                 <p className="text-base sm:text-lg leading-relaxed">
                   Meet Keisha, Hollie, Kate & Ashlee - hosts of Not Safe For Kids, the (almost) weekly podcast about life & parenting. We chew the fat on all things kid-related and generally 'av a laff whilst we do it. Each show we catch up on the glamour of things like award-show after parties and the mundane everyday, like scooping sh*t out of your kids bath. Catch us every Tuesday wherever you get your podcasts and on Youtube!
                 </p>

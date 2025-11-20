@@ -182,10 +182,10 @@ export default function Home() {
                 <button
                   onMouseEnter={() => setHostsButtonHover(true)}
                   onMouseLeave={() => setHostsButtonHover(false)}
-                  className="relative flex items-center bg-black text-white pl-6 sm:pl-8 pr-20 sm:pr-24 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto"
+                  className="relative flex items-center bg-black text-white pl-6 sm:pl-8 pr-20 sm:pr-16 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold overflow-hidden group w-full sm:w-auto"
                   data-testid="button-meet-hosts"
                 >
-                  <span className="relative z-10 mr-6 sm:mr-8">Meet the Hosts</span>
+                  <span className="relative z-10 mr-6 sm:mr-4">Meet the Hosts</span>
                   <div className={`absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center transition-transform duration-300 ${hostsButtonHover ? 'scale-110' : ''}`}>
                     <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-black" />
                   </div>

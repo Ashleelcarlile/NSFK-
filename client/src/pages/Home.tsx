@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import { SiInstagram, SiYoutube, SiTiktok } from "react-icons/si";
 import Hero from "@/components/Hero";
 import LogoCarousel from "@/components/LogoCarousel";
 import EpisodeCard from "@/components/EpisodeCard";
@@ -201,24 +202,42 @@ export default function Home() {
 
       <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Community</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Keep Up to Date</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Subscribe to get the latest episodes and exclusive content
+            Follow us on social media for the latest episodes and exclusive content
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md border bg-background"
-              data-testid="input-newsletter"
-            />
-            <Button size="lg" className="bg-black text-white hover:bg-black/90" data-testid="button-subscribe-home">
-              Subscribe
-            </Button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a
+              href="https://instagram.com/notsafeforkidspod"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover-elevate active-elevate-2"
+              data-testid="link-instagram-home"
+            >
+              <SiInstagram className="h-5 w-5" />
+              <span>Instagram</span>
+            </a>
+            <a
+              href="https://www.youtube.com/@notsafeforkidspod"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover-elevate active-elevate-2"
+              data-testid="link-youtube-home"
+            >
+              <SiYoutube className="h-5 w-5" />
+              <span>YouTube</span>
+            </a>
+            <a
+              href="https://tiktok.com/notsafeforkidspod"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover-elevate active-elevate-2"
+              data-testid="link-tiktok-home"
+            >
+              <SiTiktok className="h-5 w-5" />
+              <span>TikTok</span>
+            </a>
           </div>
-          <p className="text-sm text-muted-foreground mt-4">
-            Join 10,000+ listeners already subscribed
-          </p>
         </div>
       </section>
     </div>

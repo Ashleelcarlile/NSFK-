@@ -15,7 +15,7 @@ export default function About() {
       <motion.img
         src={flower}
         alt=""
-        className="fixed top-16 left-12 w-32 opacity-80 pointer-events-none z-0"
+        className="fixed top-48 left-12 w-32 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, -20, 0],
           rotate: [-5, 5, -5],
@@ -31,7 +31,7 @@ export default function About() {
       <motion.img
         src={planet}
         alt=""
-        className="fixed top-24 right-16 w-36 opacity-80 pointer-events-none z-0"
+        className="fixed top-64 right-16 w-36 opacity-80 pointer-events-none z-0"
         animate={{
           y: [0, 18, 0],
           rotate: [6, -6, 6],
@@ -44,11 +44,11 @@ export default function About() {
         }}
       />
       
-      {/* Middle left */}
+      {/* Upper middle left */}
       <motion.img
         src={cloud}
         alt=""
-        className="fixed top-1/2 left-8 w-40 opacity-80 pointer-events-none z-0 hidden lg:block"
+        className="fixed top-[35%] left-8 w-40 opacity-80 pointer-events-none z-0 hidden lg:block"
         animate={{
           y: [0, -15, 0],
           rotate: [-8, 8, -8],
@@ -61,11 +61,11 @@ export default function About() {
         }}
       />
       
-      {/* Middle right */}
+      {/* Lower middle right */}
       <motion.img
         src={pregnantBelly}
         alt=""
-        className="fixed top-1/2 right-20 w-36 opacity-80 pointer-events-none z-0 hidden md:block"
+        className="fixed top-[65%] right-20 w-36 opacity-80 pointer-events-none z-0 hidden md:block"
         animate={{
           y: [0, 20, 0],
           rotate: [5, -5, 5],
@@ -112,11 +112,11 @@ export default function About() {
         }}
       />
       
-      {/* Center top */}
+      {/* Center - middle area */}
       <motion.img
         src={cloud}
         alt=""
-        className="fixed top-40 left-1/2 -translate-x-1/2 w-38 opacity-80 pointer-events-none z-0 hidden xl:block"
+        className="fixed top-[50%] left-1/2 -translate-x-1/2 w-38 opacity-80 pointer-events-none z-0 hidden xl:block"
         animate={{
           y: [0, -12, 0],
           rotate: [-7, 7, -7],
